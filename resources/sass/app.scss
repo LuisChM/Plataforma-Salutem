@@ -1,0 +1,88 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//apply a natural box layout model to all elements, but allowing components to change 
+
+.logoIngreso {
+    height: 200px;
+    width: 200px;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+
+.logoRedSocial {
+    height: 30px;
+    width: 30px;
+}
+
+.logoMenu {
+    height: 100px;
+    width: 100px;
+}
+
+.nav-link.active,
+.show>.nav-link {
+    background: #595959 !important;
+    color: white !important;
+}
+
+
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+
+.h-screen {
+    height: 100vh;
+}
+
+.responsive-table{
+    overflow-x:auto;
+}
