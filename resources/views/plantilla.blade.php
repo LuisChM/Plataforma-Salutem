@@ -33,10 +33,12 @@
                             </div>
                             <div id="collapse1" class="collapse " arial-labelledby="heading1" data-parent="#accordion">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Productos</a>
+                                    <a href="{{route('productos')}}"
+                                        class="list-group-item list-group-item-action">Productos</a>
                                     <a href="#" class="list-group-item list-group-item-action">Categorías de
                                         Productos</a>
-                                    <a href="{{route('agregar')}}" class="list-group-item list-group-item-action">Control costo / gasto</a>
+                                    <a href="{{route('agregar')}}"
+                                        class="list-group-item list-group-item-action">Control costo / gasto</a>
                                     <a href="#" class="list-group-item list-group-item-action">Historial productos</a>
                                     <a href="#" class="list-group-item list-group-item-action">Compra de productos</a>
                                 </div>
@@ -100,17 +102,17 @@
 
                     <h5 class="ml-2 mb-0">@yield('seccion')</h5>
 
-     
-                        <div class="btn-group ml-auto">
-                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Name
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">Mi perfil</button>
-                                <button class="dropdown-item" type="button">Cerrar sesión</button>
-                            </div>
+
+                    <div class="btn-group ml-auto">
+                        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Name
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">Mi perfil</button>
+                            <button class="dropdown-item" type="button">Cerrar sesión</button>
                         </div>
+                    </div>
                 </nav>
 
                 @yield('contenido')

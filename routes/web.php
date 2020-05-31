@@ -32,4 +32,4 @@ Route::view('dashboard' , 'plantilla')->name('dashboard');
 
 Route::view('agregar' , 'dashboard.administracion.control_costo_gasto.agregar')->name('agregar');
 
- 
+Route::view('productos' , 'dashboard.administracion.productos.productos')->name('productos');
