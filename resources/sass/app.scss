@@ -28,9 +28,15 @@
     height: 100px;
     width: 100px;
 }
-.iconoAccion{
+
+.iconoAccion {
     height: 25px;
     width: 25px;
+}
+
+.iconoFlecha {
+    height: 15px;
+    width: 15px;
 }
 
 .nav-link.active,
@@ -87,19 +93,104 @@
     height: 100vh;
 }
 
-.responsive-table{
-    overflow-x:auto;
+.responsive-table {
+    overflow-x: auto;
 }
 
 
-.searchInput{
+.searchInput {
     background-color: $body-bg !important;
     border: none !important;
-    border-bottom:1px solid black !important;
+    border-bottom: 1px solid black !important;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     -o-border-radius: 0;
     width: 250px !important;
+}
+
+
+
+/** =======================
+   * Contenedor Principal
+   ===========================*/
+
+.accordion {
+    width: 100%;
+    max-width: 360px;
+    margin: 30px auto 20px;
+    background: #F8F9FA;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    li {
+        list-style: none;
+    }
+
+    .link {
+        cursor: pointer;
+        display: block;
+        padding: 15px;
+        color: #4D4D4D;
+        font-size: 20px;
+        border-bottom: 1px solid #CCC;
+        position: relative;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+    li:last-child .link {
+        border-bottom: 0;
+    }
+
+
+    li .iconoFlecha {
+        right: 12px;
+        left: auto;
+        font-size: 16px;
+    }
+
+    li.open .link {
+        color: #4E4E4E;
+    }
+
+    li.open .iconoFlecha {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+/**
+   * Submenu
+   -----------------------------*/
+
+
+.submenu {
+    display: none;
+    background: #F8F9FA;
+    font-size: 14px;
+}
+
+.submenu li {
+    border-bottom: 1px solid #4b4a5e;
+}
+
+.submenu a {
+    display: block;
+    text-decoration: none;
+    color: #4E4E4E;
+    padding: 12px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.submenu a:hover {
+    background: #d9d9d9;
+    color: #4E4E4E;
 }

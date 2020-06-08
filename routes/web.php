@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacturaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //plantillas base
 Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion');
 
-Route::view('dashboard' , 'plantilla')->name('dashboard');
-
-Route::view('agregar' , 'dashboard.administracion.control_costo_gasto.agregar')->name('agregar');
+Route::view('dashboard' , 'dashboard.layout_dashboard')->name('dashboard');
 
 Route::view('productos' , 'dashboard.administracion.productos.productos')->name('productos');
+
+Route::resource('factura','FacturaController')->names('facturas');

@@ -1,4 +1,4 @@
-@extends('plantilla')
+@extends('dashboard.layout_dashboard')
 @section('seccion')
 Productos
 @endsection
