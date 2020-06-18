@@ -29,8 +29,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //plantillas base
 Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion');
 
-Route::view('dashboard' , 'dashboard.layout_dashboard')->name('dashboard');
+Route::view('dashboard' , 'layout_dashboard')->name('dashboard');
 
-Route::view('productos' , 'dashboard.administracion.productos.productos')->name('productos');
+Route::view('productos' , 'administracion.productos.productos')->name('productos');
 
 Route::resource('factura','FacturaController')->names('facturas');

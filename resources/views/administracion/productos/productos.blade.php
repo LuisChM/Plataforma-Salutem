@@ -1,4 +1,4 @@
-@extends('dashboard.layout_dashboard')
+@extends('layout_dashboard')
 @section('seccion')
 Productos
 @endsection
