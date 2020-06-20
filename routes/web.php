@@ -23,9 +23,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 //plantillas base
 Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion');
 
@@ -34,3 +31,5 @@ Route::view('dashboard' , 'layout_dashboard')->name('dashboard');
 Route::view('productos' , 'administracion.productos.productos')->name('productos');
 
 Route::resource('factura','FacturaController')->names('facturas');
+
+Route::view('ControlUsuarios' , 'administracion.passwords.register')->name('register');
