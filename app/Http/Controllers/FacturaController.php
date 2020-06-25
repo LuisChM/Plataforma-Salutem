@@ -39,15 +39,18 @@ class FacturaController extends Controller
      */
     public function store()
     {
-      return  Factura::create([
+        Factura::create([
             'nombre'=>request('nombre'),
+            'telefono'=>request('telefono'),
+            'correo'=>request('correo'),
+            'descripcion'=>request('descripcion'),
             'fecha'=>request('fecha'),
             'total'=>request('total'),
-        ]);   
-         
-    }
+            'file'=>request('imagen'),
 
-    
+        ]);   
+        return redirect()->route('facturas.index')->with('status','La factura se creo con exito');
+    }  
 
     /**
      * Display the specified resource.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        //ruta temporal solo de prueba
+        $user= User::orderBy('created_at','ASC')->paginate();
+        return view('administracion.user.index',compact('user'));   
+    
+    
     }
 }

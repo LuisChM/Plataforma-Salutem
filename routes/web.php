@@ -20,16 +20,17 @@ Route::get('/', function () {
 });
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 //plantillas base
-Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion');
+Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion')->middleware('verified');
 
-Route::view('dashboard' , 'layout_dashboard')->name('dashboard');
+Route::view('dashboard' , 'layout_dashboard')->name('dashboard')->middleware('verified');
 
-Route::view('productos' , 'administracion.productos.productos')->name('productos');
+Route::view('productos' , 'administracion.productos.productos')->name('productos')->middleware('verified');
 
-Route::resource('factura','FacturaController')->names('facturas');
+Route::resource('factura','FacturaController')->names('facturas')->middleware('verified');
 
-Route::view('ControlUsuarios' , 'administracion.passwords.register')->name('register');
+Route::resource('user','UserController')->names('users')->middleware('verified');

@@ -36,6 +36,8 @@
                                 <li> <a href="#">Historial productos</a>
                                 </li>
                                 <li> <a href="#">Compra de productos</a>
+                                <li> <a href="{{route('users.index')}}">Usuarios</a>
+                                <li> <a href="#">Roles</a>
                                 </li>
                             </ul>
                         </li>
@@ -87,13 +89,20 @@
 
 
                     <div class="btn-group ml-auto">
-                        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Name
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Mi perfil</button>
-                            <button class="dropdown-item" type="button">Cerrar sesión</button>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </nav>

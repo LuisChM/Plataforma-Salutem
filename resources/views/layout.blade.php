@@ -25,7 +25,7 @@
         <footer class="pt-5 mb-3">
             <div class="container-fluid text-center">
 
-                <p>SALUTEM | 2239-32-05 | INFO@SALUTEMCR.COM | WHATSAPP: 7206-7265</p>
+                <p>SALUTEM | 2239-3205 | CONTACTO@SALUTEMCR.COM | WHATSAPP: 7206-7265</p>
                 <a href="#"><img class="logoRedSocial mr-5" src="/img/facebook.svg" alt="facebook"></a>
                 <a href="#"><img class="logoRedSocial" src="/img/instagram.svg" alt="instagram"></a>
 
