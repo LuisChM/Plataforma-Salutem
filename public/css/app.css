@@ -11098,3 +11098,12 @@ a.text-dark:focus {
   color: #4E4E4E;
 }
 
+.btn-outline-none {
+  border-radius: none;
+  outline: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+}
+

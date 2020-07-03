@@ -13,7 +13,7 @@ class SaveFacturaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class SaveFacturaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre'=> 'required',
+            'telefono'=> 'nullable',
+            'correo'=> 'nullable',
+            'descripcion'=> 'nullable',
+            'fecha'=> 'required',
+            'total'=> 'required',
+            'imagen'=> 'nullable',
         ];
     }
 }

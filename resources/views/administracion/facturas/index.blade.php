@@ -16,7 +16,6 @@ Control costo / gasto
                     <th scope="col">Fecha de facturación</th>
                     <th scope="col">Total</th>
                     <th scope="col">Acción</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -27,16 +26,28 @@ Control costo / gasto
                     <td>{{$facturas->total}}</td>
                     <td>
                         <div class="d-flex justify-content-around">
-                            <a href="#1"><img src="/img/seleccionar.svg" class="iconoAccion" alt="seleccionar"></a>
-                            <a href="#1"><img src="/img/basura.svg" class="iconoAccion" alt="eliminar"></a>
-                        </div>
+                            {{-- seleccionar dato por id y editarlo --}}
+                            <a href="{{route('facturas.edit', $facturas)}}"><img src="/img/seleccionar.svg"
+                                    class="iconoAccion" alt="seleccionar"></a>
+
+                            {{-- seleccionar dato por id y eliminarlo --}}
+                            
+                                    <form method="Post" action="{{route('facturas.destroy',$facturas)}}">
+                                        @csrf @method('delete')
+                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('seguro');"><img
+                                            src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
+                                    </form>
+                                </div>
                     </td>
-                </tr> @endforeach
+                </tr> 
+                @endforeach
+               
                 {{ $factura->links()}}
+
             </tbody>
-
-
         </table>
+
+
 
     </div>
 </div>

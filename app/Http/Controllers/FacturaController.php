@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Factura;
+use App\Http\Requests\SaveFacturaRequest;
 use Illuminate\Http\Request;
 
 class FacturaController extends Controller
@@ -14,7 +15,6 @@ class FacturaController extends Controller
      */
     public function index()
     {
-
         $factura= Factura::orderBy('created_at','ASC')->paginate();
         return view('administracion.facturas.index',compact('factura'));
     }
@@ -37,18 +37,13 @@ class FacturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(SaveFacturaRequest $request)
     {
-        Factura::create([
-            'nombre'=>request('nombre'),
-            'telefono'=>request('telefono'),
-            'correo'=>request('correo'),
-            'descripcion'=>request('descripcion'),
-            'fecha'=>request('fecha'),
-            'total'=>request('total'),
-            'file'=>request('imagen'),
-
-        ]);   
+        Factura::create($request->validated());
+        // esta es para subir fotos y archivos pero esta sin terminar 
+        // if($request->hasFile('imagen')){
+        //     $request['imagen']= $request->file('imagen')->store('uploads','public');
+        // }
         return redirect()->route('facturas.index')->with('status','La factura se creo con exito');
     }  
 
@@ -59,8 +54,9 @@ class FacturaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Factura $factura)
-    {
-    }
+    {   
+        //
+     }
       
     /**
      * Show the form for editing the specified resource.
@@ -70,7 +66,9 @@ class FacturaController extends Controller
      */
     public function edit(Factura $factura)
     {
-        //
+        return view('administracion.facturas.edit',[
+            'factura'=>$factura
+        ]);
     }
 
     /**
@@ -80,9 +78,10 @@ class FacturaController extends Controller
      * @param  \App\Factura  $factura
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factura $factura)
+    public function update(Factura $factura, SaveFacturaRequest $request)
     {
-        //
+        $factura->update($request->validated());
+        return redirect()->route('facturas.index', $factura)->with('status','El proyecto fue actualizado');
     }
 
     /**
@@ -93,6 +92,8 @@ class FacturaController extends Controller
      */
     public function destroy(Factura $factura)
     {
+        $factura->delete();
+        return redirect()->route('facturas.index')->with('status','El proyecto fue eliminado');
     
     }
 }
