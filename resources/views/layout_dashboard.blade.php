@@ -30,12 +30,11 @@
                             </div>
                             <ul class="submenu px-2">
                                 <li> <a href="{{route('productos')}}">Productos</a></li>
-                                <li> <a href="#">Categorías de
-                                        Productos</a></li>
+                                <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
                                 <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
                                 <li> <a href="#">Historial productos</a>
                                 </li>
-                                <li> <a href="#">Compra de productos</a>
+                                <li> <a href="{{route('compras.index')}}">Compra de productos</a>
                                 <li> <a href="{{route('users.index')}}">Usuarios</a>
                                 <li> <a href="#">Roles</a>
                                 </li>

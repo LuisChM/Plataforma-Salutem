@@ -13,7 +13,7 @@ class CreateRolTable extends Migration
      */
     public function up()
     {
-        Schema::create('Rols', function (Blueprint $table) {
+        Schema::create('Rol', function (Blueprint $table) {
             $table->id();
             $table->string('Descripcion');
             $table->boolean('Estado')->default (1);
@@ -28,6 +28,6 @@ class CreateRolTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Rols');
+        Schema::dropIfExists('Rol');
     }
 }

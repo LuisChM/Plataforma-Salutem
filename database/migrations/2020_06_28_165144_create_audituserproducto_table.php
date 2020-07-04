@@ -16,12 +16,14 @@ class CreateAudituserproductoTable extends Migration
         Schema::create('audituserproducto', function (Blueprint $table) {
             $table->id();
             $table->integer('producto_id');
-            $table->integer('rol_id');
-            $table->string('name');
-            $table->dateTime('fecha_hora')->default(\Carbon\Carbon::now());
+            $table->string('name_producto');
+            $table->string('name_user');
             $table->integer('cantidad_usada');
             $table->integer('unidad_de_medida');
             $table->timestamps();
+
+            //se usa un triger y un SP para incertar estos datos el name_user tiene que ser de 
+            //una variable de session
         });
     }
 

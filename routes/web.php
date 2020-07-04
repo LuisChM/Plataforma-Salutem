@@ -34,3 +34,7 @@ Route::view('productos' , 'administracion.productos.productos')->name('productos
 Route::resource('factura','FacturaController')->names('facturas')->middleware('verified');
 
 Route::resource('user','UserController')->names('users')->middleware('verified');
+
+Route::resource('compras','ComprasController')->names('compras')->middleware('verified');
+
+Route::resource('categorias','CategoriasController')->names('categorias')->middleware('verified');

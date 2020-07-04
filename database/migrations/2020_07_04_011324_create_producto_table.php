@@ -14,12 +14,19 @@ class CreateProductoTable extends Migration
     public function up()
     {
         Schema::create('producto', function (Blueprint $table) {
+            
             $table->id();
             $table->string('nombre');
-            $table->string('categoria');//Si es legumbre o carne o vegeta. etc..
+            
+            $table->foreignId('categorias_id')->constrained('categorias');
+
             $table->integer('cantidad');//cuantos tomates o cuantos kilogramos de carne
             $table->string('unidad_de_medida');//cantidad de unidades o kilogramos
             $table->timestamps();
+
+            /*la tabla productos mantiene el inventario real de la cantidad de productos
+            y este campo se actualiza por medio de un trigger y un sp.*/
+            
         });
     }
 
@@ -33,3 +40,4 @@ class CreateProductoTable extends Migration
         Schema::dropIfExists('producto');
     }
 }
+
