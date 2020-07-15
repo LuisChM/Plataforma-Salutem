@@ -40,10 +40,9 @@ class FacturaController extends Controller
     public function store(SaveFacturaRequest $request)
     {
         Factura::create($request->validated());
-        // esta es para subir fotos y archivos pero esta sin terminar 
-        // if($request->hasFile('imagen')){
-        //     $request['imagen']= $request->file('imagen')->store('uploads','public');
-        // }
+
+        $request->file('imagen')->store('public');
+
         return redirect()->route('facturas.index')->with('status','La factura se creo con exito');
     }  
 
