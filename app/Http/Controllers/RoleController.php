@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveRolRequest;
-use App\Rol;
+use App\Role;
 use Illuminate\Http\Request;
 
-class RolController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        $rol= Rol::orderBy('created_at','ASC')->paginate();
-        return view('administracion.rols.index',compact('rol'));
+        $role = Role::orderBy('created_at', 'ASC')->paginate();
+        return view('administracion.roles.index', compact('role'));
     }
 
     /**
@@ -26,10 +26,10 @@ class RolController extends Controller
      */
     public function create()
     {
-        return view('administracion.rols.create',[
-            'rol'=> new Rol
+        return view('administracion.roles.create', [
+            'role' => new Role
         ]);
-    }  
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,18 +39,18 @@ class RolController extends Controller
      */
     public function store(SaveRolRequest $request)
     {
-        Rol::create($request->validated());
+        Role::create($request->validated());
 
-        return redirect()->route('rols.index')->with('status','El rol se creo con exito');    
+        return redirect()->route('roles.index')->with('status', 'El rol se creo con exito');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rol  $rol
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Rol $rol)
+    public function show(Role $role)
     {
         //
     }
@@ -58,13 +58,13 @@ class RolController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rol  $rol
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rol $rol)
+    public function edit(Role $role)
     {
-        return view('administracion.rols.edit',[
-            'rol'=>$rol
+        return view('administracion.roles.edit', [
+            'role' => $role
         ]);
     }
 
@@ -72,25 +72,24 @@ class RolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rol  $rol
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Rol $rol, SaveRolRequest $request)
+    public function update(Role $role, SaveRolRequest $request)
     {
-        $rol->update($request->validated());
-        return redirect()->route('rols.index', $rol)->with('status','El rol fue actualizado');
+        $role->update($request->validated());
+        return redirect()->route('roles.index')->with('status', 'El rol fue actualizado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\rol  $rol
+     * @param  \App\role  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rol $rol)
+    public function destroy(Role $role)
     {
-        $rol->delete();
-        return redirect()->route('rols.index')->with('status','El rol fue eliminado');
-    
+        $role->delete();
+        return redirect()->route('roles.index')->with('status', 'El rol fue eliminado');
     }
 }

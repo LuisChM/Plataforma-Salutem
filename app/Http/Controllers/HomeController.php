@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Factura;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -26,9 +27,7 @@ class HomeController extends Controller
     {
 
         //ruta temporal solo de prueba
-        $user= User::orderBy('created_at','ASC')->paginate();
-        return view('administracion.user.index',compact('user'));   
-    
-    
+        $factura = Factura::orderBy('created_at', 'ASC')->paginate();
+        return view('administracion.facturas.index', compact('factura'));
     }
 }

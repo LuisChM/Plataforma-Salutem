@@ -15,8 +15,8 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $factura= Factura::orderBy('created_at','ASC')->paginate();
-        return view('administracion.facturas.index',compact('factura'));
+        $factura = Factura::orderBy('created_at', 'ASC')->paginate();
+        return view('administracion.facturas.index', compact('factura'));
     }
 
     /**
@@ -26,10 +26,10 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        return view('administracion.facturas.create',[
-            'factura'=> new Factura
+        return view('administracion.facturas.create', [
+            'factura' => new Factura
         ]);
-    }  
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,10 +41,10 @@ class FacturaController extends Controller
     {
         Factura::create($request->validated());
 
-        $request->file('imagen')->store('public');
+        // $request->file('imagen')->store('public');
 
-        return redirect()->route('facturas.index')->with('status','La factura se creo con exito');
-    }  
+        return redirect()->route('facturas.index')->with('status', 'La factura se creo con exito');
+    }
 
     /**
      * Display the specified resource.
@@ -53,10 +53,10 @@ class FacturaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Factura $factura)
-    {   
+    {
         //
-     }
-      
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -65,8 +65,8 @@ class FacturaController extends Controller
      */
     public function edit(Factura $factura)
     {
-        return view('administracion.facturas.edit',[
-            'factura'=>$factura
+        return view('administracion.facturas.edit', [
+            'factura' => $factura
         ]);
     }
 
@@ -80,7 +80,7 @@ class FacturaController extends Controller
     public function update(Factura $factura, SaveFacturaRequest $request)
     {
         $factura->update($request->validated());
-        return redirect()->route('facturas.index', $factura)->with('status','El proyecto fue actualizado');
+        return redirect()->route('facturas.index')->with('status', 'El proyecto fue actualizado');
     }
 
     /**
@@ -92,7 +92,6 @@ class FacturaController extends Controller
     public function destroy(Factura $factura)
     {
         $factura->delete();
-        return redirect()->route('facturas.index')->with('status','El proyecto fue eliminado');
-    
+        return redirect()->route('facturas.index')->with('status', 'El proyecto fue eliminado');
     }
 }

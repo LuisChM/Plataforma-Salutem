@@ -14,8 +14,8 @@ class ComprasController extends Controller
      */
     public function index()
     {
-        $compra= Compras::orderBy('created_at','ASC')->paginate();
-        return view('administracion.compras.index',compact('compra'));
+        $compra = Compras::orderBy('created_at', 'ASC')->paginate();
+        return view('administracion.compras.index', compact('compra'));
     }
 
     /**

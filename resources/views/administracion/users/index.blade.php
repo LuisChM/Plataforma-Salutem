@@ -24,11 +24,23 @@ Usuarios
                 <tr>
                     <td>{{$users->name}}</td>
                     <td>{{$users->email}}</td>
-                    <td>rol por definir</td>
+                    <td>
+                        {{$users->roles->pluck('display_nombre')->implode(', ')}}
+                    </td>
                     <td>
                         <div class="d-flex justify-content-around">
-                            <a href="#1"><img src="/img/seleccionar.svg" class="iconoAccion" alt="seleccionar"></a>
-                            <a href="#1"><img src="/img/basura.svg" class="iconoAccion" alt="eliminar"></a>
+                            {{-- seleccionar dato por id y editarlo --}}
+                            <a href="{{route('users.edit', $users)}}"><img src="/img/seleccionar.svg"
+                                    class="iconoAccion" alt="seleccionar"></a>
+
+                            {{-- seleccionar dato por id y eliminarlo --}}
+
+                            <form method="Post" action="{{route('users.destroy',$users)}}">
+                                @csrf @method('delete')
+                                <button class="bg-transparent border-0" type="submit"
+                                    onclick="return confirm('seguro');"><img src="/img/basura.svg" class="iconoAccion"
+                                        alt="eliminar"></button>
+                            </form>
                         </div>
                     </td>
                 </tr> @endforeach

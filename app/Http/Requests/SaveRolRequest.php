@@ -23,8 +23,10 @@ class SaveRolRequest extends FormRequest
      */
     public function rules()
     {
-            return [            
-                'nombre'=> 'required',                
-            ];
+        return [
+            'nombre' => 'required',
+            'display_nombre' => 'nullable',
+            'descripcion' => 'nullable',
+        ];
     }
 }

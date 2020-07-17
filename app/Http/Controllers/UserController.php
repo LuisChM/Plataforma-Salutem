@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\SaveUserRequest;
 
 class UserController extends Controller
 {
-  function __construct()
-  {
-      $this->middleware('auth');
-      
-  }
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:admin'
+        ]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -20,9 +24,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user= User::orderBy('created_at','ASC')->paginate();
-        return view('administracion.user.index',compact('user'));
-        }
+        $user = User::orderBy('created_at', 'ASC')->paginate();
+        return view('administracion.users.index', compact('user'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -63,8 +67,16 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {        
+        // busca usuario
+        $user = User::findOrFail($id);
+        //se muestra el nombre del rol
+        $roles = Role::pluck('display_nombre','id');
+        //retorna la vista
+        return view('administracion.users.edit', [
+            'user' => $user,
+            'roles'=>$roles
+        ]);
     }
 
     /**
@@ -74,11 +86,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaveUserRequest $request,$id)
     {
-        //
+        // busca usuario
+        $user = User::findOrFail($id);
+        //actualiza el usuario
+        $user->update($request->all());
+        //se utiliza sync para sincronizar roles y evitar duplicacion de roles
+        $user->roles()->sync($request->roles);
+        //retornamos la vista luego de actualizar
+        return redirect()->route('users.index')->with('status', 'El usuario fue actualizado');
+        
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -31,17 +31,18 @@ Control costo / gasto
                                     class="iconoAccion" alt="seleccionar"></a>
 
                             {{-- seleccionar dato por id y eliminarlo --}}
-                            
-                                    <form method="Post" action="{{route('facturas.destroy',$facturas)}}">
-                                        @csrf @method('delete')
-                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('seguro');"><img
-                                            src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
-                                    </form>
-                                </div>
+
+                            <form method="Post" action="{{route('facturas.destroy',$facturas)}}">
+                                @csrf @method('delete')
+                                <button class="bg-transparent border-0" type="submit"
+                                    onclick="return confirm('seguro');"><img src="/img/basura.svg" class="iconoAccion"
+                                        alt="eliminar"></button>
+                            </form>
+                        </div>
                     </td>
-                </tr> 
+                </tr>
                 @endforeach
-               
+
                 {{ $factura->links()}}
 
             </tbody>
