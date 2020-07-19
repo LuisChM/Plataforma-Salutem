@@ -37,7 +37,7 @@ Control de compras
                                 <option value="2">gr</option>
                                 ¿
                             </select></td>
-                        <td><input type="number" min="1" pattern="^[0-9]+"></td>
+                            <td><input type="number" min="1" class="text-center" placeholder="1" pattern="^[0-1000]+"></td>
                         <td>
                             <div class="d-flex justify-content-around ">
                                 <a href="#1"><img src="/img/check.svg" class="iconoAccion" alt="seleccionar"></a>
@@ -48,6 +48,7 @@ Control de compras
     
                 </tbody>
             </thead>
+            
             <tbody>
                 @foreach ($compra as $compras)
                 <tr>
@@ -78,12 +79,17 @@ Control de compras
                 @endforeach
                
                 {{ $compra->links()}}
-
+                
             </tbody>
         </table>
-
-
-
+        <div class="d-flex justify-content-end mt-5">
+            
+                
+                    <button type="submit" class="btn btn-primary mr-4 w-25 p-2">Generar Lista</button>
+                    
+                    <a class="btn btn-secondary w-25 p-2" href="{{route('compras.create')}}" role="button">Agregar nueva compra </a>
+            
+        </div>
     </div>
 </div>
 @endsection

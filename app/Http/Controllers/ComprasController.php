@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Compras;
+use App\Http\Requests\SaveComprasRequest;
 use Illuminate\Http\Request;
 
 class ComprasController extends Controller
@@ -25,8 +26,10 @@ class ComprasController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view('administracion.compras.create',[
+            'compras'=> new Compras
+        ]);
+    }  
 
     /**
      * Store a newly created resource in storage.
@@ -34,10 +37,13 @@ class ComprasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveComprasRequest $request)
     {
-        //
-    }
+        Compras::create($request->validated());
+        
+        return redirect()->route('compras.index')->with('status','La compra se creo con exito');
+    }  
+    
 
     /**
      * Display the specified resource.
@@ -58,7 +64,9 @@ class ComprasController extends Controller
      */
     public function edit(Compras $compras)
     {
-        //
+        return view('administracion.compras.edit',[
+            'compras'=>$compras
+        ]);
     }
 
     /**
@@ -68,9 +76,10 @@ class ComprasController extends Controller
      * @param  \App\Compras  $compras
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Compras $compras)
+    public function update(Compras $compras, SaveComprasRequest $request)
     {
-        //
+        $compras->update($request->validated());
+        return redirect()->route('compras.index', $compras)->with('status','El dato fue actualizado');
     }
 
     /**
@@ -81,6 +90,7 @@ class ComprasController extends Controller
      */
     public function destroy(Compras $compras)
     {
-        //
+        $compras->delete();
+        return redirect()->route('compras.index')->with('status','El dato fue eliminado');
     }
 }

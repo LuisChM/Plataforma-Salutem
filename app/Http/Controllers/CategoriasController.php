@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Categorias;
+use App\Http\Requests\SaveCategoriasRequest;
 use Illuminate\Http\Request;
+
 
 class CategoriasController extends Controller
 {
@@ -26,7 +28,7 @@ class CategoriasController extends Controller
     public function create()
     {
         return view('administracion.categorias.create',[
-            'categoria'=> new Categorias
+            'categorias'=> new Categorias
         ]);
     }
 
@@ -36,9 +38,11 @@ class CategoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveCategoriasRequest $request)
     {
-        //
+        Categorias::create($request->validated());
+        
+        return redirect()->route('categorias.index')->with('status','La categoria se creo con exito');
     }
 
     /**
@@ -61,7 +65,7 @@ class CategoriasController extends Controller
     public function edit(Categorias $categorias)
     {
         return view('administracion.categorias.edit',[
-            'categoria'=>$categorias
+            'categorias'=>$categorias
         ]);
     }
 
@@ -72,7 +76,7 @@ class CategoriasController extends Controller
      * @param  \App\Categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categorias $categorias)
+    public function update(Categorias $categorias, SaveCategoriasRequest $request)
     {
         $categorias->update($request->validated());
         return redirect()->route('categorias.index', $categorias)->with('status','El proyecto fue actualizado');
@@ -87,6 +91,6 @@ class CategoriasController extends Controller
     public function destroy(Categorias $categorias)
     {
         $categorias->delete();
-        return redirect()->route('categorias.index')->with('status','La categoria fue eliminada');
+        return redirect()->route('categorias.index')->with('status', 'La categoria fue eliminada');
     }
 }

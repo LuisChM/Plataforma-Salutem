@@ -33,9 +33,8 @@ Control de categorias
             <tbody>
                 @foreach ($categoria as $categorias)
                 <tr>
-                    <td>{{$categorias->nombre}}</td>
-                    <td>{{$categorias->categoria}}</td>
-                    
+                    <td>{{$categorias->tipoCategoria}}</td>
+                                        
                     <td>
                         <div class="d-flex justify-content-around">
                             {{-- seleccionar dato por id y editarlo --}}
@@ -46,7 +45,7 @@ Control de categorias
                             
                                     <form method="Post" action="{{route('categorias.destroy',$categorias)}}">
                                         @csrf @method('delete')
-                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('seguro');"><img
+                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar ell dato');"><img
                                             src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
                                     </form>
                                 </div>

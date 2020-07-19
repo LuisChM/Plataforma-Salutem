@@ -1,10 +1,10 @@
 @csrf
                     <div class="form-group">
-                        <label for="nombre">Nombre de la Categoria:</label>
-                        <input type="text" class="form-control @error('nombre') is-invalid @else border-0 @enderror" name="nombre" id="nombre"
+                        <label for="tipoCategoria">Nombre de la Categoria:</label>
+                        <input type="text" class="form-control @error('tipoCategoria') is-invalid @else border-0 @enderror" name="tipoCategoria" id="tipoCategoria"
                             placeholder="Ingrese el nombre de la categoria (obligatorio)"
-                            value="{{old('nombre', $categoria->nombre)}}">
-                            @error('nombre')
+                            value="{{old('tipoCategoria', $categorias->tipoCategoria)}}">
+                            @error('tipoCategoria')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{$message}}</strong>
                     </span>
