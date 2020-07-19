@@ -33,11 +33,11 @@
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
-                                @if ( auth()->user()->hasRoles(['cook']) )
+                                {{-- @if ( auth()->user()->hasRoles(['cook']) ) --}}
 
                                 <li> <a href="{{route('productos')}}">Productos</a></li>
 
-                                @elseif(auth()->user()->hasRoles(['admin']))
+                                {{-- @elseif(auth()->user()->hasRoles(['admin'])) --}}
 
                                 <li> <a href="{{route('productos')}}">Productos</a></li>
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
@@ -50,7 +50,7 @@
 
                                 </li>
 
-                                @endif
+                                {{-- @endif --}}
                             </ul>
                         </li>
                         {{-- /Administración --}}

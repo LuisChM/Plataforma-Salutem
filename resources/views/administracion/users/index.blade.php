@@ -6,7 +6,7 @@ Usuarios
 @section('contenido')
 <div class="container mt-5">
     <div class="responsive-table">
-        {{-- <a class="btn btn-primary" href="{{route('facturas.create')}}" role="button">Agregar nueva factura </a> --}}
+        <a class="btn btn-primary" href="{{route('users.create')}}" role="button">Agregar nuevo usuario </a>
         @include('partial.session-status')
 
         <table class="table table-striped mt-4 text-center">

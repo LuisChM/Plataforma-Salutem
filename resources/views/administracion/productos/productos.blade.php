@@ -37,7 +37,6 @@ Productos
                             <option value="" disabled selected>Seleccione una medida</option>
                             <option value="1">kg</option>
                             <option value="2">gr</option>
-                            ¿
                         </select></td>
                     <td><input type="number" min="1" pattern="^[0-9]+"></td>
                     <td>
