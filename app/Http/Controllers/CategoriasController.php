@@ -16,8 +16,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $categoria= Categorias::orderBy('created_at','ASC')->paginate();
-        return view('administracion.categorias.index',compact('categoria'));
+        $categoria = Categorias::orderBy('created_at', 'ASC')->paginate();
+        return view('administracion.categorias.index', compact('categoria'));
     }
 
     /**
@@ -27,8 +27,13 @@ class CategoriasController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('administracion.categorias.create',[
             'categorias'=> new Categorias
+=======
+        return view('administracion.categorias.create', [
+            'categoria' => new Categorias
+>>>>>>> 3b0a8bc910bdf6ff40ea10ccf75e1b889191a225
         ]);
     }
 
@@ -79,7 +84,7 @@ class CategoriasController extends Controller
     public function update(Categorias $categorias, SaveCategoriasRequest $request)
     {
         $categorias->update($request->validated());
-        return redirect()->route('categorias.index', $categorias)->with('status','El proyecto fue actualizado');
+        return redirect()->route('categorias.index', $categorias)->with('status', 'El proyecto fue actualizado');
     }
 
     /**

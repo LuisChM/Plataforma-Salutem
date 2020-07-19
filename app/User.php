@@ -2,11 +2,12 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -36,4 +37,24 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    } 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'asignar_roles');
+    }
+
+    public function hasRoles(array $roles)
+    {
+        foreach ($roles as $role) {
+            foreach ($this->roles as $userRole) {
+                if ($userRole->nombre === $role) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

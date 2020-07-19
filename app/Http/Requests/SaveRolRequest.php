@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveFacturaRequest extends FormRequest
+class SaveRolRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,8 @@ class SaveFacturaRequest extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'telefono' => 'nullable',
-            'correo' => 'nullable',
+            'display_nombre' => 'nullable',
             'descripcion' => 'nullable',
-            'fecha' => 'required',
-            'total' => 'required',
-            'imagen' => 'nullable',
         ];
     }
 }

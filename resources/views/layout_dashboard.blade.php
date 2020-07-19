@@ -1,3 +1,7 @@
+{{-- ver rol del usuario ingresado 
+{{dd(auth()->user()->roles->toArray())}} --}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +33,12 @@
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
+                                {{-- @if ( auth()->user()->hasRoles(['cook']) ) --}}
+
+                                <li> <a href="{{route('productos')}}">Productos</a></li>
+
+                                {{-- @elseif(auth()->user()->hasRoles(['admin'])) --}}
+
                                 <li> <a href="{{route('productos')}}">Productos</a></li>
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
                                 <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
@@ -36,8 +46,11 @@
                                 </li>
                                 <li> <a href="{{route('compras.index')}}">Compra de productos</a>
                                 <li> <a href="{{route('users.index')}}">Usuarios</a>
-                                <li> <a href="#">Roles</a>
+                                <li> <a href="{{route('roles.index')}}">Roles</a>
+
                                 </li>
+
+                                {{-- @endif --}}
                             </ul>
                         </li>
                         {{-- /Administración --}}
