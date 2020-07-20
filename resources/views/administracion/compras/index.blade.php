@@ -52,12 +52,12 @@ Control de compras
             <tbody>
                 @foreach ($compra as $compras)
                 <tr>
-                    <td>{{$compras->nombre}}</td>
-                    <td>{{$compras->categoria}}</td>
                     <td>{{$compras->cantidad}}</td>
-                    <td>{{$compras->unidad}}</td>
-                    <td>{{$compras->agregar}}</td>
-                    <td>{{$compras->accion}}</td>
+                    <td>{{$compras->cantidad_agregada}}</td>
+                    <td>{{$compras->categoria}}</td>
+                    <td>{{$compras->nombre}}</td>
+                    <td>{{$compras->unidad_de_medida}}</td>
+                    
                     <td>
                         <div class="d-flex justify-content-around">
                             {{-- seleccionar dato por id y editarlo --}}

@@ -27,13 +27,8 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('administracion.categorias.create',[
             'categorias'=> new Categorias
-=======
-        return view('administracion.categorias.create', [
-            'categoria' => new Categorias
->>>>>>> 3b0a8bc910bdf6ff40ea10ccf75e1b889191a225
         ]);
     }
 

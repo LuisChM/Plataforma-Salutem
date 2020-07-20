@@ -26,7 +26,7 @@ class SaveComprasRequest extends FormRequest
         return [
             'cantidad'=>'required',
             'cantidad_agregada'=>'required',
-            'cateoria'=>'required',
+            'categoria'=>'required',
             'nombre'=>'required',
             'unidad_de_medida'=>'required',
 
