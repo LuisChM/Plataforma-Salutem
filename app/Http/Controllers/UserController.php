@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateUserRequest;
-
 use function GuzzleHttp\Promise\all;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -100,11 +99,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, $id)
-    {
+    {        
         // busca usuario
         $user = User::findOrFail($id);
         //actualiza el usuario
-        $user->update($request->all()->only('name','email'));
+        $user->update($request->validated());
         //se utiliza sync para sincronizar roles y evitar duplicacion de roles
         $user->roles()->sync($request->roles);
         //retornamos la vista luego de actualizar

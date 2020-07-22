@@ -30,7 +30,7 @@ class SaveFacturaRequest extends FormRequest
             'descripcion' => 'nullable',
             'fecha' => 'required',
             'total' => 'required',
-            'imagen' => 'nullable',
+            'imagen' => 'nullable|image',
         ];
     }
 }

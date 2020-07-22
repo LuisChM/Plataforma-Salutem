@@ -43,7 +43,7 @@
     <label for="total">Total de la factura:</label>
     <div class="d-flex align-items-center ">
         <input type="number" class="form-control col-lg-4 col-md-4 @error('total') is-invalid @else border-0 @enderror"
-            name="total" id="total" value="{{old('total', $factura->total)}}">
+            name="total" id="total" value="{{old('total', $factura->total)}}" data-decimals="2" min="0"  step="0.01">
         <span class="text-black-50 ml-2">(obligatorio)</span>
         @error('total')
         <span class="invalid-feedback" role="alert">
@@ -54,12 +54,9 @@
 </div>
 
 <div class="form-group">
-    <label for="imagen">Seleccione un archivo para guardar:</label>
-    <input type="file" class="form-control-file" name="imagen" id="imagen" multiple
-        value="{{old('imagen', $factura->imagen)}}">
-
-    <img src="{{Storage::url('imagen')}}" alt="">
-
+    <label for="imagen">Seleccione una imagen para guardar:</label>
+    <img src="{{Storage::url($factura->imagen)}}" alt="" width="400px">
+    <input type="file" class="form-control-file" name="imagen" id="imagen" >
 </div>
 
 <div class="d-flex justify-content-end mt-5">
