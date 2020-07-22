@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Factura;
 use App\Http\Requests\SaveFacturaRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+use function GuzzleHttp\Promise\all;
 
 class FacturaController extends Controller
 {
@@ -34,14 +37,14 @@ class FacturaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\SaveFacturaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(SaveFacturaRequest $request)
     {
-        Factura::create($request->validated());
-
-        // $request->file('imagen')->store('public');
+        $factura = (new Factura)->fill($request->all());
+        $factura->imagen = $request->file('imagen')->store('uploads', 'public');
+        $factura->save();
 
         return redirect()->route('facturas.index')->with('status', 'La factura se creo con exito');
     }
@@ -73,14 +76,25 @@ class FacturaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\SaveFacturaRequest  $request
      * @param  \App\Factura  $factura
      * @return \Illuminate\Http\Response
      */
-    public function update(Factura $factura, SaveFacturaRequest $request)
+
+    public function update(SaveFacturaRequest $request, $id)
     {
-        $factura->update($request->validated());
-        return redirect()->route('facturas.index')->with('status', 'El proyecto fue actualizado');
+        $datoFactura = $request->validated();
+
+        if ($request->hasFile('imagen')) {
+            $factura = Factura::findOrFail($id);
+            Storage::delete('public/' . $factura->imagen);
+            $datoFactura['imagen'] = $request->file('imagen')->store('uploads', 'public');
+        }
+        Factura::where('id', '=', $id)->update($datoFactura);
+
+        $factura = Factura::findOrFail($id);
+
+        return redirect()->route('facturas.index')->with('status', 'La factura fue eliminada');
     }
 
     /**
@@ -91,7 +105,8 @@ class FacturaController extends Controller
      */
     public function destroy(Factura $factura)
     {
+        Storage::delete('public/' . $factura->imagen);
         $factura->delete();
-        return redirect()->route('facturas.index')->with('status', 'El proyecto fue eliminado');
+        return redirect()->route('facturas.index')->with('status', 'La factura fue eliminada');
     }
 }

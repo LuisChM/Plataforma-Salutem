@@ -21,7 +21,7 @@ class CreateFacturasTable extends Migration
             $table->string('correo')->nullable();
             $table->longText('descripcion')->nullable();
             $table->date('fecha');
-            $table->decimal('total');
+            $table->decimal('total',8,2);
             $table->string('imagen')->nullable();
 
             $table->timestamps();
