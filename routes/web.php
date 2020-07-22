@@ -29,7 +29,12 @@ Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion')->m
 
 Route::view('dashboard' , 'layout_dashboard')->name('dashboard')->middleware('verified');
 
-Route::view('productos' , 'administracion.productos.productos')->name('productos')->middleware('verified');
+
+Route::resource('productos', 'ProductosController')->names('productos')->middleware('verified');
+
+Route::view('agregarproductos' , 'administracion.productos.agregarproductos')->name('agregarproductos')->middleware('verified');
+
+Route::view('editarproductos' , 'administracion.productos.editarproductos')->name('editarproductos')->middleware('verified');
 
 Route::resource('factura','FacturaController')->names('facturas')->middleware('verified');
 

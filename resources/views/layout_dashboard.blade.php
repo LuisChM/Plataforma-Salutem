@@ -1,4 +1,4 @@
-{{-- ver rol del usuario ingresado 
+{{-- ver rol del usuario ingresado
 {{dd(auth()->user()->roles->toArray())}} --}}
 
 
@@ -35,11 +35,11 @@
                             <ul class="submenu px-2">
                                 {{-- @if ( auth()->user()->hasRoles(['cook']) ) --}}
 
-                                <li> <a href="{{route('productos')}}">Productos</a></li>
+                               <li> <a href="{{route('productos.index')}}">Productos</a></li>
 
                                 {{-- @elseif(auth()->user()->hasRoles(['admin'])) --}}
 
-                                <li> <a href="{{route('productos')}}">Productos</a></li>
+                                {{--<li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>--}}
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
                                 <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
                                 <li> <a href="#">Historial productos</a>
