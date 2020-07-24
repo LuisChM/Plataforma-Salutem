@@ -1,4 +1,4 @@
-@extends('layout_dashboard')
+@extends('layouts.dashboard')
 @section('seccion')
 Control categorias
 @endsection

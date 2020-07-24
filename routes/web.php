@@ -45,3 +45,5 @@ Route::resource('compras','ComprasController')->names('compras')->middleware('ve
 Route::resource('categorias','CategoriasController')->names('categorias')->middleware('verified');
 
 Route::resource('role','RoleController')->names('roles')->middleware('verified');
+
+Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');

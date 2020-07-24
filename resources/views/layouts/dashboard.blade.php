@@ -61,7 +61,7 @@
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
-                                <li> <a href="#">Consulta nutricional</a></li>
+                                <li> <a href="{{route('consultas.index')}}">Consulta nutricional</a></li>
                                 <li> <a href="#">Pacientes</a></li>
                                 <li> <a href="#">Cálculo de dieta</a></li>
                             </ul>

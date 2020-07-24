@@ -10962,6 +10962,11 @@ a.text-dark:focus {
   width: 15px;
 }
 
+.iconoAcordion {
+  height: 18px;
+  width: 18px;
+}
+
 .nav-link.active,
 .show > .nav-link {
   background: #595959 !important;
@@ -11099,11 +11104,7 @@ a.text-dark:focus {
 }
 
 .btn-outline-none {
-  border-radius: none;
+  border: none;
   outline: none;
-  -webkit-border-radius: none;
-  -moz-border-radius: none;
-  -ms-border-radius: none;
-  -o-border-radius: none;
 }
 
