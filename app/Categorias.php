@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorias extends Model
 {
-    protected $guarded = [];
+    public $guarded = [];
+    Public function subcategories(){
+
+        return $this->hasMany('App\Categorias');
+}
 }

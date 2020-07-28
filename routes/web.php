@@ -1,5 +1,6 @@
 <?php
-
+use App\Productos;
+use Illuminate\Http\Request;
 use App\Http\Controllers\FacturaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,28 @@ Route::resource('compras','ComprasController')->names('compras')->middleware('ve
 Route::resource('categorias','CategoriasController')->names('categorias')->middleware('verified');
 
 Route::resource('role','RoleController')->names('roles')->middleware('verified');
+
+Route::get('/', function () {
+
+    $categoris = Productos::where('categoria',0)->get();
+    
+    return view('compras.form',["categoris" => $categoris]);
+
+});
+
+Route::post('/subcat', function (Request $request) {
+
+    $categoria = $request->cat_id;
+    
+    $subcategories = Productos::where('id',$categoria)
+                          ->with('subcategories')
+                          ->get();
+
+    return response()->json([
+        'subcategories' => $subcategories
+    ]);
+   
+})->name('subcat');
+
+Route::get('/dropdown','DropdownController@index');
+Route::get('/dropdown-data','DropdownController@data');

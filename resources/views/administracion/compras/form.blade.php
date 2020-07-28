@@ -1,56 +1,114 @@
-@csrf
+@extends('layout_dashboard')
+@section('seccion')
+Control de compras
+@endsection
+
+@section('contenido')
+<html lang="{{ app()->getLocale() }}">
+   
+<div class="container mt-5">
+    <div class="responsive-table">
+        <div class="d-flex justify-content-end align-content-center">
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2 mr-4">
+                    <input type="search" class="form-control searchInput"  placeholder="Buscar producto">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+            </form>
+        </div>
+        @include('partial.session-status')
+
+      
+        <table class="table table-striped mt-4 text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Unidad de medida</th>
+                    <th scope="col">Cantidad a agregar</th>
+                    <th scope="col">Accion</th>
+                </tr>
+                <tbody>
+                    @foreach ($productos as $producto)
+                    
+                   <tr>
+                        <td>{{$producto->nombre}}</td>
+                        <td>{{$producto->categoria}}</td>
+                       <td>{{$producto->cantidad}}</td>
+                       <td><select {{$producto->unidad_de_medida}}>
+                        <option value="" disabled selected>Seleccione unidad de medida</option>
+                        <option value="1">kg</option>
+                        <option value="2">gr</option>
+                    </select></td>
+                       
+                       <td><input type="number" min="1" class="text-center" placeholder="1" pattern="^[0-1000]+"></td>
+                       
+                       <td>
+                        <div class="d-flex justify-content-around">
+                       <a href="{{url('productos/'.$producto->id.'/edit')}}"><img src="/img/seleccionar.svg"
+                        class="iconoAccion" alt="seleccionar"></a>
+                       {{-- <form method="POST" action="{{url('productos/'.$producto->id)}}">
+                         {{ csrf_field() }}
+                         {{method_field('DELETE')}}
+                          <a type="submit" onclick="return confirm('Desea Borrar?')"> <img src="/img/basura.svg" class="iconoAccion"
+                          alt="eliminar">
+                     </form> --}}
+                     <div class="d-flex justify-content-around ">
+                        <a href="#1"><img src="/img/check.svg" class="iconoAccion" alt="seleccionar"></a>
+                    </div>
+                    
+                    {{-- <form method="Post" action="{{route('compras.destroy',$compras)}}">
+                        @csrf @method('delete')
+                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('seguro');"><img
+                            src="/img/check.svg" class="iconoAccion" alt="eliminar"></button>                                            
+                    </form> --}}
+                    </div>
+                       </td>
+
+                     </td>
+                    
+                   </tr>
+                    
+                    @endforeach
+                    
+                 </tbody>
+              
+
+            
+                    {{-- <td>
+                        <select name="categoria" id="tipoCategoria" class="form-control input-lg dynamic" data-dependent="tipoCategoria"> 
+                            <option value=""> --Escoja el producto--</option>   
+                                @foreach ($categorias as $categoria)
+                            <option value="{{$categoria->id}}">{{ ucfirst($categoria->tipoCategoria)}}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    <td >
+                             <select name="nombre" id="nombre" class="form-control input-lg dynamic" data-dependent="tipoCategoria"> 
+                            <option value=""> --Escoja el producto--</option>    
+                                @foreach ($productos as $producto)
+                            <option value="{{$producto['id']}}">{{$producto['nombre']}}</option>
+                                @endforeach
+                            </select> 
+                        </td>  --}}
+                        {{-- <td> 
+                            @foreach ($productos as $producto)
+                            <option value="{{$producto['cantidad']}}">{{$producto['cantidad']}}</option>
+                            @endforeach  
+                        </td> --}} 
+                    </tbody>
+            </thead>
+            
+           
+        </table>
 
 
-<div class="form-group ">
-    <label for="cantidad">Cantidad</label>
-    <div class="d-flex align-items-center ">
-        <input type="number" class="form-control col-lg-4 col-md-4 @error('cantidad') is-invalid @else border-0 @enderror"
-            name="cantidad" id="cantidad" value="{{old('cantidad', $compras->cantidad)}}">
-        <span class="text-black-50 ml-2">(obligatorio)</span>
-        @error('cantidad')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{$message}}</strong>
-        </span>
-        @enderror
-    </div>
-</div>
-<div class="form-group ">
-    <label for="cantidad_agregada">Cantidad Agregada</label>
-    <div class="d-flex align-items-center ">
-        <input type="number" class="form-control col-lg-4 col-md-4 @error('cantidad_agregada') is-invalid @else border-0 @enderror"
-            name="cantidad_agregada" id="cantidad_agregada" value="{{old('cantidad_agregada', $compras->cantidad_agregada)}}">
-        <span class="text-black-50 ml-2">(obligatorio)</span>
-        @error('cantidad_agregada')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{$message}}</strong>
-        </span>
-        @enderror
-    </div>
-</div>
-<div class="form-group">
-    <label for="categoria">Categoria</label>
-    <textarea class="form-control" name="categoria" id="categoria" rows="3"
-        placeholder="Ingrese una categoria (opcional)">{{old('categoria', $compras->categoria)}}</textarea>
-</div>
-<div class="form-group">
-    <label for="nombre">Nombre:</label>
-    <input type="text" class="form-control @error('nombre') is-invalid @else border-0 @enderror" name="nombre"
-        id="nombre" placeholder="Ingrese el nombre de la compra (obligatorio)"
-        value="{{old('nombre', $compras->nombre)}}">
-    @error('nombre')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{$message}}</strong>
-    </span>
-    @enderror
-</div>
-<div class="form-group">
-    <label for="unidad_de_medida">unidad_de_medida</label>
-    <textarea class="form-control" name="unidad_de_medida" id="unidad_de_medida" rows="3"
-        placeholder="Ingrese una unidad_de_medida (opcional)">{{old('unidad_de_medida',
-         $compras->unidad_de_medida)}}</textarea>
-</div>
 
 <div class="d-flex justify-content-end mt-5">
     <a class="btn btn-primary mr-3" href="{{route('compras.index')}}" role="button">Volver</a>
     <button class="btn btn-secondary text-white">{{$btnText ?? ''}}</button>
 </div>
+
+
+@endsection

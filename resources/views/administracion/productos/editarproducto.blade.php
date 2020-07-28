@@ -24,7 +24,6 @@ Editar productos
 <br>
  <input type="submit" value="Editar" class="btn btn-warning" onclick="return confirm('Desea editar?')">
  <a href="{{route('productos.index')}}" class="btn btn-success">Regresar</a>
-
 </form>
 
 
