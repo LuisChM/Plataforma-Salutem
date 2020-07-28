@@ -16,19 +16,7 @@ Control de categorias
                     
                     <th scope="col">Accion</th>
                 </tr>
-                <tbody>
-                    <tr>
-                        <td>Categoria</td>
-                        <td>
-                            <div class="d-flex justify-content-center">
-                                <a href="#1"><img src="/img/lapiz.svg" class="iconoAccion" alt="seleccionar"></a>
-                                <a href="#1"><img src="/img/basura.svg" class="iconoAccion" alt="eliminar"></a>
-                            </div>
-                        </td>
-                    </tr>
-    
-    
-                </tbody>
+                
             </thead>
             <tbody>
                 @foreach ($categoria as $categorias)
@@ -45,7 +33,7 @@ Control de categorias
                             
                                     <form method="Post" action="{{route('categorias.destroy',$categorias)}}">
                                         @csrf @method('delete')
-                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar ell dato');"><img
+                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar el dato');"><img
                                             src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
                                     </form>
                                 </div>

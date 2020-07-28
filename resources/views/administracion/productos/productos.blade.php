@@ -41,42 +41,28 @@ Productos
                   <td>{{$producto->cantidad}}</td>
                   <td>{{$producto->unidad_de_medida}}</td>
                   <td>
-                  <a href="{{url('productos/'.$producto->id.'/edit')}}" class="btn btn-warning">Editar</a>
+                  
                   <form method="POST" action="{{url('productos/'.$producto->id)}}">
                     {{ csrf_field() }}
                     {{method_field('DELETE')}}
-                     <input type="submit" onclick="return confirm('Desea Borrar?')" class="btn btn-danger" value="Eliminar">
+                    
+                     <a href="{{url('productos/'.$producto->id.'/edit')}}"><img src="/img/seleccionar.svg"
+                        class="iconoAccion" alt="seleccionar"></a>
+                     
+                        <form method="Post" action="{{route('productos.destroy',$productos)}}">
+                            @csrf @method('delete')
+                            <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar el dato');"><img
+                                src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
+                        </form>
                 </form>
 
-                </td>
-
-              </tr>
-               <!-- <tr>
-                    <td>Producto</td>
-                    <td>Tipo</td>
-                    <td>18kg</td>
-                    <td><select>
-                            <option value="" disabled selected>Seleccione una medida</option>
-                            <option value="1">kg</option>
-                            <option value="2">gr</option>
-                            <option value="2">ml</option>
-                            <option value="2">L</option>
-                        </select></td>
-                    <td><input type="number" min="1" pattern="^[0-99]+"></td>
-                    <td>
-                        <div class="d-flex justify-content-around ">-->
-                            <!--<a href="#1"><img src="/img/check.svg" class="iconoAccion" alt="seleccionar"></a> -->
-
-
-                        <!--<button type="button" class="btn btn-warning">Actualizar</button>
-                            <button type="button" class="btn btn-danger">Eliminar</button>
-                        </div>
-                    </td>
-                </tr>-->
-
-               @endforeach
+                </td>@endforeach
+               
             </tbody>
         </table>
+        <div class="d-flex justify-content-end mt-5">
+            <a class="btn btn-secondary w-25 p-2" href="{{route('compras.create')}}" role="button">Imprimir lista </a>
+        </div>
     </div>
 
 </div>

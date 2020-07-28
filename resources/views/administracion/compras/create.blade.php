@@ -9,7 +9,7 @@ Control de compras
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
    
-                <form class="mt-4" enctype="multipart/form-data" action="{{route('compras.store')}}" method="POST">
+                <form class="mt-4" action="{{route('compras.store')}}" method="POST">
                     @include('administracion.compras.form',['btnText'=>'Guardar'])
     
                 </form>

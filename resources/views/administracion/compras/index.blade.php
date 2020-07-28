@@ -19,44 +19,24 @@ Control de compras
         <table class="table table-striped mt-4 text-center">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Nombre</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col">Producto</th>
                     <th scope="col">Cantidad Actual</th>
                     <th scope="col">Unidad de medida</th>
-                    <th scope="col">Agregar</th>
+                    <th scope="col">Cantidad agregada</th>
                     <th scope="col">Accion</th>
                 </tr>
-                <tbody>
-                    <tr>
-                        <td>Producto</td>
-                        <td>Tipo</td>
-                        <td>18kg</td>
-                        <td><select>
-                                <option value="" disabled selected>Seleccione una medida</option>
-                                <option value="1">kg</option>
-                                <option value="2">gr</option>
-                                ¿
-                            </select></td>
-                            <td><input type="number" min="1" class="text-center" placeholder="1" pattern="^[0-1000]+"></td>
-                        <td>
-                            <div class="d-flex justify-content-around ">
-                                <a href="#1"><img src="/img/check.svg" class="iconoAccion" alt="seleccionar"></a>
-                            </div>
-                        </td>
-                    </tr>
-    
-    
-                </tbody>
+                
             </thead>
             
             <tbody>
                 @foreach ($compra as $compras)
                 <tr>
-                    <td>{{$compras->cantidad}}</td>
-                    <td>{{$compras->cantidad_agregada}}</td>
                     <td>{{$compras->categoria}}</td>
                     <td>{{$compras->nombre}}</td>
+                    <td>{{$compras->cantidad}}</td>
                     <td>{{$compras->unidad_de_medida}}</td>
+                    <td>{{$compras->cantidad_agregada}}</td>
                     
                     <td>
                         <div class="d-flex justify-content-around">
@@ -71,6 +51,7 @@ Control de compras
                                         <button class="bg-transparent border-0" type="submit" onclick="return confirm('seguro');"><img
                                             src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
                                     </form>
+
                                 </div>
                     </td>
                     
@@ -83,10 +64,6 @@ Control de compras
             </tbody>
         </table>
         <div class="d-flex justify-content-end mt-5">
-            
-                
-                    <button type="submit" class="btn btn-primary mr-4 w-25 p-2">Generar Lista</button>
-                    
                     <a class="btn btn-secondary w-25 p-2" href="{{route('compras.create')}}" role="button">Agregar nueva compra </a>
             
         </div>

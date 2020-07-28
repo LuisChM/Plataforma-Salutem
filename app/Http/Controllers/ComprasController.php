@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Compras;
+use App\Productos;
+use App\Categorias;
 use App\Http\Requests\SaveComprasRequest;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ComprasController extends Controller
@@ -26,7 +30,10 @@ class ComprasController extends Controller
      */
     public function create()
     {
-        return view('administracion.compras.create',[
+        $productos = Productos::all();
+        $categorias = Categorias::all();
+        return view('administracion.compras.create',compact('productos','categorias'),
+        [
             'compras'=> new Compras
         ]);
     }  
@@ -66,6 +73,8 @@ class ComprasController extends Controller
     {
         return view('administracion.compras.edit',[
             'compras'=>$compras
+
+        
         ]);
     }
 
@@ -93,4 +102,18 @@ class ComprasController extends Controller
         $compras->delete();
         return redirect()->route('compras.index')->with('status','El dato fue eliminado');
     }
+
+
+
+    // public function getCategorias()
+    // {
+    //     $categorias = Categorias::table('categorias')->pluck("tipoCategoria","id");
+    //     return view('compras.form',compact('categorias'));
+    // }
+    // public function getProductos()
+    // {
+    //     $productos = Productos::table('productos')->where("categoria",$id)->pluck("nombre","id");
+    //     return json_encode($productos);
+    // }
+
 }

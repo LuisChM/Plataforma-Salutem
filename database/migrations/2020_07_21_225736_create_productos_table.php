@@ -17,8 +17,11 @@ class CreateProductosTable extends Migration
 
             $table->id();
             $table->string('nombre');
-            $table->string('categoria');
-            //$table->string('categorias_id')->constrained('categorias');
+            $table->integer('categoria');
+            // $table->foreign('categoria)->constrained('categoria');
+
+            // $table->unsignedBigInteger('categoria');
+            // $table->foreign('categoria')->references('id')->on('categorias');
 
             $table->integer('cantidad');//cuantos tomates o cuantos kilogramos de carne
             $table->string('unidad_de_medida');//cantidad de unidades o kilogramos
@@ -40,3 +43,7 @@ class CreateProductosTable extends Migration
         Schema::dropIfExists('productos');
     }
 }
+// Este alter table se hace en phpmyadmin en la pestana sql para hacer la relacion completa en la bd
+// alter table productos add(
+//     FOREIGN key (categoria)REFERENCES categorias(id)
+//     )
