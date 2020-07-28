@@ -5,19 +5,18 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-use function GuzzleHttp\Promise\all;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-//   public  function __construct()
-//     {
-//         $this->middleware([
-//             'auth',
-//             'roles:admin'
-//         ]);
-//     }
+  public  function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador'
+        ]);
+    }
 
     /**
      * Display a listing of the resource.
