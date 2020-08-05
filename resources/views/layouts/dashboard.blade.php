@@ -42,6 +42,8 @@
                                 <li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
                                 <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
+                                <li><a href="{{route('ventas.index')}}">Administracion de comidas</a></li>
+
                                 <li> <a href="#">Historial productos</a>
                                 </li>
                                 <li> <a href="{{route('compras.index')}}">Compra de productos</a>

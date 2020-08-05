@@ -41,23 +41,24 @@ Productos
                   <td>{{$producto->cantidad}}</td>
                   <td>{{$producto->unidad_de_medida}}</td>
                   <td>
-                  
+
                   <form method="POST" action="{{url('productos/'.$producto->id)}}">
                     {{ csrf_field() }}
                     {{method_field('DELETE')}}
-                    
+
                      <a href="{{url('productos/'.$producto->id.'/edit')}}"><img src="/img/seleccionar.svg"
                         class="iconoAccion" alt="seleccionar"></a>
-                     
+
                         <form method="Post" action="{{route('productos.destroy',$productos)}}">
                             @csrf @method('delete')
                             <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar el dato');"><img
-                                src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
+                                src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>
                         </form>
                 </form>
 
-                </td>@endforeach
-               
+                </td>
+                @endforeach
+
             </tbody>
         </table>
         <div class="d-flex justify-content-end mt-5">
