@@ -33,13 +33,13 @@
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
-                                {{-- @if ( auth()->user()->hasRoles(['cook']) ) --}}
+                                @if ( auth()->user()->hasRoles(['cocinero']) )
 
                                <li> <a href="{{route('productos.index')}}">Productos</a></li>
 
-                                {{-- @elseif(auth()->user()->hasRoles(['admin'])) --}}
+                                @elseif(auth()->user()->hasRoles(['administrador']))
 
-                                {{--<li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>--}}
+                                <li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
                                 <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
                                 <li> <a href="#">Historial productos</a>
@@ -50,7 +50,7 @@
 
                                 </li>
 
-                                {{-- @endif --}}
+                                @endif
                             </ul>
                         </li>
                         {{-- /Administración --}}
@@ -61,7 +61,7 @@
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
-                                <li> <a href="#">Consulta nutricional</a></li>
+                                <li> <a href="{{route('consultas.index')}}">Consulta nutricional</a></li>
                                 <li> <a href="#">Pacientes</a></li>
                                 <li> <a href="#">Cálculo de dieta</a></li>
                             </ul>

@@ -47,27 +47,5 @@ Route::resource('categorias','CategoriasController')->names('categorias')->middl
 
 Route::resource('role','RoleController')->names('roles')->middleware('verified');
 
-Route::get('/', function () {
+Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
 
-    $categoris = Productos::where('categoria',0)->get();
-    
-    return view('compras.form',["categoris" => $categoris]);
-
-});
-
-Route::post('/subcat', function (Request $request) {
-
-    $categoria = $request->cat_id;
-    
-    $subcategories = Productos::where('id',$categoria)
-                          ->with('subcategories')
-                          ->get();
-
-    return response()->json([
-        'subcategories' => $subcategories
-    ]);
-   
-})->name('subcat');
-
-Route::get('/dropdown','DropdownController@index');
-Route::get('/dropdown-data','DropdownController@data');
