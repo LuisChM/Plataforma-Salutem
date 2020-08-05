@@ -30,13 +30,13 @@ Control de categorias
                                     class="iconoAccion" alt="seleccionar"></a>
 
                             {{-- seleccionar dato por id y eliminarlo --}}
-                            
-                                    <form method="Post" action="{{route('categorias.destroy',$categorias)}}">
-                                        @csrf @method('delete')
-                                        <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar el dato');"><img
-                                            src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
-                                    </form>
-                                </div>
+                            <form method="Post" action="{{route('categorias.destroy',$categorias)}}">
+                                @csrf @method('delete')
+                                
+                                <button class="bg-transparent border-0" type="submit" onclick="return confirm('Esta seguro de eliminar el dato');"><img
+                                    src="/img/basura.svg" class="iconoAccion" alt="eliminar"></button>                                            
+                            </form>
+                        </div>
                     </td>
                     
                 </tr> 
@@ -46,6 +46,9 @@ Control de categorias
                 {{ $categoria->links()}}
 
             </tbody>
+
+
+            
         </table>
 
 
