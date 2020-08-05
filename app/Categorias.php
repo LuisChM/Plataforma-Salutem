@@ -12,3 +12,4 @@ class Categorias extends Model
         return $this->hasMany('App\Categorias');
 }
 }
+
