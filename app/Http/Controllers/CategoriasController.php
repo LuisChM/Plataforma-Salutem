@@ -87,8 +87,8 @@ class CategoriasController extends Controller
      */
     public function update(Categorias $categorias, SaveCategoriasRequest $request)
     {
-        $categorias->update($request->validated());
-        return redirect()->route('categorias.index', $categorias)->with('status', 'El proyecto fue actualizado');
+       $categorias->update($request->validated());
+        return redirect()->route('categorias.index', $categorias)->with('status','El proyecto fue actualizado');
     }
 
     /**

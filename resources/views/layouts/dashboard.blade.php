@@ -40,8 +40,23 @@
                                 @if ( auth()->user()->hasRoles(['administrador']) )
 
                                 <li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>
+<<<<<<< HEAD
                                 <li> <a href="#">Historial productos</a></li>
                                 <li> <a href="{{route('compras.index')}}">Inventario productos</a></li>
+=======
+                                <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
+                                <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
+                                <li><a href="{{route('ventas.index')}}">Administracion de comidas</a></li>
+
+                                <li> <a href="#">Historial productos</a>
+                                </li>
+                                <li> <a href="{{route('compras.index')}}">Compra de productos</a>
+                                <li> <a href="{{route('users.index')}}">Usuarios</a>
+                                <li> <a href="{{route('roles.index')}}">Roles</a>
+
+                                </li>
+
+>>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
                                 @endif
                             </ul>
                         </li>
