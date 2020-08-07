@@ -51,3 +51,5 @@ Route::resource('consulta','ConsultaController')->names('consultas')->middleware
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
+
+Route::view('calculo' , 'administracion.calculo.index')->name('calculo')->middleware('verified');
