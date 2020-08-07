@@ -43,11 +43,11 @@ Control costo / gasto
                 </tr>
                 @endforeach
 
-                {{ $factura->links()}}
 
             </tbody>
         </table>
 
+        {{ $factura->links()}}
 
 
     </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConsultasTable extends Migration
+class CreatePacientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateConsultasTable extends Migration
      */
     public function up()
     {
-        Schema::create('consultas', function (Blueprint $table) {
+        Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->string('nombre')->nullable();
             $table->string('apellido')->nullable();
-            $table->string('genero')->nullable();
+            $table->char('genero', 1)->nullable();
             $table->integer('edad')->nullable();
             $table->string('correo')->nullable();
             $table->integer('telefono')->nullable();
@@ -35,6 +39,7 @@ class CreateConsultasTable extends Migration
             $table->string('PI')->nullable();
             $table->string('pesoMeta')->nullable();
             $table->string('pesoUsar')->nullable();
+            $table->string('colesterol')->nullable();
             $table->string('LDL')->nullable();
             $table->string('hemoglobina')->nullable();
             $table->string('HDL')->nullable();
@@ -49,20 +54,20 @@ class CreateConsultasTable extends Migration
             $table->string('tipo')->nullable();
             $table->string('frecuencia')->nullable();
             $table->string('suplementos')->nullable();
-            $table->string('desayunoHora')->nullable();
-            $table->string('desayunoAlimento')->nullable();
-            $table->string('mmHora')->nullable();
-            $table->string('mmAlimento')->nullable();
-            $table->string('almuerzoHora')->nullable();
-            $table->string('almuerzoAlimento')->nullable();
-            $table->string('mtHora')->nullable();
-            $table->string('mtAlimento')->nullable();
-            $table->string('cenaHora')->nullable();
-            $table->string('cenaAlmuerzo')->nullable();
-            $table->string('cnHora')->nullable();
-            $table->string('cnAlimento')->nullable();
+            $table->time('desayunoHora')->nullable();
+            $table->mediumText('desayunoAlimento')->nullable();
+            $table->time('mmHora')->nullable();
+            $table->mediumText('mmAlimento')->nullable();
+            $table->time('almuerzoHora')->nullable();
+            $table->mediumText('almuerzoAlimento')->nullable();
+            $table->time('mtHora')->nullable();
+            $table->mediumText('mtAlimento')->nullable();
+            $table->time('cenaHora')->nullable();
+            $table->mediumText('cenaAlimento')->nullable();
+            $table->time('cnHora')->nullable();
+            $table->mediumText('cnAlimento')->nullable();
             $table->string('total')->nullable();
-            $table->string('observaciones')->nullable();
+            $table->mediumText('observaciones')->nullable();
             $table->string('pregunta1')->nullable();
             $table->string('pregunta2')->nullable();
             $table->string('pregunta3')->nullable();
@@ -71,8 +76,28 @@ class CreateConsultasTable extends Migration
             $table->string('pregunta6')->nullable();
             $table->string('pregunta7')->nullable();
             $table->string('pregunta8')->nullable();
-            $table->string('diagnostico')->nullable();
-            $table->string('usuarios_id')->nullable();
+            $table->mediumText('diagnostico')->nullable();
+            $table->string('logrosPlan')->nullable();
+            $table->string('deficientes')->nullable();
+            $table->string('pesoInicial')->nullable();
+            $table->string('pesoSeguimiento')->nullable();
+            $table->string('imcInicial')->nullable();
+            $table->string('imcSeguimiento')->nullable();
+            $table->string('grasaInicial')->nullable();
+            $table->string('grasaSeguimiento')->nullable();
+            $table->string('circAbdominalInicial')->nullable();
+            $table->string('circAbdominalSeguimiento')->nullable();
+            $table->string('requerimientoInicial')->nullable();
+            $table->string('requerimientoSeguimiento')->nullable();
+            $table->string('distChoInicial')->nullable();
+            $table->string('distChoSeguimiento')->nullable();
+            $table->string('distChonInicial')->nullable();
+            $table->string('distChonSeguimiento')->nullable();
+            $table->string('distGrasasInicial')->nullable();
+            $table->string('distGrasasSeguimiento')->nullable();
+            $table->mediumText('cambioPlan')->nullable();
+            $table->mediumText('metasObjetivos')->nullable();
+
             $table->timestamps();
         });
     }
@@ -84,6 +109,6 @@ class CreateConsultasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consultas');
+        Schema::dropIfExists('pacientes');
     }
 }

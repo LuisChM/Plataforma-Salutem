@@ -65,7 +65,6 @@ Control de compras
         </table>
         <div class="d-flex justify-content-end mt-5">
                     <a class="btn btn-secondary w-25 p-2" href="{{route('compras.create')}}" role="button">Agregar nueva compra </a>
-            
         </div>
     </div>
 </div>

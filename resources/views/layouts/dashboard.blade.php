@@ -27,59 +27,86 @@
                 <div class="list-group list-group-flush">
                     <!-- Contenedor -->
                     <ul id="accordion" class="accordion pl-0">
-                        {{-- Administración --}}
+                        {{-- Control de productos --}}
+                        @if ( auth()->user()->hasRoles(['cocinero','administrador']) )
                         <li>
-                            <div class="link">Administración<img src="/img/flecha.svg" alt="arrow"
+                            <div class="link">Control de productos<img src="/img/flecha.svg" alt="arrow"
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
-                                @if ( auth()->user()->hasRoles(['cocinero']) )
 
-                               <li> <a href="{{route('productos.index')}}">Productos</a></li>
+                                <li> <a href="{{route('productos.index')}}">Cocina productos</a></li>
 
-                                @elseif(auth()->user()->hasRoles(['administrador']))
+                                @if ( auth()->user()->hasRoles(['administrador']) )
 
                                 <li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>
-                                <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
-                                <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
-                                <li> <a href="#">Historial productos</a>
-                                </li>
-                                <li> <a href="{{route('compras.index')}}">Compra de productos</a>
-                                <li> <a href="{{route('users.index')}}">Usuarios</a>
-                                <li> <a href="{{route('roles.index')}}">Roles</a>
-
-                                </li>
-
+                                <li> <a href="#">Historial productos</a></li>
+                                <li> <a href="{{route('compras.index')}}">Inventario productos</a></li>
                                 @endif
                             </ul>
                         </li>
-                        {{-- /Administración --}}
+                        @endif
+                        {{-- /Control de productos --}}
 
-                        {{-- Nutrición --}}
+                        {{-- Control costo / gasto --}}
+                        @if ( auth()->user()->hasRoles(['administrador']) )
                         <li>
-                            <div class="link">Nutrición<img src="/img/flecha.svg" alt="arrow"
+                            <div class="link">Control costo / gasto<img src="/img/flecha.svg" alt="arrow"
                                     class="iconoFlecha ml-2"></i>
                             </div>
                             <ul class="submenu px-2">
-                                <li> <a href="{{route('consultas.index')}}">Consulta nutricional</a></li>
-                                <li> <a href="#">Pacientes</a></li>
-                                <li> <a href="#">Cálculo de dieta</a></li>
-                            </ul>
+                                <li><a href="{{route('facturas.index')}}">Ingresar facturas de compras</a></li>
                         </li>
-                        {{-- /Nutrición --}}
 
-                        {{-- Comunidad --}}
-                        <li>
-                            <div class="link">Comunidad<img src="/img/flecha.svg" alt="arrow"
-                                    class="iconoFlecha ml-2"></i>
-                            </div>
-                            <ul class="submenu px-2">
-                                <li> <a href="#">Preguntas</a></li>
-                                <li> <a href="#">Mejor valoradas</a></li>
-                                <li> <a href="#">Más leídas</a></li>
-                            </ul>
-                        </li>
-                        {{-- /Comunidad --}}
+                    </ul>
+                    </li>
+                    @endif
+                    {{-- /Control costo / gasto --}}
+
+                    {{-- Nutrición --}}
+                    @if ( auth()->user()->hasRoles(['nutricionista']) )
+
+                    <li>
+                        <div class="link">Nutrición<img src="/img/flecha.svg" alt="arrow" class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            <li> <a href="{{route('pacientes.create')}}">Consulta nutricional</a></li>
+                            <li> <a href="{{route('pacientes.index')}}">Pacientes</a></li>
+                            <li> <a href="#">Cálculo de dieta</a></li>
+                        </ul>
+                    </li>
+                    @endif
+                    {{-- /Nutrición --}}
+
+                    {{-- Comunidad --}}
+                    {{-- @if ( auth()->user()->hasRoles(['nutricionista','administrador','paciente', 'cliente']) )
+
+                    <li>
+                        <div class="link">Comunidad<img src="/img/flecha.svg" alt="arrow" class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            <li> <a href="#">Preguntas</a></li>
+                            <li> <a href="#">Mejor valoradas</a></li>
+                            <li> <a href="#">Más leídas</a></li>
+                        </ul>
+                    </li>
+                    @endif --}}
+                    {{-- /Comunidad --}}
+
+                    {{-- Manejo de usuarios --}}
+                    @if(auth()->user()->hasRoles(['administrador']))
+                    <li>
+                        <div class="link">Manejo de usuarios<img src="/img/flecha.svg" alt="arrow"
+                                class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            <li> <a href="{{route('users.index')}}">Usuarios</a>
+                            <li> <a href="{{route('roles.index')}}">Roles</a>
+                        </ul>
+                    </li>
+                    @endif
+
+                    {{-- /Manejo de usuarios --}}
 
                     </ul>
 

@@ -25,9 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        //ruta temporal solo de prueba
-        $factura = Factura::orderBy('created_at', 'ASC')->paginate();
-        return view('administracion.facturas.index', compact('factura'));
+        return view('bienvenido');
     }
 }

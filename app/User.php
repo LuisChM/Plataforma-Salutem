@@ -41,11 +41,13 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     } 
+    
+    //relacion con roles
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'asignar_roles');
     }
-
+    //validar el rol que tiene
     public function hasRoles(array $roles)
     {
         foreach ($roles as $role) {
@@ -56,5 +58,22 @@ class User extends Authenticatable
             }
         }
         return false;
+    }
+
+    //relacion con paciente 
+    public function paciente (){
+        $this->hasOne(Paciente::class);
+    }
+
+    //query scope
+    public function scopeName($query, $name)
+    {
+        if($name)
+            return $query->where('name', 'LIKE', "%$name%");
+    }
+    public function scopeEmail($query, $email)
+    {
+        if($email)
+            return $query->where('email', 'LIKE', "%$email%");
     }
 }
