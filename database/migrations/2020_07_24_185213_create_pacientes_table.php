@@ -16,9 +16,7 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
+            $table->integer('user_id')->nullable();
             $table->string('nombre')->nullable();
             $table->string('apellido')->nullable();
             $table->char('genero', 1)->nullable();

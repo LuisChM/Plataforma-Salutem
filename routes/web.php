@@ -46,15 +46,12 @@ Route::resource('categorias','CategoriasController')->names('categorias')->middl
 
 Route::resource('role','RoleController')->names('roles')->middleware('verified');
 
-Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
+// Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
 
-<<<<<<< HEAD
 Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
 
-=======
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
 Route::view('calculo' , 'administracion.calculo.index')->name('calculo')->middleware('verified');
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba

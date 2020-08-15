@@ -19,6 +19,6 @@ class Paciente extends Model
     //relacion user
     public function user()
     {
-        $this->belongsTo(User::class,'id')->withDefault();
+        $this->belongsTo(User::class);
     }
 }

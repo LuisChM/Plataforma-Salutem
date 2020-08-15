@@ -35,12 +35,12 @@ class pacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        
+    {
         $user = User::all();
-
+        
         return view('nutricion.pacientes.create', [
             'paciente' => new Paciente,
-            'user'=> $user
+            'user' => $user,
         ]);
     }
 
@@ -52,10 +52,13 @@ class pacienteController extends Controller
      */
     public function store(SaveConsultaRequest $request)
     {
-        Paciente::updateOrCreate($request->validated());
+        $user_id = $request->input("user_id");
+        $datos = Paciente::create($request->validated());
+        $datos->user_id = $user_id;
+        $datos->save();
 
-        return redirect()->route('pacientes.index')->with('status', 'La pacientes se formo con éxito');   
-     }
+        return redirect()->route('pacientes.index')->with('status', 'La consulta se formo con éxito');
+    }
 
     /**
      * Display the specified resource.
@@ -74,13 +77,17 @@ class pacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Paciente $paciente)
+    public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $paciente = User::findOrFail($id);
+        // $user = User::all();
+        
         return view('nutricion.pacientes.edit', [
-            'paciente' => $paciente,
-            'user' => $user
-        ]);    }
+            // 'paciente' => $paciente,
+            'paciente' => $paciente
+
+        ]);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -89,11 +96,13 @@ class pacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(Paciente $paciente, SaveConsultaRequest $request)
+    public function update(SaveConsultaRequest $request, Paciente $paciente, $id)
     {
-        Paciente::updateOrCreate($request->validated());
-        return redirect()->route('pacientes.index')->with('status', 'Se actualizo el paciente con éxito'); 
-        }
+        $paciente = User::findOrFail($id);
+
+        $paciente->update($request->validated());
+        return redirect()->route('pacientes.index')->with('status', 'Se actualizo el paciente con éxito');
+    }
 
     /**
      * Remove the specified resource from storage.

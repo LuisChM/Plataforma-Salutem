@@ -15,22 +15,31 @@
 
                 {{-- <div class="form-group">
                     <label for="users">Paciente</label>
-                    <select id="users" class="custom-select" name="">
-                        @foreach ($user as $users)
-                            <option value="{{$users->id}}">{{$users->name}}</option>
+                    <select id="users" class="custom-select @error('users') is-invalid @else border-0 @enderror"
+                        name="user_id">
+                        <option value="" disabled selected>--Seleccione un paciente--</option>
+                        @foreach ($users as $user)
+                            <option value="{{ $user->id }}" class="@error('user') is-invalid @else border-0 @enderror">
+                                {{ $users->name }}</option>
                         @endforeach
+                        @error('users')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </select>
+
                 </div> --}}
-                
+
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control " name="nombre" id="nombre" placeholder="Ingrese el nombre"
-                        value="{{old('nombre', $paciente->nombre)}}">
+                        value="{{ old('nombre', $paciente->nombre) }}">
                 </div>
                 <div class="form-group">
                     <label for="apellido">Apellido</label>
                     <input type="text" class="form-control " name="apellido" id="apellido"
-                        placeholder="Ingrese el apellido" value="{{old('apellido', $paciente->apellido)}}">
+                        placeholder="Ingrese el apellido" value="{{ old('apellido', $paciente->apellido) }}">
                 </div>
                 <div class="form-group">
                     <label for="genero">Género</label>
@@ -44,93 +53,93 @@
                 <div class="form-group">
                     <label for="edad">Edad</label>
                     <input type="number" class="form-control mb-3" name="edad" id="edad" placeholder="Ingrese el edad"
-                        value="{{old('edad', $paciente->edad)}}">
+                        value="{{ old('edad', $paciente->edad) }}">
                 </div>
                 <div class="form-group">
                     <label for="correo">Correo electrónico</label>
                     <input type="email" class="form-control mb-3" name="correo" id="correo"
-                        placeholder="Ingrese el correo" value="{{old('correo', $paciente->correo)}}">
+                        placeholder="Ingrese el correo" value="{{ old('correo', $paciente->correo) }}">
                 </div>
                 <div class="form-group">
                     <label for="telefono">Número de teléfono</label>
                     <input type="number" class="form-control mb-3" name="telefono" id="telefono"
-                        placeholder="Digite el número de teléfono" value="{{old('telefono', $paciente->telefono)}}">
+                        placeholder="Digite el número de teléfono" value="{{ old('telefono', $paciente->telefono) }}">
                 </div>
                 <div class="form-group">
                     <label for="estadoCivil">Estado civil</label>
                     <input type="text" class="form-control mb-3" name="estadoCivil" id="estadoCivil"
-                        placeholder="Ingrese el estado civil" value="{{old('estadoCivil', $paciente->estadoCivil)}}">
+                        placeholder="Ingrese el estado civil" value="{{ old('estadoCivil', $paciente->estadoCivil) }}">
                 </div>
                 <div class="form-group">
                     <label for="trabajo">Trabajo que desempeña</label>
                     <input type="text" class="form-control mb-3" name="trabajo" id="trabajo"
-                        placeholder="Ingrese el trabajo" value="{{old('trabajo', $paciente->trabajo)}}">
+                        placeholder="Ingrese el trabajo" value="{{ old('trabajo', $paciente->trabajo) }}">
                 </div>
                 <div class="form-group">
                     <label for="religion">Religion</label>
                     <input type="text" class="form-control mb-3" name="religion" id="religion"
-                        placeholder="Ingrese la religión" value="{{old('religion', $paciente->religion)}}">
+                        placeholder="Ingrese la religión" value="{{ old('religion', $paciente->religion) }}">
                 </div>
                 <div class="form-group">
                     <label for="motivoConsulta">Motivo de consulta</label>
                     <input type="text" class="form-control mb-3" name="motivoConsulta" id="motivoConsulta"
                         placeholder="Ingrese el motivo de la consulta"
-                        value="{{old('motivoConsulta', $paciente->motivoConsulta)}}">
+                        value="{{ old('motivoConsulta', $paciente->motivoConsulta) }}">
                 </div>
 
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="pesoActual">Peso actual</label>
                         <input type="text" class="form-control mb-3" name="pesoActual" id="pesoActual"
-                            placeholder="Ingrese el peso actual" value="{{old('pesoActual', $paciente->pesoActual)}}">
+                            placeholder="Ingrese el peso actual" value="{{ old('pesoActual', $paciente->pesoActual) }}">
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="composCorporal">Composición corporal</label>
                         <input type="text" class="form-control mb-3" name="composCorporal" id="composCorporal"
                             placeholder="Ingrese la composición corporal "
-                            value="{{old('composCorporal', $paciente->composCorporal)}}">
+                            value="{{ old('composCorporal', $paciente->composCorporal) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="pesoUsual">Peso usual</label>
                         <input type="text" class="form-control mb-3" name="pesoUsual" id="pesoUsual"
-                            placeholder="Ingrese el peso usual " value="{{old('pesoUsual', $paciente->pesoUsual)}}">
+                            placeholder="Ingrese el peso usual " value="{{ old('pesoUsual', $paciente->pesoUsual) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="IMC">IMC</label>
                         <input type="text" class="form-control mb-3" name="IMC" id="IMC" placeholder="Ingrese el IMC "
-                            value="{{old('IMC', $paciente->IMC)}}">
+                            value="{{ old('IMC', $paciente->IMC) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="talla">Talla</label>
                         <input type="text" class="form-control mb-3" name="talla" id="talla"
-                            placeholder="Ingrese la talla " value="{{old('talla', $paciente->talla)}}">
+                            placeholder="Ingrese la talla " value="{{ old('talla', $paciente->talla) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="PI">PI</label>
                         <input type="text" class="form-control mb-3" name="PI" id="PI" placeholder="Ingrese el PI"
-                            value="{{old('PI', $paciente->PI)}}">
+                            value="{{ old('PI', $paciente->PI) }}">
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="cMuneca">C. Muñeca</label>
                         <input type="text" class="form-control mb-3" name="cMuneca" id="cMuneca"
-                            placeholder="Ingrese el C. Muñeca" value="{{old('cMuneca', $paciente->cMuneca)}}">
+                            placeholder="Ingrese el C. Muñeca" value="{{ old('cMuneca', $paciente->cMuneca) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="pesoMeta">Peso meta</label>
                         <input type="text" class="form-control mb-3" name="pesoMeta" id="pesoMeta"
-                            placeholder="Ingrese el peso meta" value="{{old('pesoMeta', $paciente->pesoMeta)}}">
+                            placeholder="Ingrese el peso meta" value="{{ old('pesoMeta', $paciente->pesoMeta) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="cAbdomen">C. Abdominal</label>
                         <input type="text" class="form-control mb-3" name="cAbdomen" id="cAbdomen"
-                            placeholder="Ingrese el C. Abdominal" value="{{old('cAbdomen', $paciente->cAbdomen)}}">
+                            placeholder="Ingrese el C. Abdominal" value="{{ old('cAbdomen', $paciente->cAbdomen) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="pesoUsar">Peso a usar</label>
                         <input type="text" class="form-control mb-3" name="pesoUsar" id="pesoUsar"
-                            placeholder="Ingrese el peso a usar" value="{{old('pesoUsar', $paciente->pesoUsar)}}">
+                            placeholder="Ingrese el peso a usar" value="{{ old('pesoUsar', $paciente->pesoUsar) }}">
                     </div>
 
 
@@ -153,39 +162,41 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="colesterol">Colesterol</label>
                         <input type="text" class="form-control mb-3" name="colesterol" id="colesterol"
-                            placeholder="Ingrese el colesterol" value="{{old('colesterol', $paciente->colesterol)}}">
+                            placeholder="Ingrese el colesterol" value="{{ old('colesterol', $paciente->colesterol) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="HDL">HDL</label>
                         <input type="text" class="form-control mb-3" name="HDL" id="HDL" placeholder="Ingrese el HDL"
-                            value="{{old('HDL', $paciente->HDL)}}">
+                            value="{{ old('HDL', $paciente->HDL) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="LDL">LDL</label>
                         <input type="text" class="form-control mb-3" name="LDL" id="LDL" placeholder="Ingrese el LDL"
-                            value="{{old('LDL', $paciente->LDL)}}">
+                            value="{{ old('LDL', $paciente->LDL) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="triglicerios">Triglicerios:</label>
                         <input type="text" class="form-control mb-3" name="triglicerios" id="triglicerios"
                             placeholder="Ingrese el triglicerio "
-                            value="{{old('triglicerios', $paciente->triglicerios)}}">
+                            value="{{ old('triglicerios', $paciente->triglicerios) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="hemoglobina">Hemoglobina:</label>
                         <input type="text" class="form-control mb-3" name="hemoglobina" id="hemoglobina"
-                            placeholder="Ingrese la hemoglobina" value="{{old('hemoglobina', $paciente->hemoglobina)}}">
+                            placeholder="Ingrese la hemoglobina"
+                            value="{{ old('hemoglobina', $paciente->hemoglobina) }}">
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <label for="hematocrito">Hematocrito</label>
                         <input type="text" class="form-control mb-3" name="hematocrito" id="hematocrito"
-                            placeholder="Ingrese el hematocrito" value="{{old('hematocrito', $paciente->hematocrito)}}">
+                            placeholder="Ingrese el hematocrito"
+                            value="{{ old('hematocrito', $paciente->hematocrito) }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="otros">Otros</label>
                     <textarea class="form-control" name="otros" id="otros" rows="3"
-                        placeholder="Otros">{{old('otros', $paciente->otros)}}</textarea>
+                        placeholder="Otros">{{ old('otros', $paciente->otros) }}</textarea>
                 </div>
             </div>
         </div>
@@ -205,43 +216,43 @@
                     <label for="APPOperaciones">APP/operaciones</label>
                     <input type="text" class="form-control " name="APPOperaciones" id="APPOperaciones"
                         placeholder="Ingrese el APP Operaciones"
-                        value="{{old('APPOperaciones', $paciente->APPOperaciones)}}">
+                        value="{{ old('APPOperaciones', $paciente->APPOperaciones) }}">
                 </div>
                 <div class="form-group">
                     <label for="APF">APF</label>
                     <input type="text" class="form-control " name="APF" id="APF" placeholder="Ingrese el APF"
-                        value="{{old('APF', $paciente->APF)}}">
+                        value="{{ old('APF', $paciente->APF) }}">
                 </div>
                 <div class="form-group">
                     <label for="medicamentos">Medicamentos</label>
                     <input type="text" class="form-control " name="medicamentos" id="medicamentos"
-                        placeholder="Ingrese medicamentos" value="{{old('medicamentos', $paciente->medicamentos)}}">
+                        placeholder="Ingrese medicamentos" value="{{ old('medicamentos', $paciente->medicamentos) }}">
                 </div>
                 <div class="form-group">
                     <label for="alergias">Alergias alimentarias</label>
                     <input type="text" class="form-control " name="alergias" id="alergias"
-                        placeholder="Ingrese alergias" value="{{old('alergias', $paciente->alergias)}}">
+                        placeholder="Ingrese alergias" value="{{ old('alergias', $paciente->alergias) }}">
                 </div>
                 <div class="form-group">
                     <label for="actividaFisica">Activida física</label>
                     <input type="text" class="form-control " name="actividaFisica" id="actividaFisica"
                         placeholder="Ingrese la actividaFisica"
-                        value="{{old('actividaFisica', $paciente->actividaFisica)}}">
+                        value="{{ old('actividaFisica', $paciente->actividaFisica) }}">
                 </div>
                 <div class="form-group">
                     <label for="tipo">Tipo</label>
                     <input type="text" class="form-control " name="tipo" id="tipo" placeholder="Ingrese el tipo"
-                        value="{{old('tipo', $paciente->tipo)}}">
+                        value="{{ old('tipo', $paciente->tipo) }}">
                 </div>
                 <div class="form-group">
                     <label for="frecuencia">¿Frecuencia?</label>
                     <input type="text" class="form-control " name="frecuencia" id="frecuencia"
-                        placeholder="Ingrese la frecuencia" value="{{old('frecuencia', $paciente->frecuencia)}}">
+                        placeholder="Ingrese la frecuencia" value="{{ old('frecuencia', $paciente->frecuencia) }}">
                 </div>
                 <div class="form-group">
                     <label for="suplementos">Suplementos</label>
                     <input type="text" class="form-control " name="suplementos" id="suplementos"
-                        placeholder="Ingrese suplementos" value="{{old('suplementos', $paciente->suplementos)}}">
+                        placeholder="Ingrese suplementos" value="{{ old('suplementos', $paciente->suplementos) }}">
                 </div>
             </div>
         </div>
@@ -270,49 +281,49 @@
                         <tr>
                             <td>Desayuno</td>
                             <td><input type="time" name="Desayuno" id="Desayuno"
-                                    value="{{old('desayunoHora', $paciente->desayunoHora)}}"></td>
+                                    value="{{ old('desayunoHora', $paciente->desayunoHora) }}"></td>
                             <td><textarea class="form-control" name="Desayuno" id="Desayuno" rows="3"
-                                    placeholder="Ingrese una descripción">{{old('desayunoAlimento', $paciente->desayunoAlimento)}}</textarea>
+                                    placeholder="Ingrese una descripción">{{ old('desayunoAlimento', $paciente->desayunoAlimento) }}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>MM</td>
-                            <td><input type="time" name="MM" id="MM" value="{{old('mmHora', $paciente->mmHora)}}">
+                            <td><input type="time" name="MM" id="MM" value="{{ old('mmHora', $paciente->mmHora) }}">
                             </td>
                             <td><textarea class="form-control" name="MM" id="MM" rows="3"
-                                    placeholder="Ingrese una descripción">{{old('mmAlimento', $paciente->mmAlimento)}}</textarea>
+                                    placeholder="Ingrese una descripción">{{ old('mmAlimento', $paciente->mmAlimento) }}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>Almuerzo</td>
                             <td><input type="time" name="Almuerzo" id="Almuerzo"
-                                    value="{{old('almuerzoHora', $paciente->almuerzoHora)}}"></td>
+                                    value="{{ old('almuerzoHora', $paciente->almuerzoHora) }}"></td>
                             <td><textarea class="form-control" name="Almuerzo" id="Almuerzo" rows="3"
-                                    placeholder="Ingrese una descripción">{{old('almuerzoAlimento', $paciente->almuerzoAlimento)}}</textarea>
+                                    placeholder="Ingrese una descripción">{{ old('almuerzoAlimento', $paciente->almuerzoAlimento) }}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>MT</td>
-                            <td><input type="time" name="MT" id="MT" value="{{old('mtHora', $paciente->mtHora)}}">
+                            <td><input type="time" name="MT" id="MT" value="{{ old('mtHora', $paciente->mtHora) }}">
                             </td>
                             <td><textarea class="form-control" name="MT" id="MT" rows="3"
-                                    placeholder="Ingrese una descripción">{{old('mtAlimento', $paciente->mtAlimento)}}</textarea>
+                                    placeholder="Ingrese una descripción">{{ old('mtAlimento', $paciente->mtAlimento) }}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>Cena</td>
-                            <td><input type="time" name="" id="" value="{{old('cenaHora', $paciente->cenaHora)}}">
+                            <td><input type="time" name="" id="" value="{{ old('cenaHora', $paciente->cenaHora) }}">
                             </td>
                             <td><textarea class="form-control" name="descripcion" id="descripcion" rows="3"
-                                    placeholder="Ingrese una descripción">{{old('cenaAlimento', $paciente->cenaAlimento)}}</textarea>
+                                    placeholder="Ingrese una descripción">{{ old('cenaAlimento', $paciente->cenaAlimento) }}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>CN</td>
-                            <td><input type="time" name="CN" id="CN" value="{{old('cnHora', $paciente->cnHora)}}">
+                            <td><input type="time" name="CN" id="CN" value="{{ old('cnHora', $paciente->cnHora) }}">
                             </td>
                             <td><textarea class="form-control" name="CN" id="CN" rows="3"
-                                    placeholder="Ingrese una descripción">{{old('cnAlimento', $paciente->cnAlimento)}}</textarea>
+                                    placeholder="Ingrese una descripción">{{ old('cnAlimento', $paciente->cnAlimento) }}</textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -320,65 +331,65 @@
                 <div class="form-group">
                     <label for="total">Total</label>
                     <input type="text" class="form-control " name="total" id="total" placeholder="Ingrese total"
-                        value="{{old('total', $paciente->total)}}">
+                        value="{{ old('total', $paciente->total) }}">
                 </div>
                 <div class="form-group">
                     <label for="observaciones">observaciones</label>
                     <textarea class="form-control" name="observaciones" id="observaciones" rows="3"
-                        placeholder="Ingrese las observaciones">{{old('observaciones', $paciente->observaciones)}}</textarea>
+                        placeholder="Ingrese las observaciones">{{ old('observaciones', $paciente->observaciones) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="pregunta1">¿Ha realizado alguna dieta anteriormente?
                     </label>
                     <input type="text" class="form-control " name="pregunta1" id="pregunta1"
-                        placeholder="Ingrese pregunta1" value="{{old('pregunta1', $paciente->pregunta1)}}">
+                        placeholder="Ingrese pregunta1" value="{{ old('pregunta1', $paciente->pregunta1) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta2">Alimentos que le gustan
                     </label>
                     <input type="text" class="form-control " name="pregunta2" id="pregunta2"
-                        placeholder="Ingrese pregunta2" value="{{old('pregunta2', $paciente->pregunta2)}}">
+                        placeholder="Ingrese pregunta2" value="{{ old('pregunta2', $paciente->pregunta2) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta3">Alimentos que no le gustan
                     </label>
                     <input type="text" class="form-control " name="pregunta3" id="pregunta3"
-                        placeholder="Ingrese pregunta3" value="{{old('pregunta3', $paciente->pregunta3)}}">
+                        placeholder="Ingrese pregunta3" value="{{ old('pregunta3', $paciente->pregunta3) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta4">Tipo de cocción
                     </label>
                     <input type="text" class="form-control " name="pregunta4" id="pregunta4"
-                        placeholder="Ingrese pregunta4" value="{{old('pregunta4', $paciente->pregunta4)}}">
+                        placeholder="Ingrese pregunta4" value="{{ old('pregunta4', $paciente->pregunta4) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta5">Manera de endulzar
                     </label>
                     <input type="text" class="form-control " name="pregunta5" id="pregunta5"
-                        placeholder="Ingrese pregunta5" value="{{old('pregunta5', $paciente->pregunta5)}}">
+                        placeholder="Ingrese pregunta5" value="{{ old('pregunta5', $paciente->pregunta5) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta6">Cantidad de tiempos de comida
                     </label>
                     <input type="text" class="form-control " name="pregunta6" id="pregunta6"
-                        placeholder="Ingrese pregunta6" value="{{old('pregunta6', $paciente->pregunta6)}}">
+                        placeholder="Ingrese pregunta6" value="{{ old('pregunta6', $paciente->pregunta6) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta7">¿Dónde realiza sus tiempos de comida?
                     </label>
                     <input type="text" class="form-control " name="pregunta7" id="pregunta7"
-                        placeholder="Ingrese pregunta7" value="{{old('pregunta7', $paciente->pregunta7)}}">
+                        placeholder="Ingrese pregunta7" value="{{ old('pregunta7', $paciente->pregunta7) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta8">¿Quién prepara sus comidas?
                     </label>
                     <input type="text" class="form-control " name="pregunta8" id="pregunta8"
-                        placeholder="Ingrese pregunta8" value="{{old('pregunta8', $paciente->pregunta8)}}">
+                        placeholder="Ingrese pregunta8" value="{{ old('pregunta8', $paciente->pregunta8) }}">
                 </div>
                 <div class="form-group">
                     <label for="diagnostico">Diagnóstico</label>
                     <textarea class="form-control" name="diagnostico" id="diagnostico" rows="3"
-                        placeholder="Ingrese las diagnostico">{{old('diagnostico', $paciente->diagnostico)}}</textarea>
+                        placeholder="Ingrese las diagnostico">{{ old('diagnostico', $paciente->diagnostico) }}</textarea>
                 </div>
             </div>
         </div>
@@ -398,12 +409,12 @@
                     <label for="logrosPlan">Logros del plan nutricional
                     </label>
                     <input type="text" class="form-control " name="logrosPlan" id="logrosPlan"
-                        placeholder="Ingrese logrosPlan" value="{{old('logrosPlan', $paciente->logrosPlan)}}">
+                        placeholder="Ingrese logrosPlan" value="{{ old('logrosPlan', $paciente->logrosPlan) }}">
                 </div>
                 <div class="form-group">
                     <label for="deficientes">Áreas deficientes</label>
                     <textarea class="form-control" name="deficientes" id="deficientes" rows="3"
-                        placeholder="Ingrese las deficientes">{{old('deficientes', $paciente->deficientes)}}</textarea>
+                        placeholder="Ingrese las deficientes">{{ old('deficientes', $paciente->deficientes) }}</textarea>
                 </div>
                 <table class="table  mt-4 text-center">
                     <thead class="thead-dark">
@@ -418,47 +429,47 @@
                             <td>Peso</td>
                             <td><input type="text" class="form-control " name="pesoInicial" id="pesoInicial"
                                     placeholder="Ingrese pesoInicial"
-                                    value="{{old('pesoInicial', $paciente->pesoInicial)}}"></td>
+                                    value="{{ old('pesoInicial', $paciente->pesoInicial) }}"></td>
                             <td><input type="text" class="form-control " name="pesoSeguimiento" id="pesoSeguimiento"
                                     placeholder="Ingrese pesoSeguimiento"
-                                    value="{{old('pesoSeguimiento', $paciente->pesoSeguimiento)}}"></td>
+                                    value="{{ old('pesoSeguimiento', $paciente->pesoSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>IMC</td>
                             <td><input type="text" class="form-control " name="imcInicial" id="imcInicial"
                                     placeholder="Ingrese imcInicial"
-                                    value="{{old('imcInicial', $paciente->imcInicial)}}"></td>
+                                    value="{{ old('imcInicial', $paciente->imcInicial) }}"></td>
                             <td><input type="text" class="form-control " name="imcSeguimiento" id="imcSeguimiento"
                                     placeholder="Ingrese imcSeguimiento"
-                                    value="{{old('imcSeguimiento', $paciente->imcSeguimiento)}}"></td>
+                                    value="{{ old('imcSeguimiento', $paciente->imcSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>% grasa</td>
                             <td><input type="text" class="form-control " name="grasaInicial" id="grasaInicial"
                                     placeholder="Ingrese grasaInicial"
-                                    value="{{old('grasaInicial', $paciente->grasaInicial)}}"></td>
+                                    value="{{ old('grasaInicial', $paciente->grasaInicial) }}"></td>
                             <td><input type="text" class="form-control " name="grasaSeguimiento" id="grasaSeguimiento"
                                     placeholder="Ingrese grasaSeguimiento"
-                                    value="{{old('grasaSeguimiento', $paciente->grasaSeguimiento)}}"></td>
+                                    value="{{ old('grasaSeguimiento', $paciente->grasaSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>Circunferencia abdominal</td>
                             <td><input type="text" class="form-control " name="circAbdominalInicial"
                                     id="circAbdominalInicial" placeholder="Ingrese circAbdominalInicial"
-                                    value="{{old('circAbdominalInicial', $paciente->circAbdominalInicial)}}"></td>
+                                    value="{{ old('circAbdominalInicial', $paciente->circAbdominalInicial) }}"></td>
                             <td><input type="text" class="form-control " name="circAbdominalSeguimiento"
                                     id="circAbdominalSeguimiento" placeholder="Ingrese circAbdominalSeguimiento"
-                                    value="{{old('circAbdominalSeguimiento', $paciente->circAbdominalSeguimiento)}}">
+                                    value="{{ old('circAbdominalSeguimiento', $paciente->circAbdominalSeguimiento) }}">
                             </td>
                         </tr>
                         <tr>
                             <td>Requerimiento</td>
                             <td><input type="text" class="form-control " name="requerimientoInicial"
                                     id="requerimientoInicial" placeholder="Ingrese requerimientoInicial"
-                                    value="{{old('requerimientoInicial', $paciente->requerimientoInicial)}}"></td>
+                                    value="{{ old('requerimientoInicial', $paciente->requerimientoInicial) }}"></td>
                             <td><input type="text" class="form-control " name="requerimientoSeguimiento"
                                     id="requerimientoSeguimiento" placeholder="Ingrese requerimientoSeguimiento"
-                                    value="{{old('requerimientoSeguimiento', $paciente->requerimientoSeguimiento)}}">
+                                    value="{{ old('requerimientoSeguimiento', $paciente->requerimientoSeguimiento) }}">
                             </td>
                         </tr>
                         <tr>
@@ -468,40 +479,40 @@
                             <td>CHO</td>
                             <td><input type="text" class="form-control " name="distChoInicial" id="distChoInicial"
                                     placeholder="Ingrese distChoInicial"
-                                    value="{{old('distChoInicial', $paciente->distChoInicial)}}"></td>
+                                    value="{{ old('distChoInicial', $paciente->distChoInicial) }}"></td>
                             <td><input type="text" class="form-control " name="distChoSeguimiento"
                                     id="distChoSeguimiento" placeholder="Ingrese distChoSeguimiento"
-                                    value="{{old('distChoSeguimiento', $paciente->distChoSeguimiento)}}"></td>
+                                    value="{{ old('distChoSeguimiento', $paciente->distChoSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>CHON</td>
                             <td><input type="text" class="form-control " name="distChonInicial" id="distChonInicial"
                                     placeholder="Ingrese distChonInicial"
-                                    value="{{old('distChonInicial', $paciente->distChonInicial)}}"></td>
+                                    value="{{ old('distChonInicial', $paciente->distChonInicial) }}"></td>
                             <td><input type="text" class="form-control " name="distChonSeguimiento"
                                     id="distChonSeguimiento" placeholder="Ingrese distChonSeguimiento"
-                                    value="{{old('distChonSeguimiento', $paciente->distChonSeguimiento)}}"></td>
+                                    value="{{ old('distChonSeguimiento', $paciente->distChonSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>Grasas</td>
                             <td><input type="text" class="form-control " name="distGrasasInicial" id="distGrasasInicial"
                                     placeholder="Ingrese distGrasasInicial"
-                                    value="{{old('distGrasasInicial', $paciente->distGrasasInicial)}}"></td>
+                                    value="{{ old('distGrasasInicial', $paciente->distGrasasInicial) }}"></td>
                             <td><input type="text" class="form-control " name="distGrasasSeguimiento"
                                     id="distGrasasSeguimiento" placeholder="Ingrese distGrasasSeguimiento"
-                                    value="{{old('distGrasasSeguimiento', $paciente->distGrasasSeguimiento)}}"></td>
+                                    value="{{ old('distGrasasSeguimiento', $paciente->distGrasasSeguimiento) }}"></td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="form-group">
                     <label for="cambioPlan">Cambios en plan de alimentación</label>
                     <textarea class="form-control" name="cambioPlan" id="cambioPlan" rows="3"
-                        placeholder="Ingrese las cambioPlan">{{old('cambioPlan', $paciente->cambioPlan)}}</textarea>
+                        placeholder="Ingrese las cambioPlan">{{ old('cambioPlan', $paciente->cambioPlan) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="metasObjetivos">Metas y objetivos nuevos</label>
                     <textarea class="form-control" name="metasObjetivos" id="metasObjetivos" rows="3"
-                        placeholder="Ingrese las metasObjetivos">{{old('metasObjetivos', $paciente->metasObjetivos)}}</textarea>
+                        placeholder="Ingrese las metasObjetivos">{{ old('metasObjetivos', $paciente->metasObjetivos) }}</textarea>
                 </div>
             </div>
         </div>
@@ -509,7 +520,6 @@
 </div>
 <div class="d-flex justify-content-end mt-5">
     <div class="d-flex justify-content-end mt-5">
-        
-        <a class="btn btn-primary mr-3" href="{{route('pacientes.index')}}" role="button">Volver</a>
-        <button class="btn btn-secondary text-white">{{$btnText ?? ''}}</button>
+        <a class="btn btn-primary mr-3" href="{{ route('pacientes.index') }}" role="button">Volver</a>
+        <button class="btn btn-secondary text-white">{{ $btnText ?? '' }}</button>
     </div>

@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "239618d6f05e7aef952a39b6d3c2c197",
-=======
     "content-hash": "9cd745007166a0fa442168268aa16192",
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1202,34 +1198,6 @@
             "time": "2020-05-18T15:13:39+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "livewire/livewire",
-            "version": "v1.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/livewire/livewire.git",
-                "reference": "07f0b2d41a7837b4d6199da7b591169a84fbaabe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/07f0b2d41a7837b4d6199da7b591169a84fbaabe",
-                "reference": "07f0b2d41a7837b4d6199da7b591169a84fbaabe",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "illuminate/validation": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.1.3",
-                "symfony/http-kernel": "^4.0|^5.0"
-            },
-            "require-dev": {
-                "laravel/framework": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
-                "mockery/mockery": "^1.3.1",
-                "orchestra/testbench": "~3.6.0|~3.7.0|~3.8.0|^4.0|^5.0",
-                "phpunit/phpunit": "^7.5.15|^8.4|^9.0",
-                "psy/psysh": "@stable"
-=======
             "name": "maatwebsite/excel",
             "version": "3.1.21",
             "source": {
@@ -1253,33 +1221,21 @@
                 "orchestra/database": "^5.0",
                 "orchestra/testbench": "^5.0",
                 "predis/predis": "^1.1"
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-<<<<<<< HEAD
-                        "Livewire\\LivewireServiceProvider"
-                    ],
-                    "aliases": {
-                        "Livewire": "Livewire\\Livewire"
-=======
                         "Maatwebsite\\Excel\\ExcelServiceProvider"
                     ],
                     "aliases": {
                         "Excel": "Maatwebsite\\Excel\\Facades\\Excel"
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
                     }
                 }
             },
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
-                    "Livewire\\": "src/"
-=======
                     "Maatwebsite\\Excel\\": "src/"
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1288,14 +1244,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-                    "name": "Caleb Porzio",
-                    "email": "calebporzio@gmail.com"
-                }
-            ],
-            "description": "A front-end framework for Laravel.",
-            "time": "2020-07-16T14:43:11+00:00"
-=======
                     "name": "Patrick Brouwers",
                     "email": "patrick@maatwebsite.nl"
                 }
@@ -1538,7 +1486,6 @@
                 "vector"
             ],
             "time": "2019-10-06T11:29:25+00:00"
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
         },
         {
             "name": "monolog/monolog",
@@ -1620,8 +1567,6 @@
                 "psr-3"
             ],
             "time": "2020-05-22T08:12:19+00:00"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "myclabs/php-enum",
@@ -1668,7 +1613,6 @@
                 "enum"
             ],
             "time": "2020-02-14T08:15:52+00:00"
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
         },
         {
             "name": "nesbot/carbon",

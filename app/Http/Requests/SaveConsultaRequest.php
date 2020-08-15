@@ -24,6 +24,7 @@ class SaveConsultaRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'nullable|unique:pacientes',
             'nombre' => 'nullable',
             'apellido' => 'nullable',
             'genero' => 'nullable',

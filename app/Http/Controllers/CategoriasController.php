@@ -102,4 +102,5 @@ class CategoriasController extends Controller
         $categorias->delete();
         return redirect()->route('categorias.index')->with('status', 'La categoria fue eliminada');
     }
+
 }
