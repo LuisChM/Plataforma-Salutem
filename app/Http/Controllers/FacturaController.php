@@ -7,10 +7,15 @@ use App\Http\Requests\SaveFacturaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-use function GuzzleHttp\Promise\all;
-
 class FacturaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

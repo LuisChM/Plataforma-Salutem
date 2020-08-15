@@ -49742,6 +49742,22 @@ $(function () {
   var accordion = new Accordion($('#accordion'), false);
 });
 
+function searchPaciente() {
+  var CSRF_TOKEN = $('meta[name="csrf-token]').attr('content');
+  var value = $("#searchPaciente").val();
+  $.ajax({
+    url: '/searchPaciente',
+    type: 'POST',
+    data: {
+      _token: CSRF_TOKEN,
+      value: value
+    },
+    success: function success(data) {
+      $('#tableP').html(data);
+    }
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -49881,6 +49897,5 @@ module.exports = __webpack_require__(/*! E:\laragon\www\Plataforma-Salutem\resou
 
 
 /***/ })
-
 
 /******/ });

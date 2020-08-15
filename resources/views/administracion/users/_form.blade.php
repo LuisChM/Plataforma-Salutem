@@ -2,7 +2,7 @@
 <div class="form-group">
     <label for="name">Nombre:</label>
     <input type="text" class="form-control @error('name') is-invalid @else border-0 @enderror" name="name" id="name"
-        placeholder="Ingrese el nombre del usuario"  value="{{old('name', $user->name)}}">
+        placeholder="Ingrese el nombre del usuario"  value="{{old('name', $user->name)}}" >
     @error('name')
     <span class="invalid-feedback" role="alert">
         <strong>{{$message}}</strong>

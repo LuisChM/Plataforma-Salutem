@@ -139,7 +139,7 @@
         display: block;
         padding: 15px;
         color: #4D4D4D;
-        font-size: 20px;
+        font-size: 18px;
         border-bottom: 1px solid #CCC;
         position: relative;
         -webkit-transition: all 0.4s ease;
@@ -155,7 +155,7 @@
     li .iconoFlecha {
         right: 12px;
         left: auto;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     li.open .link {
@@ -204,4 +204,16 @@
     border:none;
     outline:none;
     
+}
+
+.logoCentro{
+    opacity: 0.4;
+    margin-top: 100px;
+}
+
+.bg-none{
+    background: none;
+}
+.bg-collapse-gray{
+    background: #595959;
 }

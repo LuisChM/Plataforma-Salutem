@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\SaveConsultaRequest;
+use App\Paciente;
+use App\User;
+use Illuminate\Http\Request;
+
+class pacienteController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $name  = $request->get('name');
+        $email  = $request->get('email');
+
+        $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
+            ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
+            ->where('roles.nombre', '=', 'paciente')
+            ->name($name)
+            ->email($email)
+            ->paginate();
+
+        return view('nutricion.pacientes.index', compact('paciente'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {        
+        $user = User::all();
+
+        return view('nutricion.pacientes.create', [
+            'paciente' => new Paciente,
+            'user'=> $user
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(SaveConsultaRequest $request)
+    {
+        Paciente::updateOrCreate($request->validated());
+
+        return redirect()->route('pacientes.index')->with('status', 'La pacientes se formo con éxito');   
+     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Paciente  $paciente
+     * @return \Illuminate\Http\Response
+     */
+    public function show(paciente $paciente)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Paciente  $paciente
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id, Paciente $paciente)
+    {
+        $user = User::findOrFail($id);
+        return view('nutricion.pacientes.edit', [
+            'paciente' => $paciente,
+            'user' => $user
+        ]);    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Paciente  $paciente
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Paciente $paciente, SaveConsultaRequest $request)
+    {
+        Paciente::updateOrCreate($request->validated());
+        return redirect()->route('pacientes.index')->with('status', 'Se actualizo el paciente con éxito'); 
+        }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Paciente  $paciente
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Paciente $paciente)
+    {
+        //
+    }
+}

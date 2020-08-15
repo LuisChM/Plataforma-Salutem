@@ -17,9 +17,15 @@ Editar productos
 
 <label for="nombre ">{{'Nombre de producto'}}</label>
 <input class="form-control" type="text" name="nombre" id="nombre" value="{{$producto->nombre}}">
+<<<<<<< HEAD
 <!--<br>
 <label for="categoria"></label>
 <input class="form-control" type="text" name="categoria" id="categoria" value="">-->
+=======
+<br>
+<label for="categoria">{{'Categoria'}}</label>
+<input class="form-control" type="text" name="categoria" id="categoria" value="{{$producto->categoria}}">
+>>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
 <br>
 <label for="cantidad ">{{'Cantidad'}}</label>
 <input class="form-control" type="text" name="cantidad" id="cantidad" value="{{$producto->cantidad}}">

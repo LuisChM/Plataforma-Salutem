@@ -10,7 +10,7 @@ use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-  public  function __construct()
+   function __construct()
     {
         $this->middleware([
             'auth',
@@ -23,9 +23,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $user = User::orderBy('created_at', 'ASC')->paginate();
+    public function index(Request $request)
+    {          
+        $name  = $request->get('name');
+
+        $user = User::orderBy('created_at', 'ASC')->name($name)->paginate();
 
         return view('administracion.users.index', compact('user'));
     }

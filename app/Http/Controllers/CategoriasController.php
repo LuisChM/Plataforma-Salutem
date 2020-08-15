@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
 {
+    
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -78,8 +87,8 @@ class CategoriasController extends Controller
      */
     public function update(Categorias $categorias, SaveCategoriasRequest $request)
     {
-        $categorias->update($request->validated());
-        return redirect()->route('categorias.index', $categorias)->with('status', 'El proyecto fue actualizado');
+       $categorias->update($request->validated());
+        return redirect()->route('categorias.index', $categorias)->with('status','El proyecto fue actualizado');
     }
 
     /**

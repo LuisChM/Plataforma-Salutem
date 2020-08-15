@@ -48,8 +48,20 @@ Route::resource('role','RoleController')->names('roles')->middleware('verified')
 
 Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
+
+=======
+>>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
+<<<<<<< HEAD
 Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar_producto')->middleware('verified');
+=======
+Route::view('calculo' , 'administracion.calculo.index')->name('calculo')->middleware('verified');
+>>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
+>>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
