@@ -9,13 +9,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>@yield('title','Dashboard')</title>
 </head>
 
 <body>
+    @include('sweet::alert')
+
     <div id="app">
         <div class="d-flex" id="wrapper">
 
@@ -44,7 +48,6 @@
                                 <li> <a href="#">Historial productos</a></li>
                                 <li> <a href="{{route('compras.index')}}">Inventario productos</a></li>
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
-                                <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
                                 <li><a href="{{route('ventas.index')}}">Administracion de comidas</a></li>
                                 <li><a href="{{route('compra.index')}}">Compra de Comida</a></li>
                                 <li> <a href="#">Historial productos</a>
@@ -85,7 +88,7 @@
                             <li> <a href="{{route('pacientes.create')}}">Consulta nutricional</a></li>
                             <li> <a href="{{route('pacientes.index')}}">Pacientes</a></li>
                             <li> <a href="{{route('calculo')}}">Cálculo de dieta</a></li>
-                            <li> <a href="{{route('chart')}}">Reportes de progreso</a></li>
+                            <li> <a href="{{route('chart')}}">Reportes</a></li>
                         </ul>
                     </li>
                     @endif

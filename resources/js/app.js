@@ -168,3 +168,20 @@ var barChart = new Chart(densityCanvas, {
   options: chartOptions
 });
 
+$('.delete-confirm').click(function(event) {
+	var form =  $(this).closest("form");
+	event.preventDefault();
+	swal({
+		title: `Esta seguro de eliminar?`,
+		text: "Si borra esto, desaparecerá para siempre.",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {
+		form.submit();
+	  }
+	});
+});
+

@@ -7,8 +7,6 @@ Roles
 <div class="container mt-5">
     <div class="responsive-table">
         <a class="btn btn-primary" href="{{route('roles.create')}}" role="button">Agregar nueva rol </a>
-        @include('partial.session-status')
-
         <table class="table table-striped mt-4 text-center">
             <thead class="thead-dark">
                 <tr>
@@ -34,8 +32,7 @@ Roles
 
                             <form method="Post" action="{{route('roles.destroy',$roles)}}">
                                 @csrf @method('delete')
-                                <button class="bg-transparent border-0" type="submit"
-                                    onclick="return confirm('seguro');"><img src="/img/basura.svg" class="iconoAccion"
+                                    <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
                                         alt="eliminar"></button>
                             </form>
                         </div>

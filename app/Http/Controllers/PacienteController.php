@@ -6,8 +6,9 @@ use App\Http\Requests\SaveConsultaRequest;
 use App\Paciente;
 use App\User;
 use Illuminate\Http\Request;
+// use SweetAlert;
 
-class pacienteController extends Controller
+class PacienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +17,18 @@ class pacienteController extends Controller
      */
     public function index(Request $request)
     {
-        $name  = $request->get('name');
-        $email  = $request->get('email');
+        // $name  = $request->get('name');
+        // $email  = $request->get('email');
 
-        $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
-            ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
-            ->where('roles.nombre', '=', 'paciente')
-            ->name($name)
-            ->email($email)
-            ->paginate();
+        // $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
+        //     ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
+        //     ->where('roles.nombre', '=', 'paciente')
+        //     ->name($name)
+        //     ->email($email)
+        //     ->paginate();
+            
+        $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
+
 
         return view('nutricion.pacientes.index', compact('paciente'));
     }
@@ -57,7 +61,7 @@ class pacienteController extends Controller
         $datos->user_id = $user_id;
         $datos->save();
 
-        return redirect()->route('pacientes.index')->with('status', 'La consulta se formo con éxito');
+        return redirect()->route('pacientes.index')->with('succes', 'La consulta se formo con éxito');
     }
 
     /**
@@ -77,13 +81,9 @@ class pacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Paciente $paciente)
     {
-        $paciente = User::findOrFail($id);
-        // $user = User::all();
-        
-        return view('nutricion.pacientes.edit', [
-            // 'paciente' => $paciente,
+            return view('nutricion.pacientes.edit', [
             'paciente' => $paciente
 
         ]);
@@ -96,10 +96,9 @@ class pacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(SaveConsultaRequest $request, Paciente $paciente, $id)
+    public function update(SaveConsultaRequest $request, Paciente $paciente)
     {
-        $paciente = User::findOrFail($id);
-
+    
         $paciente->update($request->validated());
         return redirect()->route('pacientes.index')->with('status', 'Se actualizo el paciente con éxito');
     }

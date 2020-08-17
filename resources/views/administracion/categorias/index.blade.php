@@ -7,7 +7,6 @@ Control de categorias
 <div class="container mt-5">
     <div class="responsive-table">
         <a class="btn btn-primary" href="{{route('categorias.create')}}" role="button">Agregar nueva categoria </a>
-        @include('partial.session-status')
 
         <table class="table table-striped mt-4 text-center">
             <thead class="thead-dark">

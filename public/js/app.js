@@ -49772,8 +49772,7 @@ var myDoughnutChart = new Chart(ctxx, {
 
   },
   options: {}
-}); // var ctxy = document.getElementById('myBarChart').getContext('2d'); Este es un reporte de barras que se puede utilizar en una futura implementacion
-
+});
 var densityCanvas = document.getElementById("densityChart");
 Chart.defaults.global.defaultFontFamily = "Lato";
 Chart.defaults.global.defaultFontSize = 18;
@@ -49804,19 +49803,22 @@ var barChart = new Chart(densityCanvas, {
     datasets: [densityData]
   },
   options: chartOptions
-}); // var myBarChart = new Chart(ctxy, {
-//             type: 'horizontalBar',
-//             data: {
-//                 labels: ['Pacientes entre 5-15','Pacientes entre 15-20 ','Pacientes entre 20-30','Pacientes mas de 30'],
-//                 datasets: [{
-//                             label: 'Peso',
-//                             backgroundColor: ["rgb(192, 12, 189)", "rgb(254, 53, 25)", "rgb(19, 21, 218)", "rgb(56, 218, 19)"],
-//                             data: [9, 8, 7, 6]
-//                         }],
-//                         // labels: ['a','b','c','d']
-//                     },
-//                     options: {}
-//         });
+});
+$('.delete-confirm').click(function (event) {
+  var form = $(this).closest("form");
+  event.preventDefault();
+  swal({
+    title: "Esta seguro de eliminar?",
+    text: "Si borra esto, desaparecerá para siempre.",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true
+  }).then(function (willDelete) {
+    if (willDelete) {
+      form.submit();
+    }
+  });
+});
 
 /***/ }),
 
