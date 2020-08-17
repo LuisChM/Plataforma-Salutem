@@ -46,30 +46,19 @@ Route::resource('categorias','CategoriasController')->names('categorias')->middl
 
 Route::resource('role','RoleController')->names('roles')->middleware('verified');
 
-// Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
+//  Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
 
-<<<<<<< HEAD
-Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
 
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
+ Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
 
-=======
->>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
->>>>>>> a1ac7a5419bc6024332ae09d23bd7b6c62ae1958
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
-<<<<<<< HEAD
+
 Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar_producto')->middleware('verified');
-=======
-Route::view('calculo' , 'administracion.calculo.index')->name('calculo')->middleware('verified');
-<<<<<<< HEAD
-=======
->>>>>>> e364e4e0490205c0716765d317afab75a3dc24ba
->>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
->>>>>>> a1ac7a5419bc6024332ae09d23bd7b6c62ae1958
+
+Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware('verified');
+
+Route::view('chart', 'charts')->name('chart')->middleware('verified');
+// Route::get('chart', 'ChartController@index');

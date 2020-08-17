@@ -46,22 +46,13 @@
                                 <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
                                 <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
                                 <li><a href="{{route('ventas.index')}}">Administracion de comidas</a></li>
-<<<<<<< HEAD
                                 <li><a href="{{route('compra.index')}}">Compra de Comida</a></li>
-=======
-
-<<<<<<< HEAD
-                                {{-- <li> <a href="#">Historial productos</a>
-=======
->>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
                                 <li> <a href="#">Historial productos</a>
->>>>>>> a1ac7a5419bc6024332ae09d23bd7b6c62ae1958
                                 </li>
                                 <li> <a href="{{route('compras.index')}}">Compra de productos</a>
-                                <li> <a href="{{route('users.index')}}">Usuarios</a>
-                                <li> <a href="{{route('roles.index')}}">Roles</a>
+                                
 
-                                </li> --}}
+                                </li> 
 
                                 @endif
                             </ul>
@@ -93,7 +84,8 @@
                         <ul class="submenu px-2">
                             <li> <a href="{{route('pacientes.create')}}">Consulta nutricional</a></li>
                             <li> <a href="{{route('pacientes.index')}}">Pacientes</a></li>
-                            <li> <a href="#">Cálculo de dieta</a></li>
+                            <li> <a href="{{route('calculo')}}">Cálculo de dieta</a></li>
+                            <li> <a href="{{route('chart')}}">Reportes de progreso</a></li>
                         </ul>
                     </li>
                     @endif
@@ -176,7 +168,8 @@
         <!-- /#wrapper -->
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"> </script>
 <script src="/js/app.js"></script>
+
 
 </html>
