@@ -6,6 +6,7 @@ use App\Http\Requests\SaveConsultaRequest;
 use App\Paciente;
 use App\User;
 use Illuminate\Http\Request;
+// use SweetAlert;
 
 class PacienteController extends Controller
 {
@@ -60,7 +61,7 @@ class PacienteController extends Controller
         $datos->user_id = $user_id;
         $datos->save();
 
-        return redirect()->route('pacientes.index')->with('status', 'La consulta se formo con éxito');
+        return redirect()->route('pacientes.index')->with('succes', 'La consulta se formo con éxito');
     }
 
     /**

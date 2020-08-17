@@ -7,7 +7,6 @@ Control costo / gasto
 <div class="container mt-5">
     <div class="responsive-table">
         <a class="btn btn-primary mb-3" href="{{route('facturas.create')}}" role="button">Agregar nueva factura </a>
-        @include('partial.session-status')
 
         <table class="table table-striped mt-4 text-center">
             <thead class="thead-dark">

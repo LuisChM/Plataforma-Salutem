@@ -6,6 +6,7 @@ use App\Http\Requests\SaveRolRequest;
 use App\Role;
 use Illuminate\Http\Request;
 
+
 class RoleController extends Controller
 {
    
@@ -42,7 +43,7 @@ class RoleController extends Controller
     {
         Role::create($request->validated());
 
-        return redirect()->route('roles.index')->with('status', 'El rol se creo con exito');
+        return redirect()->route('roles.index')->with('success', 'El rol se creo con exito');
     }
 
     /**
@@ -79,7 +80,7 @@ class RoleController extends Controller
     public function update(Role $role, SaveRolRequest $request)
     {
         $role->update($request->validated());
-        return redirect()->route('roles.index')->with('status', 'El rol fue actualizado');
+        return redirect()->route('roles.index')->with('success', 'El rol fue actualizado');
     }
 
     /**
@@ -91,6 +92,6 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        return redirect()->route('roles.index')->with('status', 'El rol fue eliminado');
+        return redirect()->route('roles.index')->with('success', 'El rol fue eliminado');
     }
 }
