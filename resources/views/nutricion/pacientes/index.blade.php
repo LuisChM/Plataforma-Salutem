@@ -19,13 +19,10 @@
             {{-- /buscar paciente --}}
 
             <a class="btn btn-primary" href="{{ route('users.create') }}" role="button">Agregar nuevo paciente </a>
-            @include('partial.session-status')
             <table class="table table-striped mt-4 text-center">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
-                        {{-- <th scope="col">Rol</th> --}}
                         <th scope="col">Acción</th>
 
                     </tr>
@@ -33,16 +30,16 @@
                 <tbody>
                     @foreach ($paciente as $pacientes)
                         <tr>
-                            <td>{{ $pacientes->name }}</td>
-                            <td>{{ $pacientes->email }}</td>
-                            {{-- <td>
-                                {{ $pacientes->roles->pluck('display_nombre')->implode(', ') }}
-                            </td> --}}
+                            <td>{{ $pacientes->nombre }}</td>
                             <td>
                                 <div class="d-flex justify-content-around">
                                     {{-- seleccionar dato por id y editarlo
                                     --}}
+<<<<<<< HEAD
                                     <a href="{{ url('paciente/'.$pacientes->id.'/edit') }}"><img src="/img/seleccionar.svg"
+=======
+                                    <a href="{{ url('paciente/'.$pacientes->id.'/edit' )}}"><img src="/img/seleccionar.svg"
+>>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                             class="iconoAccion" alt="seleccionar"></a>
 
                                     {{-- seleccionar dato por id y eliminarlo

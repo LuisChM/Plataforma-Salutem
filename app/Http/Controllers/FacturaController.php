@@ -51,7 +51,7 @@ class FacturaController extends Controller
         $factura->imagen = $request->file('imagen')->store('uploads', 'public');
         $factura->save();
 
-        return redirect()->route('facturas.index')->with('status', 'La factura se creo con exito');
+        return redirect()->route('facturas.index')->with('success', 'La factura se creo con exito');
     }
 
     /**
@@ -99,7 +99,7 @@ class FacturaController extends Controller
 
         $factura = Factura::findOrFail($id);
 
-        return redirect()->route('facturas.index')->with('status', 'La factura fue eliminada');
+        return redirect()->route('facturas.index')->with('success', 'La factura fue eliminada');
     }
 
     /**
@@ -112,6 +112,6 @@ class FacturaController extends Controller
     {
         Storage::delete('public/' . $factura->imagen);
         $factura->delete();
-        return redirect()->route('facturas.index')->with('status', 'La factura fue eliminada');
+        return redirect()->route('facturas.index')->with('success', 'La factura fue eliminada');
     }
 }

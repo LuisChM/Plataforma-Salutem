@@ -6,6 +6,7 @@
 
 @section('contenido')
 
+
     <div class="container mt-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -78,4 +79,3 @@
         </div>
     </div>
 
-@endsection

@@ -13,14 +13,24 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStyle">
             <div class="card-body">
 
+<<<<<<< HEAD
                <div class="form-group">
+=======
+                <div class="form-group">
+>>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                     <label for="users">Paciente</label>
                     <select id="users" class="custom-select @error('users') is-invalid @else border-0 @enderror"
                         name="user_id">
                         <option value="" disabled selected>--Seleccione un paciente--</option>
+<<<<<<< HEAD
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}" class="@error('user') is-invalid @else border-0 @enderror">
                                 {{ $user->name }}</option>
+=======
+                        @foreach ($user as $users)
+                            <option value="{{ $users->id }}" class="@error('user') is-invalid @else border-0 @enderror">
+                                {{ $users->name }}</option>
+>>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                         @endforeach
                         @error('users')
                         <span class="invalid-feedback" role="alert">
@@ -29,7 +39,11 @@
                         @enderror
                     </select>
 
+<<<<<<< HEAD
                 </div>
+=======
+                </div> 
+>>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
 
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
