@@ -69,6 +69,25 @@ $(function() {
 	var accordion = new Accordion($('#accordion'), false);
 
 });
+
+$('.delete-confirm').click(function(event) {
+  var form =  $(this).closest("form");
+  // var name = $(this).data("nombre");
+  event.preventDefault();
+  swal({
+      title: `¿Estás segura de que quieres eliminar?`,
+      text: "Si borra esto, desaparecerá para siempre.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      form.submit();
+    }
+  });
+});
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
