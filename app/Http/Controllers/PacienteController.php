@@ -16,17 +16,18 @@ class pacienteController extends Controller
      */
     public function index(Request $request)
     {
-        $name  = $request->get('name');
+       /* $name  = $request->get('name');
         $email  = $request->get('email');
 
-        $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
+        $paciente = user::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
             ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
             ->where('roles.nombre', '=', 'paciente')
             ->name($name)
             ->email($email)
-            ->paginate();
+            ->paginate();*/
+            $datos['paciente']=Paciente::paginate(10);
 
-        return view('nutricion.pacientes.index', compact('paciente'));
+        return view('nutricion.pacientes.index',$datos);
     }
 
     /**
@@ -36,11 +37,11 @@ class pacienteController extends Controller
      */
     public function create()
     {
-        $user = User::all();
-        
+        $users = User::all();
+
         return view('nutricion.pacientes.create', [
             'paciente' => new Paciente,
-            'user' => $user,
+            'users' => $users,
         ]);
     }
 
@@ -77,13 +78,9 @@ class pacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Paciente $paciente)
     {
-        $paciente = User::findOrFail($id);
-        // $user = User::all();
-        
-        return view('nutricion.pacientes.edit', [
-            // 'paciente' => $paciente,
+            return view('nutricion.pacientes.edit', [
             'paciente' => $paciente
 
         ]);
@@ -96,9 +93,8 @@ class pacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(SaveConsultaRequest $request, Paciente $paciente, $id)
+    public function update(SaveConsultaRequest $request, Paciente $paciente)
     {
-        $paciente = User::findOrFail($id);
 
         $paciente->update($request->validated());
         return redirect()->route('pacientes.index')->with('status', 'Se actualizo el paciente con éxito');

@@ -35,39 +35,32 @@
                             </div>
                             <ul class="submenu px-2">
 
-                                <li> <a href="{{route('productos.index')}}">Cocina productos</a></li>
+                                <li> <a href="{{route('productos.index')}}">Productos</a></li>
 
                                 @if ( auth()->user()->hasRoles(['administrador']) )
 
                                 <li> <a href="{{route('retirar_producto.index')}}">Retirar Producto</a></li>
-                                <li> <a href="{{route('agregarproductos')}}">Agregar productos</a></li>
-                                <li> <a href="#">Historial productos</a></li>
-                                <li> <a href="{{route('compras.index')}}">Inventario productos</a></li>
-                                <li> <a href="{{route('categorias.index')}}">Categorías deProductos</a></li>
-                                <li><a href="{{route('facturas.index')}}">Control costo / gasto</a></li>
+
                                 <li><a href="{{route('ventas.index')}}">Administracion de comidas</a></li>
-<<<<<<< HEAD
+
                                 <li><a href="{{route('compra.index')}}">Compra de Comida</a></li>
-=======
 
-<<<<<<< HEAD
-                                {{-- <li> <a href="#">Historial productos</a>
-=======
->>>>>>> b09839e1e7ca006d6fd9bfde84619120080a64ce
-                                <li> <a href="#">Historial productos</a>
->>>>>>> a1ac7a5419bc6024332ae09d23bd7b6c62ae1958
-                                </li>
-                                <li> <a href="{{route('compras.index')}}">Compra de productos</a>
-                                <li> <a href="{{route('users.index')}}">Usuarios</a>
-                                <li> <a href="{{route('roles.index')}}">Roles</a>
 
-                                </li> --}}
 
                                 @endif
                             </ul>
                         </li>
                         @endif
                         {{-- /Control de productos --}}
+
+
+
+
+
+
+
+
+
 
                         {{-- Control costo / gasto --}}
                         @if ( auth()->user()->hasRoles(['administrador']) )

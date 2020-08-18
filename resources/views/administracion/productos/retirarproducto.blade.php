@@ -9,10 +9,10 @@ Retirar productos
 
     <div class="d-flex justify-content-end align-content-center">
         <form class="form-inline">
-            <div class="form-group mx-sm-3 mb-2 mr-4">
+           <!-- <div class="form-group mx-sm-3 mb-2 mr-4">
                 <input type="search" class="form-control searchInput"  placeholder="Buscar producto">
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+            <button type="submit" class="btn btn-primary mb-2">Buscar</button>-->
         </form>
     </div>
 
