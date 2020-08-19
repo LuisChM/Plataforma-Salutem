@@ -62,3 +62,5 @@ Route::view('chart', 'charts')->name('chart')->middleware('verified');
 
 // Route::post('users/{user}/paciente/post:id', 'PacienteController@updateorCreate'
 // );
+
+Route::get('vistaPerfil', 'ClientePacienteController@vistaPerfil')->name('vistaPerfil')->middleware('verified');

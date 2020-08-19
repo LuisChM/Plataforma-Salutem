@@ -25,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('bienvenido');
+        //
+        if (auth()->user()->hasRoles(['paciente','cliente'])) {
+            return view('clientePaciente.perfil');
+        } else {
+            return view('bienvenido');
+        }
     }
 }

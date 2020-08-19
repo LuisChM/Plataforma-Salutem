@@ -40,13 +40,10 @@
 
                                     {{-- seleccionar dato por id y eliminarlo
                                     --}}
+                                    <a href="{{ url('paciente/'.$pacientes->id) }}"><img src="/img/seleccionar.svg"
+                                        class="iconoAccion" alt="seleccionar"></a>
 
-                                    <form method="Post" action="{{ route('pacientes.destroy', $paciente) }}">
-                                        @csrf @method('delete')
-                                        <button class="bg-transparent border-0" type="submit"
-                                            onclick="return confirm('seguro');"><img src="/img/basura.svg"
-                                                class="iconoAccion" alt="eliminar"></button>
-                                    </form>
+                                
                                 </div>
                             </td>
                         </tr>

@@ -15,10 +15,7 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_usuario');
             $table->string('nombre_comida');
-            $table->integer('cantidad');
-            $table->string('direccion');
             $table->string('descripcion');
             $table->integer('precio');
             $table->timestamps();

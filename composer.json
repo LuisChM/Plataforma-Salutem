@@ -15,13 +15,9 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-<<<<<<< HEAD
         "laravelcollective/html": "^6.1",
-        "maatwebsite/excel": "^3.1"
-=======
         "maatwebsite/excel": "^3.1",
         "uxweb/sweet-alert": "^2.0"
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
     },
     "require-dev": {
         "facade/ignition": "^2.0",

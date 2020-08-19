@@ -13,6 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+    <link rel="icon" type="image/svg" href="{{ asset('/img/logo.svg') }}" />
+
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -42,17 +44,7 @@
                                 <ul class="submenu px-2">
                                     @if (auth() ->user()->hasRoles(['administrador']))
                                         <li> <a href="{{ route('productos.index') }}">Productos</a></li>
-
-
-
                                         <li> <a href="{{ route('retirar_producto.index') }}">Retirar Producto</a></li>
-
-
-
-
-
-
-
                                     @endif
                                 </ul>
                             </li>
@@ -69,26 +61,12 @@
                         </div>
                         <ul class="submenu px-2">
                             @if (auth() ->user()->hasRoles(['administrador']))
-
-
-
                                 <li><a href="{{ route('ventas.index') }}">Administracion de comidas</a></li>
-
                                 {{-- <li><a href="{{ route('') }}">Compra de Comida</a></li>--}}
-
-
-
-
                             @endif
                         </ul>
                     </li>
                 @endif
-
-
-
-
-
-
                    {{-- /Control de compras --}}
 
 

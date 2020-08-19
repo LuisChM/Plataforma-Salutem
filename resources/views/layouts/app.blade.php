@@ -19,11 +19,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    {{-- icono del sitio --}}
+    <link rel="icon" type="image/svg" href="{{ asset('/img/logo.svg') }}" />
+
 </head>
 
 <body>
     <div id="app" class="d-flex flex-column h-screen justify-content-between">
-        <nav class="navbar navbar-expand-md shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm navbar-light bg-light">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

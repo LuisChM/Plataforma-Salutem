@@ -70,9 +70,10 @@ class PacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function show(paciente $paciente)
+    public function show($id)
     {
-        //
+        $paciente = Paciente::findOrFail($id);
+        return view('nutricion.pacientes.show',['paciente'=>$paciente]);
     }
 
     /**
