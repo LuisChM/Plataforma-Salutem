@@ -35,11 +35,7 @@
                                 <div class="d-flex justify-content-around">
                                     {{-- seleccionar dato por id y editarlo
                                     --}}
-<<<<<<< HEAD
-                                    <a href="{{ url('paciente/'.$pacientes->id.'/edit') }}"><img src="/img/seleccionar.svg"
-=======
                                     <a href="{{ url('paciente/'.$pacientes->id.'/edit' )}}"><img src="/img/seleccionar.svg"
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                             class="iconoAccion" alt="seleccionar"></a>
 
                                     {{-- seleccionar dato por id y eliminarlo

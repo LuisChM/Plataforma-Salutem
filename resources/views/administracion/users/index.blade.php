@@ -47,9 +47,8 @@ Usuarios
 
                             <form method="Post" action="{{route('users.destroy',$users)}}">
                                 @csrf @method('delete')
-                                <button class="bg-transparent border-0" type="submit"
-                                    onclick="return confirm('seguro');"><img src="/img/basura.svg" class="iconoAccion"
-                                        alt="eliminar"></button>
+                                <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
+                                    alt="eliminar"></button>
                             </form>
                         </div>
                     </td>

@@ -48,25 +48,17 @@ Route::resource('role','RoleController')->names('roles')->middleware('verified')
 
 //Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
 
-<<<<<<< HEAD
-
 Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
-
-
-=======
-Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
 
 Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar_producto')->middleware('verified');
 
-<<<<<<< HEAD
-Route::view('calculo' , 'administracion.calculo.index')->name('calculo')->middleware('verified');
-=======
 Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware('verified');
 
 Route::view('chart', 'charts')->name('chart')->middleware('verified');
 // Route::get('chart', 'ChartController@index');
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
+
+// Route::post('users/{user}/paciente/post:id', 'PacienteController@updateorCreate'
+// );

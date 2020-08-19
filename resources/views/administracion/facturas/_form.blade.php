@@ -1,7 +1,7 @@
 @csrf
 <div class="form-group">
     <label for="nombre">Nombre de la Factura:</label>
-    <input type="text" class="form-control @error('nombre') is-invalid @else border-0 @enderror" name="nombre"
+    <input type="text" class="form-control  @error('nombre') is-invalid @enderror" name="nombre"
         id="nombre" placeholder="Ingrese el nombre de la factura (obligatorio)"
         value="{{old('nombre', $factura->nombre)}}">
     @error('nombre')
@@ -55,7 +55,7 @@
 
 <div class="form-group">
     <label for="imagen">Seleccione una imagen para guardar:</label>
-    <img src="{{Storage::url($factura->imagen)}}" alt="" width="400px">
+    <img src="{{Storage::url($factura->imagen)}}" alt="" width="400px" height="400px">
     <input type="file" class="form-control-file" name="imagen" id="imagen" >
 </div>
 

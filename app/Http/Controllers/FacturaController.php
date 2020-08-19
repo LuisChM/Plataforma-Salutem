@@ -47,8 +47,10 @@ class FacturaController extends Controller
      */
     public function store(SaveFacturaRequest $request)
     {
-        $factura = (new Factura)->fill($request->all());
-        $factura->imagen = $request->file('imagen')->store('uploads', 'public');
+        $factura = (new Factura)->fill($request->validated());
+        if ($request->hasFile('imagen')) {
+            $factura->imagen = $request->file('imagen')->store('uploads', 'public');
+        }
         $factura->save();
 
         return redirect()->route('facturas.index')->with('success', 'La factura se creo con exito');

@@ -62,7 +62,7 @@ class UserController extends Controller
         $user = User::create($request->validated());
         $user->roles()->attach($request->roles);
 
-        return redirect()->route('users.index')->with('status', 'El usuario fue agregado');
+        return redirect()->route('users.index')->with('success', 'El usuario fue agregado');
     }
 
     /**
@@ -111,7 +111,7 @@ class UserController extends Controller
         //se utiliza sync para sincronizar roles y evitar duplicacion de roles
         $user->roles()->sync($request->roles);
         //retornamos la vista luego de actualizar
-        return redirect()->route('users.index')->with('status', 'El usuario fue actualizado');
+        return redirect()->route('users.index')->with('success', 'El usuario fue actualizado');
     }
     /**
      * Remove the specified resource from storage.
@@ -124,6 +124,6 @@ class UserController extends Controller
         //se selecciona el user y elimina
         $user->delete();
         //se redirige a la pantalla asignada
-        return redirect()->route('users.index')->with('status', 'El usuario fue eliminado');
+        return redirect()->route('users.index')->with('success', 'El usuario fue eliminado');
     }
 }

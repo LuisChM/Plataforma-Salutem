@@ -13,11 +13,6 @@
                         @method('PATCH')
                         @csrf
                         <div class="accordion bg-none" id="accordionStyle" style="max-width: none">
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                             <div class="card bg-none border-0 mb-1">
                                 <div class="card-header bg-collapse-gray" id="headingOne">
                                     <h2 class="mb-0">
@@ -26,18 +21,6 @@
                                             Datos del paciente <img src="/img/anadir.svg" alt="icono" class="iconoAcordion"> </button>
                                     </h2>
                                 </div>
-<<<<<<< HEAD
-
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStyle">
-                                    <div class="card-body">
-
-
-
-                                        <div class="form-group">
-                                            <label for="nombre">Nombre</label>
-                                            <input type="text" class="form-control " name="nombre" id="nombre" placeholder="Ingrese el nombre"
-                                                value="{{  $paciente->nombre }}">
-=======
                         
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStyle">
                                     <div class="card-body">
@@ -46,7 +29,6 @@
                                             <label for="nombre">Nombre</label>
                                             <input type="text" class="form-control " name="nombre" id="nombre" placeholder="Ingrese el nombre"
                                                 value="{{ old('nombre', $paciente->nombre) }}">
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                         </div>
                                         <div class="form-group">
                                             <label for="apellido">Apellido</label>
@@ -61,11 +43,6 @@
                                                 <option value="f">Femenino</option>
                                             </select>
                                         </div>
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                         <div class="form-group">
                                             <label for="edad">Edad</label>
                                             <input type="number" class="form-control mb-3" name="edad" id="edad" placeholder="Ingrese el edad"
@@ -102,22 +79,12 @@
                                                 placeholder="Ingrese el motivo de la consulta"
                                                 value="{{ old('motivoConsulta', $paciente->motivoConsulta) }}">
                                         </div>
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <label for="pesoActual">Peso actual</label>
                                                 <input type="text" class="form-control mb-3" name="pesoActual" id="pesoActual"
                                                     placeholder="Ingrese el peso actual" value="{{ old('pesoActual', $paciente->pesoActual) }}">
                                             </div>
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <label for="composCorporal">Composición corporal</label>
                                                 <input type="text" class="form-control mb-3" name="composCorporal" id="composCorporal"
@@ -144,11 +111,6 @@
                                                 <input type="text" class="form-control mb-3" name="PI" id="PI" placeholder="Ingrese el PI"
                                                     value="{{ old('PI', $paciente->PI) }}">
                                             </div>
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <label for="cMuneca">C. Muñeca</label>
                                                 <input type="text" class="form-control mb-3" name="cMuneca" id="cMuneca"
@@ -169,22 +131,6 @@
                                                 <input type="text" class="form-control mb-3" name="pesoUsar" id="pesoUsar"
                                                     placeholder="Ingrese el peso a usar" value="{{ old('pesoUsar', $paciente->pesoUsar) }}">
                                             </div>
-<<<<<<< HEAD
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        <div class="d-flex justify-content-end mt-5">
-                            <div class="d-flex justify-content-end mt-5">
-                                <a class="btn btn-primary mr-3" href="{{ route('pacientes.index') }}" role="button">Volver</a>
-                                <button class="btn btn-secondary text-white">Gurdar</button>
-                            </div>
-
-=======
                         
                         
                                         </div>
@@ -568,7 +514,6 @@
                                 <button class="btn btn-secondary text-white">Guardar</button>
                             </div>
                         
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
                     </form>
 
                 </div>
