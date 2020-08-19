@@ -1,5 +1,7 @@
 {{-- ver rol del usuario ingresado
-{{dd(auth()->user()->roles->toArray())}} --}}
+{{ dd(
+    auth()->user()->roles->toArray(),
+) }} --}}
 
 
 <!DOCTYPE html>
@@ -9,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -32,51 +34,75 @@
                     <!-- Contenedor -->
                     <ul id="accordion" class="accordion pl-0">
                         {{-- Control de productos --}}
-                        @if ( auth()->user()->hasRoles(['cocinero','administrador']) )
-                        <li>
-                            <div class="link">Control de productos<img src="/img/flecha.svg" alt="arrow"
-                                    class="iconoFlecha ml-2"></i>
-                            </div>
-                            <ul class="submenu px-2">
-
-                                <li> <a href="{{route('productos.index')}}">Productos</a></li>
-
-                                @if ( auth()->user()->hasRoles(['administrador']) )
-
-                                <li> <a href="{{route('retirar_producto.index')}}">Retirar Producto</a></li>
+                        @if (auth() ->user() ->hasRoles(['cocinero', 'administrador']))
+                            <li>
+                                <div class="link">Control de productos<img src="/img/flecha.svg" alt="arrow"
+                                        class="iconoFlecha ml-2"></i>
+                                </div>
+                                <ul class="submenu px-2">
+                                    @if (auth() ->user()->hasRoles(['administrador']))
+                                        <li> <a href="{{ route('productos.index') }}">Productos</a></li>
 
 
-                                <li><a href="{{route('ventas.index')}}">Administracion de comidas</a></li>
 
-                                <li><a href="{{route('compra.index')}}">Compra de Comida</a></li>
+                                        <li> <a href="{{ route('retirar_producto.index') }}">Retirar Producto</a></li>
 
 
 
 
-                                @endif
-                            </ul>
-                        </li>
+
+
+
+                                    @endif
+                                </ul>
+                            </li>
                         @endif
                         {{-- /Control de productos --}}
 
+                    {{-- /Control de compras --}}
+
+
+                    @if (auth() ->user() ->hasRoles(['cocinero', 'administrador']))
+                    <li>
+                        <div class="link">Control de Comidas<img src="/img/flecha.svg" alt="arrow"
+                                class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            @if (auth() ->user()->hasRoles(['administrador']))
+
+
+
+                                <li><a href="{{ route('ventas.index') }}">Administracion de comidas</a></li>
+
+                                {{-- <li><a href="{{ route('') }}">Compra de Comida</a></li>--}}
+
+
+
+
+                            @endif
+                        </ul>
+                    </li>
+                @endif
 
 
 
 
 
 
-
+                   {{-- /Control de compras --}}
 
 
                         {{-- Control costo / gasto --}}
-                        @if ( auth()->user()->hasRoles(['administrador']) )
-                        <li>
-                            <div class="link">Control costo / gasto<img src="/img/flecha.svg" alt="arrow"
-                                    class="iconoFlecha ml-2"></i>
-                            </div>
-                            <ul class="submenu px-2">
-                                <li><a href="{{route('facturas.index')}}">Ingresar facturas de compras</a></li>
-                        </li>
+                        @if (auth()
+        ->user()
+        ->hasRoles(['administrador']))
+                            <li>
+                                <div class="link">Control costo / gasto<img src="/img/flecha.svg" alt="arrow"
+                                        class="iconoFlecha ml-2"></i>
+                                </div>
+                                <ul class="submenu px-2">
+                                    <li><a href="{{ route('facturas.index') }}">Ingresar facturas de compras</a></li>
+                            </li>
 
                     </ul>
                     </li>
@@ -84,47 +110,55 @@
                     {{-- /Control costo / gasto --}}
 
                     {{-- Nutrición --}}
-                    @if ( auth()->user()->hasRoles(['nutricionista']) )
+                    @if (auth()
+        ->user()
+        ->hasRoles(['nutricionista']))
 
-                    <li>
-                        <div class="link">Nutrición<img src="/img/flecha.svg" alt="arrow" class="iconoFlecha ml-2"></i>
-                        </div>
-                        <ul class="submenu px-2">
-                            <li> <a href="{{route('pacientes.create')}}">Consulta nutricional</a></li>
-                            <li> <a href="{{route('pacientes.index')}}">Pacientes</a></li>
-                            <li> <a href="{{route('calculo')}}">Cálculo de dieta</a></li>
-                            <li> <a href="{{route('chart')}}">Reportes</a></li>
-                        </ul>
-                    </li>
+                        <li>
+                            <div class="link">Nutrición<img src="/img/flecha.svg" alt="arrow"
+                                    class="iconoFlecha ml-2"></i>
+                            </div>
+                            <ul class="submenu px-2">
+                                <li> <a href="{{ route('pacientes.create') }}">Consulta nutricional</a></li>
+                                <li> <a href="{{ route('pacientes.index') }}">Pacientes</a></li>
+                                <li> <a href="{{ route('calculo') }}">Cálculo de dieta</a></li>
+                                <li> <a href="{{ route('chart') }}">Reportes</a></li>
+                            </ul>
+                        </li>
                     @endif
                     {{-- /Nutrición --}}
 
                     {{-- Comunidad --}}
-                    {{-- @if ( auth()->user()->hasRoles(['nutricionista','administrador','paciente', 'cliente']) )
+                    {{-- @if (auth()
+        ->user()
+        ->hasRoles(['nutricionista', 'administrador', 'paciente', 'cliente']))
 
-                    <li>
-                        <div class="link">Comunidad<img src="/img/flecha.svg" alt="arrow" class="iconoFlecha ml-2"></i>
-                        </div>
-                        <ul class="submenu px-2">
-                            <li> <a href="#">Preguntas</a></li>
-                            <li> <a href="#">Mejor valoradas</a></li>
-                            <li> <a href="#">Más leídas</a></li>
-                        </ul>
-                    </li>
+                        <li>
+                            <div class="link">Comunidad<img src="/img/flecha.svg" alt="arrow"
+                                    class="iconoFlecha ml-2"></i>
+                            </div>
+                            <ul class="submenu px-2">
+                                <li> <a href="#">Preguntas</a></li>
+                                <li> <a href="#">Mejor valoradas</a></li>
+                                <li> <a href="#">Más leídas</a></li>
+                            </ul>
+                        </li>
                     @endif --}}
                     {{-- /Comunidad --}}
 
                     {{-- Manejo de usuarios --}}
-                    @if(auth()->user()->hasRoles(['administrador']))
-                    <li>
-                        <div class="link">Manejo de usuarios<img src="/img/flecha.svg" alt="arrow"
-                                class="iconoFlecha ml-2"></i>
-                        </div>
-                        <ul class="submenu px-2">
-                            <li> <a href="{{route('users.index')}}">Usuarios</a>
-                            <li> <a href="{{route('roles.index')}}">Roles</a>
-                        </ul>
-                    </li>
+                    @if (auth()
+        ->user()
+        ->hasRoles(['administrador']))
+                        <li>
+                            <div class="link">Manejo de usuarios<img src="/img/flecha.svg" alt="arrow"
+                                    class="iconoFlecha ml-2"></i>
+                            </div>
+                            <ul class="submenu px-2">
+                                <li> <a href="{{ route('users.index') }}">Usuarios</a>
+                                <li> <a href="{{ route('roles.index') }}">Roles</a>
+                            </ul>
+                        </li>
                     @endif
 
                     {{-- /Manejo de usuarios --}}
@@ -176,12 +210,9 @@
         <!-- /#wrapper -->
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"> </script>
 <script src="/js/app.js"></script>
 
-<<<<<<< HEAD
 </html>
-=======
 
-</html>
->>>>>>> 85e21f5b1ef7880885fbfeaf27032b305c81f1b9
