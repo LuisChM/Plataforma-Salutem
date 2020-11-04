@@ -42,25 +42,18 @@ Route::resource('user','UserController')->names('users')->middleware('verified')
 
 Route::resource('compras','ComprasController')->names('compras')->middleware('verified');
 
-Route::resource('categorias','CategoriasController')->names('categorias')->middleware('verified');
-
 Route::resource('role','RoleController')->names('roles')->middleware('verified');
 
-//Route::resource('consulta','ConsultaController')->names('consultas')->middleware('verified');
-
 Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
-Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
-Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
+Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
+
+Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
 Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar_producto')->middleware('verified');
 
 Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware('verified');
 
 Route::view('chart', 'charts')->name('chart')->middleware('verified');
-// Route::get('chart', 'ChartController@index');
 
-// Route::post('users/{user}/paciente/post:id', 'PacienteController@updateorCreate'
-// );
-
-Route::get('vistaPerfil', 'ClientePacienteController@vistaPerfil')->name('vistaPerfil')->middleware('verified');
+Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');

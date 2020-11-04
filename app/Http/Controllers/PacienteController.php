@@ -17,17 +17,20 @@ class PacienteController extends Controller
      */
     public function index(Request $request)
     {
-        // $name  = $request->get('name');
+        $name  = $request->get('buscarpor');
         // $email  = $request->get('email');
 
         // $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
         //     ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
         //     ->where('roles.nombre', '=', 'paciente')
         //     ->name($name)
-        //     ->email($email)
+        //     // ->email($email)
         //     ->paginate();
-            
-        $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
+
+        $paciente = Paciente::where('nombre','like',"%$name%")->paginate();
+
+
+        // $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
 
 
         return view('nutricion.pacientes.index', compact('paciente'));
@@ -73,7 +76,7 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        return view('nutricion.pacientes.show',['paciente'=>$paciente]);
+        return view('nutricion.pacientes.show', ['paciente' => $paciente]);
     }
 
     /**
@@ -84,9 +87,8 @@ class PacienteController extends Controller
      */
     public function edit(Paciente $paciente)
     {
-            return view('nutricion.pacientes.edit', [
-            'paciente' => $paciente
-
+        return view('nutricion.pacientes.edit', [
+            'paciente' => $paciente,
         ]);
     }
 
@@ -99,7 +101,7 @@ class PacienteController extends Controller
      */
     public function update(SaveConsultaRequest $request, Paciente $paciente)
     {
-    
+
         $paciente->update($request->validated());
         return redirect()->route('pacientes.index')->with('success', 'Se actualizo el paciente con éxito');
     }
