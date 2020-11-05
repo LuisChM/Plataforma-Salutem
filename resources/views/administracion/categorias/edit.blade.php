@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('seccion')
-Control categorias
+Categorias
 @endsection
 
 @section('contenido')
@@ -8,9 +8,9 @@ Control categorias
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
-                <form class="mt-4" enctype="multipart/form-data" action="{{route('categorias.update',$categorias)}}" method="POST"> 
+                <form class="mt-4"  action="{{route('categorias.update',$categoria)}}" method="POST"> 
                     @method('PATCH')
-                    @include('administracion.categorias.form',['btnText'=>'Actualizar'])
+                    @include('administracion.categorias._form',['btnText'=>'Actualizar'])
                 </form>
             </div>
         </div>

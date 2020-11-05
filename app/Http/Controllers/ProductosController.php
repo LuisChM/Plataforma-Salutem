@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use App\Productos;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        return view('productos.create');
+        $categoria = Categoria::all();
+        return view('productos.create', ['productos'=> new Productos ,'categoria'=>$categoria, ]);
     }
 
     /**
@@ -36,17 +38,12 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
+        $categoria_id = $request->input("categoria_id");
+        $datos = Productos::create($request->request);
+        $datos->categoria_id = $categoria_id;
+        $datos->save();
 
-
-        //$datosProductos=request()->all();
-        $datosProductos=request()->except('_token');
-        Productos::insert($datosProductos);
         return redirect('productos');
-
-
-
-
-
     }
 
     /**

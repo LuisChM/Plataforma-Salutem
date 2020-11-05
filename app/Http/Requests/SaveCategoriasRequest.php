@@ -24,8 +24,7 @@ class SaveCategoriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipoCategoria'=> 'required',
-            
+            'descripcion'=> 'required',
         ];
     }
 }

@@ -49791,8 +49791,7 @@ $(function () {
   var accordion = new Accordion($('#accordion'), false);
 });
 $('.delete-confirm').click(function (event) {
-  var form = $(this).closest("form"); // var name = $(this).data("nombre");
-
+  var form = $(this).closest("form");
   event.preventDefault();
   swal({
     title: "\xBFEst\xE1s segura de que quieres eliminar?",

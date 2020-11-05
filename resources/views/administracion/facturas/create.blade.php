@@ -10,6 +10,7 @@ Control costo / gasto
             <div class="col-12 col-md-10 col-lg-8">
    
                 <form class="mt-4" enctype="multipart/form-data" action="{{route('facturas.store')}}" method="POST">
+                    
                     @include('administracion.facturas._form',['btnText'=>'Guardar'])
     
                 </form>

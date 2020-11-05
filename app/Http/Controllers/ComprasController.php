@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use App\Compras;
 use App\Productos;
 use App\Categorias;
@@ -38,7 +39,7 @@ class ComprasController extends Controller
     public function create()
     {
         $productos = Productos::all();
-        $categorias = Categorias::all();
+        $categoria = Categoria::all();
         return view('administracion.compras.create',compact('productos','categorias'),
         [
             'compras'=> new Compras

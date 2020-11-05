@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('seccion')
-Control categorias
+Categorias
 @endsection
 
 @section('contenido')
@@ -8,13 +8,14 @@ Control categorias
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
-   
-                <form class="mt-4" enctype="multipart/form-data" action="{{route('categorias.store')}}" method="POST">
-                    @include('administracion.categorias.form',['btnText'=>'Guardar'])
-    
+
+                <form class="mt-4" action="{{route('categorias.store')}}" method="POST">
+                    @include('administracion.categorias._form',['btnText'=>'Guardar'])
+
                 </form>
-    
+
             </div>
         </div>
-    </div></div>
+    </div>
+</div>
 @endsection
