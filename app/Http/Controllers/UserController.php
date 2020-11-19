@@ -44,6 +44,7 @@ class UserController extends Controller
         // ->pluck('display_nombre', 'id');
         //mostrar nombre del rol 
         $roles = Role::pluck('display_nombre', 'id');
+        
         //se dirige a la vista de crear
         return view('administracion.users.create', [
             'user' => new User,
@@ -61,6 +62,7 @@ class UserController extends Controller
     {
         $user = User::create($request->validated());
         $user->roles()->attach($request->roles);
+
 
         return redirect()->route('users.index')->with('success', 'El usuario fue agregado');
     }
@@ -87,7 +89,8 @@ class UserController extends Controller
         // busca usuario
         $user = User::findOrFail($id);
         //se muestra el nombre del rol
-        $roles = Role::pluck('display_nombre', 'id');
+        $role = Role::pluck('display_nombre', 'id');
+        $roles = $role->except(['Administrador',1]);
         //retorna la vista
         return view('administracion.users.edit', [
             'user' => $user,
