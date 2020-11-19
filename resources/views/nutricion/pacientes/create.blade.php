@@ -4,7 +4,7 @@ Consulta nutricional
 @endsection
 
 @section('contenido')
-<div class="container mt-5">
+<div class="container my-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
@@ -529,8 +529,8 @@ Consulta nutricional
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-end mt-5">
-                        <div class="d-flex justify-content-end mt-5">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end">
                             <a class="btn btn-primary mr-3" href="{{ route('pacientes.index') }}" role="button">Volver</a>
                             <button class="btn btn-secondary text-white">Guardar</button>
                         </div>
@@ -539,6 +539,7 @@ Consulta nutricional
 
             </div>
         </div>
+        
     </div>
 </div> 
 @endsection

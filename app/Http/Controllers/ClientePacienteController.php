@@ -17,17 +17,17 @@ class ClientePacienteController extends Controller
      */
     public function index(Request $request)
     {
-        // $name  = $request->get('name');
-        // $email  = $request->get('email');
+        $name  = $request->get('name');
+        $email  = $request->get('email');
 
-        // $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
-        //     ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
-        //     ->where('roles.nombre', '=', 'paciente')
-        //     ->name($name)
-        //     ->email($email)
-        //     ->paginate();
+        $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
+            ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
+            ->where('roles.nombre', '=', 'paciente')
+            ->name($name)
+            ->email($email)
+            ->paginate();
 
-        $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
+        // $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
 
 
         return view('nutricion.pacientes.index', compact('paciente'));

@@ -57,3 +57,5 @@ Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware(
 Route::view('chart', 'charts')->name('chart')->middleware('verified');
 
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');
+
+Route::resource('planNutricional','PlanNutricionalController')->names('planNutricionals')->middleware('verified');
