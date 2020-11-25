@@ -48,6 +48,10 @@ Route::resource('paciente','PacienteController')->names('pacientes')->middleware
 
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
+Route::resource('estadisticasventas', 'EstadisticasVentasController')->names('estadisticasventas')->middleware('verified');
+
+Route::resource('estadisticascomida', 'EstadisticasComidaController')->names('estadisticascomida')->middleware('verified');
+
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');
 
 Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar_producto')->middleware('verified');

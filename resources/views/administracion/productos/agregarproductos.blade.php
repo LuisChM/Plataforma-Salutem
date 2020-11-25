@@ -37,8 +37,8 @@
                                 <label for="cantidad ">{{ 'Cantidad:' }}</label>
 
                             <input class="form-control @error('cantidad') is-invalid @else border-0 @enderror"
-                                    placeholder="Ingrese la cantidad del producto" type="text" name="cantidad" id="cantidad"
-                                    value="">
+                                    placeholder="Ingrese la cantidad del producto" type="number" name="cantidad" id="cantidad"
+                                    value="" min="1" pattern="^[0-9]+">
 
                                 @error('cantidad')
                                 <span class="invalid-feedback" role="alert">

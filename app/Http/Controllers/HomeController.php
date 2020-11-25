@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         //
         if (auth()->user()->hasRoles(['paciente','cliente'])) {
-            return view('clientePaciente.perfil');
+            return view('bienvenido');
         } else {
             return view('bienvenido');
         }

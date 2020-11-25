@@ -49,7 +49,7 @@
                             <label for="precio ">{{ 'Precio:' }}</label>
 
                         <input class="form-control @error('precio') is-invalid @else border-0 @enderror"
-                                placeholder="Ingrese le precio de la comida" type="number" name="precio" id="precio" value="">
+                                placeholder="Ingrese le precio de la comida" type="number" name="precio" id="precio" value="" min="1" pattern="^[0-9]+">
 
                             @error('precio')
                             <span class="invalid-feedback" role="alert">

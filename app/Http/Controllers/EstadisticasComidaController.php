@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Ventas;
+use App\EstadisticasComida;
 use Illuminate\Http\Request;
-
-class VentasController extends Controller
+use DB;
+class EstadisticasComidaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class VentasController extends Controller
     public function index()
     {
         $datos['venta']=Ventas::paginate(10);
-        return view('administracion.ventas.ventas',$datos);
+        return view('administracion.ventas.estadisticas',$datos);
     }
 
     /**
@@ -23,12 +23,9 @@ class VentasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function create()
     {
-       return \view('administracion.ventas.agregarventa');
+        //
     }
 
     /**
@@ -39,20 +36,16 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-
-        $datos_ventas=request()->except('_token');
-        Ventas::insert($datos_ventas);
-        return redirect('ventas');
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ventas  $ventas
+     * @param  \App\EstadisticasComida  $estadisticasComida
      * @return \Illuminate\Http\Response
      */
-    public function show(Ventas $ventas)
+    public function show(EstadisticasComida $estadisticasComida)
     {
         //
     }
@@ -60,7 +53,7 @@ class VentasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ventas  $ventas
+     * @param  \App\EstadisticasComida  $estadisticasComida
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -68,38 +61,33 @@ class VentasController extends Controller
 
         $ventas=Ventas::findOrFail($id);
 
-        return \view('administracion.ventas.editarventas',compact('ventas'));
-
-
-
+        return \view('administracion.ventas.agregar_ventas',compact('ventas'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ventas  $ventas
+     * @param  \App\EstadisticasComida  $estadisticasComida
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $datosventas=request()->except(['_token','_method']);
-        Ventas::where('id','=',$id)->update($datosventas);
-        return redirect('ventas');
+        DB::table('Ventas')
+      ->where('id', $id)
+      ->update(['cantidad' => DB::raw('cantidad + '.$request->input('nuevaCantidad')), ]);
+
+        return redirect('estadisticascomida');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ventas  $ventas
+     * @param  \App\EstadisticasComida  $estadisticasComida
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(EstadisticasComida $estadisticasComida)
     {
-        Ventas::destroy($id);
-
-        return redirect('ventas');
+        //
     }
-
-  
 }

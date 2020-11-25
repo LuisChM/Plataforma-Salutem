@@ -26,7 +26,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('cliente/'.Auth::user()->id) }}">Perfil</a>
-                    {{-- <a class="nav-link" href="{{ route('cliente.show', ['pacientes.user_id'=>Auth::user()->id]) }}">Perfil</a> --}}
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Progreso</a>

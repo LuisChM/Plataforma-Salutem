@@ -63,6 +63,7 @@
                             @if (auth() ->user()->hasRoles(['administrador']))
                                 <li><a href="{{ route('ventas.index') }}">Administracion de comidas</a></li>
                                 {{-- <li><a href="{{ route('') }}">Compra de Comida</a></li>--}}
+                                <li><a href="{{ route('estadisticascomida.index') }}">Estadistica de comidas</a></li>
                             @endif
                         </ul>
                     </li>

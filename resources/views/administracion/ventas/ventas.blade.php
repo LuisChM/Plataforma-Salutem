@@ -17,6 +17,7 @@ Administracion de comidas
     </div>
 <div>
     <a href="{{route('ventas.create')}}" class="btn btn-primary mb-2">Agregar nueva Comida</a>
+
 </div>
 
     <div class="responsive-table">
