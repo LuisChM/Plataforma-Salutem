@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('seccion')
-    Pacientes
+Plan Nutricional
 @endsection
 
 @section('contenido')
@@ -17,7 +17,7 @@
         </form>
     </div>
         {{-- /buscar paciente --}}
-
+        <a class="btn btn-primary" href="{{ route('planNutricionals.create') }}" role="button">Agregar nuevo plan nutricional </a>
         <table class="table table-striped mt-4 text-center">
             <thead class="thead-dark">
                 <tr>
@@ -34,12 +34,12 @@
                             <div class="d-flex justify-content-around">
                                 {{-- seleccionar dato por id y editarlo
                                 --}}
-                                <a href="{{ url('paciente/'.$pacientes->id.'/edit' )}}"><img src="/img/seleccionar.svg"
+                                <a href="{{ url('planNutricional/'.$pacientes->id.'/edit' )}}"><img src="/img/seleccionar.svg"
                                         class="iconoAccion" alt="seleccionar"></a>
 
                                 {{-- seleccionar dato por id y eliminarlo
                                 --}}
-                                <a href="{{ url('paciente/'.$pacientes->id) }}"><img src="/img/check.svg"
+                                <a href="{{ url('planNutricional/'.$pacientes->id) }}"><img src="/img/check.svg"
                                     class="iconoAccion" alt="seleccionar"></a>
 
                             

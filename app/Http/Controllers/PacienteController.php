@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SaveConsultaRequest;
-use App\Paciente;
 use App\User;
+use App\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SaveConsultaRequest;
 // use SweetAlert;
 
 class PacienteController extends Controller
@@ -43,7 +44,13 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        $user = User::all();
+        $user = DB::table('users')
+            ->join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
+            ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
+            ->where('roles.nombre', '=', 'paciente')
+            ->select('users.*')
+            ->get();
+            
 
         return view('nutricion.pacientes.create', [
             'paciente' => new Paciente,
@@ -59,8 +66,8 @@ class PacienteController extends Controller
      */
     public function store(SaveConsultaRequest $request)
     {
-        $user_id = $request->input("user_id");
         $datos = Paciente::create($request->validated());
+        $user_id = $request->input("user_id");
         $datos->user_id = $user_id;
         $datos->save();
 

@@ -13,8 +13,10 @@ class CreatePlanNutricionalTable extends Migration
      */
     public function up()
     {
-        Schema::create('plan_nutricional', function (Blueprint $table) {
+        Schema::create('plan_nutricionals', function (Blueprint $table) {
             $table->id();
+
+            $table->integer('user_id')->nullable();
             // Lunes
             $table->string('desLunes')->nullable();
             $table->string('mMatLunes')->nullable();
@@ -57,8 +59,6 @@ class CreatePlanNutricionalTable extends Migration
             $table->string('almDomingo')->nullable();
             $table->string('mMerDomingo')->nullable();
             $table->string('cenDomingo')->nullable();
-
-
 
             $table->timestamps();
         });

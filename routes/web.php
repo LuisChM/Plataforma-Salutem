@@ -46,6 +46,8 @@ Route::resource('role','RoleController')->names('roles')->middleware('verified')
 
 Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
 
+Route::resource('seguimiento','HojaSeguimientoController')->names('seguimientos')->middleware('verified');
+
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
 Route::resource('compra', 'VentaController')->names('compra')->middleware('verified');

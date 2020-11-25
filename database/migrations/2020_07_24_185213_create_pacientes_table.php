@@ -75,27 +75,7 @@ class CreatePacientesTable extends Migration
             $table->string('pregunta7')->nullable();
             $table->string('pregunta8')->nullable();
             $table->mediumText('diagnostico')->nullable();
-            $table->string('logrosPlan')->nullable();
-            $table->string('deficientes')->nullable();
-            $table->string('pesoInicial')->nullable();
-            $table->string('pesoSeguimiento')->nullable();
-            $table->string('imcInicial')->nullable();
-            $table->string('imcSeguimiento')->nullable();
-            $table->string('grasaInicial')->nullable();
-            $table->string('grasaSeguimiento')->nullable();
-            $table->string('circAbdominalInicial')->nullable();
-            $table->string('circAbdominalSeguimiento')->nullable();
-            $table->string('requerimientoInicial')->nullable();
-            $table->string('requerimientoSeguimiento')->nullable();
-            $table->string('distChoInicial')->nullable();
-            $table->string('distChoSeguimiento')->nullable();
-            $table->string('distChonInicial')->nullable();
-            $table->string('distChonSeguimiento')->nullable();
-            $table->string('distGrasasInicial')->nullable();
-            $table->string('distGrasasSeguimiento')->nullable();
-            $table->mediumText('cambioPlan')->nullable();
-            $table->mediumText('metasObjetivos')->nullable();
-
+            
             $table->timestamps();
         });
     }

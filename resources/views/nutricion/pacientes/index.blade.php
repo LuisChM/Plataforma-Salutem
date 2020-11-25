@@ -18,7 +18,7 @@
         </div>
             {{-- /buscar paciente --}}
 
-            <a class="btn btn-primary" href="{{ route('users.create') }}" role="button">Agregar nuevo paciente </a>
+            <a class="btn btn-primary" href="{{ route('pacientes.create') }}" role="button">Agregar nuevo paciente </a>
             <table class="table table-striped mt-4 text-center">
                 <thead class="thead-dark">
                     <tr>

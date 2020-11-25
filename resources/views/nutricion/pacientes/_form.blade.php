@@ -420,8 +420,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">Inicial</th>
-                            <th scope="col">1er seguimiento</th>
+                            <th scope="col">Datos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -430,47 +429,30 @@
                             <td><input type="text" class="form-control " name="pesoInicial" id="pesoInicial"
                                     placeholder="Ingrese pesoInicial"
                                     value="{{ old('pesoInicial', $paciente->pesoInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="pesoSeguimiento" id="pesoSeguimiento"
-                                    placeholder="Ingrese pesoSeguimiento"
-                                    value="{{ old('pesoSeguimiento', $paciente->pesoSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>IMC</td>
                             <td><input type="text" class="form-control " name="imcInicial" id="imcInicial"
                                     placeholder="Ingrese imcInicial"
-                                    value="{{ old('imcInicial', $paciente->imcInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="imcSeguimiento" id="imcSeguimiento"
-                                    placeholder="Ingrese imcSeguimiento"
-                                    value="{{ old('imcSeguimiento', $paciente->imcSeguimiento) }}"></td>
+                                    value="{{ old('imcInicial', $paciente->imcInicial) }}"></td>                            
                         </tr>
                         <tr>
                             <td>% grasa</td>
                             <td><input type="text" class="form-control " name="grasaInicial" id="grasaInicial"
                                     placeholder="Ingrese grasaInicial"
-                                    value="{{ old('grasaInicial', $paciente->grasaInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="grasaSeguimiento" id="grasaSeguimiento"
-                                    placeholder="Ingrese grasaSeguimiento"
-                                    value="{{ old('grasaSeguimiento', $paciente->grasaSeguimiento) }}"></td>
+                                    value="{{ old('grasaInicial', $paciente->grasaInicial) }}"></td>                            
                         </tr>
                         <tr>
                             <td>Circunferencia abdominal</td>
                             <td><input type="text" class="form-control " name="circAbdominalInicial"
                                     id="circAbdominalInicial" placeholder="Ingrese circAbdominalInicial"
-                                    value="{{ old('circAbdominalInicial', $paciente->circAbdominalInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="circAbdominalSeguimiento"
-                                    id="circAbdominalSeguimiento" placeholder="Ingrese circAbdominalSeguimiento"
-                                    value="{{ old('circAbdominalSeguimiento', $paciente->circAbdominalSeguimiento) }}">
-                            </td>
+                                    value="{{ old('circAbdominalInicial', $paciente->circAbdominalInicial) }}"></td>                            
                         </tr>
                         <tr>
                             <td>Requerimiento</td>
                             <td><input type="text" class="form-control " name="requerimientoInicial"
                                     id="requerimientoInicial" placeholder="Ingrese requerimientoInicial"
-                                    value="{{ old('requerimientoInicial', $paciente->requerimientoInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="requerimientoSeguimiento"
-                                    id="requerimientoSeguimiento" placeholder="Ingrese requerimientoSeguimiento"
-                                    value="{{ old('requerimientoSeguimiento', $paciente->requerimientoSeguimiento) }}">
-                            </td>
+                                    value="{{ old('requerimientoInicial', $paciente->requerimientoInicial) }}"></td>                            
                         </tr>
                         <tr>
                             <td>Distribución de macros</td>
@@ -479,28 +461,19 @@
                             <td>CHO</td>
                             <td><input type="text" class="form-control " name="distChoInicial" id="distChoInicial"
                                     placeholder="Ingrese distChoInicial"
-                                    value="{{ old('distChoInicial', $paciente->distChoInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="distChoSeguimiento"
-                                    id="distChoSeguimiento" placeholder="Ingrese distChoSeguimiento"
-                                    value="{{ old('distChoSeguimiento', $paciente->distChoSeguimiento) }}"></td>
+                                    value="{{ old('distChoInicial', $paciente->distChoInicial) }}"></td>                            
                         </tr>
                         <tr>
                             <td>CHON</td>
                             <td><input type="text" class="form-control " name="distChonInicial" id="distChonInicial"
                                     placeholder="Ingrese distChonInicial"
                                     value="{{ old('distChonInicial', $paciente->distChonInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="distChonSeguimiento"
-                                    id="distChonSeguimiento" placeholder="Ingrese distChonSeguimiento"
-                                    value="{{ old('distChonSeguimiento', $paciente->distChonSeguimiento) }}"></td>
                         </tr>
                         <tr>
                             <td>Grasas</td>
                             <td><input type="text" class="form-control " name="distGrasasInicial" id="distGrasasInicial"
                                     placeholder="Ingrese distGrasasInicial"
                                     value="{{ old('distGrasasInicial', $paciente->distGrasasInicial) }}"></td>
-                            <td><input type="text" class="form-control " name="distGrasasSeguimiento"
-                                    id="distGrasasSeguimiento" placeholder="Ingrese distGrasasSeguimiento"
-                                    value="{{ old('distGrasasSeguimiento', $paciente->distGrasasSeguimiento) }}"></td>
                         </tr>
                     </tbody>
                 </table>

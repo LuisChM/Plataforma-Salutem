@@ -89,8 +89,8 @@ class UserController extends Controller
         // busca usuario
         $user = User::findOrFail($id);
         //se muestra el nombre del rol
-        $role = Role::pluck('display_nombre', 'id');
-        $roles = $role->except(['Administrador',1]);
+        $roles = Role::pluck('display_nombre', 'id');
+        // $roles = $role->except(['Administrador',1]);
         //retorna la vista
         return view('administracion.users.edit', [
             'user' => $user,
