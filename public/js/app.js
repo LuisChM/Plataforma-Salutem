@@ -49791,8 +49791,7 @@ $(function () {
   var accordion = new Accordion($('#accordion'), false);
 });
 $('.delete-confirm').click(function (event) {
-  var form = $(this).closest("form"); // var name = $(this).data("nombre");
-
+  var form = $(this).closest("form");
   event.preventDefault();
   swal({
     title: "\xBFEst\xE1s segura de que quieres eliminar?",
@@ -50019,8 +50018,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\laragon\www\Plataforma-Salutem\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\laragon\www\Plataforma-Salutem\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\Plataforma-Salutem\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\Plataforma-Salutem\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

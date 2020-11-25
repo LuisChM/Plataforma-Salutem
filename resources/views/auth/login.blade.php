@@ -17,7 +17,7 @@
                     <label for="email">Correo:</label><br>
                     <input id="email" type="email" placeholder="Ingrese su correo"
                         class="form-control border-0 bg-light shadow-sm @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                     <label for="password">Contraseña:</label><br>
                     <input id="password" type="password" placeholder="Ingrese su contraseña"
                         class="form-control border-0 bg-light shadow-sm @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="current-password">
+                        name="password"  autocomplete="current-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

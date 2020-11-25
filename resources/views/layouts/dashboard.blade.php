@@ -3,7 +3,6 @@
     auth()->user()->roles->toArray(),
 ) }} --}}
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,13 +35,17 @@
                     <!-- Contenedor -->
                     <ul id="accordion" class="accordion pl-0">
                         {{-- Control de productos --}}
-                        @if (auth() ->user() ->hasRoles(['cocinero', 'administrador']))
+                        @if (auth()
+        ->user()
+        ->hasRoles(['cocinero', 'administrador']))
                             <li>
                                 <div class="link">Control de productos<img src="/img/flecha.svg" alt="arrow"
                                         class="iconoFlecha ml-2"></i>
                                 </div>
                                 <ul class="submenu px-2">
-                                    @if (auth() ->user()->hasRoles(['administrador']))
+                                    @if (auth()
+        ->user()
+        ->hasRoles(['administrador']))
                                         <li> <a href="{{ route('productos.index') }}">Productos</a></li>
                                         <li> <a href="{{ route('retirar_producto.index') }}">Retirar Producto</a></li>
                                     @endif
@@ -51,7 +54,7 @@
                         @endif
                         {{-- /Control de productos --}}
 
-                    {{-- /Control de compras --}}
+                        {{-- /Control de compras --}}
 
 
                     @if (auth() ->user() ->hasRoles(['cocinero', 'administrador']))
@@ -101,6 +104,7 @@
                                 <li> <a href="{{ route('pacientes.create') }}">Consulta nutricional</a></li>
                                 <li> <a href="{{ route('pacientes.index') }}">Pacientes</a></li>
                                 <li> <a href="{{ route('calculo') }}">Cálculo de dieta</a></li>
+                                <li> <a href="{{ route('planNutricionals.index') }}">Plan nutricional</a></li>
                                 <li> <a href="{{ route('chart') }}">Reportes</a></li>
                             </ul>
                         </li>
@@ -194,4 +198,3 @@
 <script src="/js/app.js"></script>
 
 </html>
-

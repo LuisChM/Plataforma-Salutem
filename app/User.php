@@ -64,6 +64,9 @@ class User extends Authenticatable
     public function paciente (){
         $this->hasOne(Paciente::class);
     }
+    public function planNutricional (){
+        $this->hasOne(PlanNutricional::class);
+    }
 
     //query scope
     public function scopeName($query, $name)

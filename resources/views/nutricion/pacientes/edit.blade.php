@@ -393,119 +393,12 @@
                                             Hoja de seguimiento <img src="/img/anadir.svg" alt="icono" class="iconoAcordion"> </button>
                                     </h2>
                                 </div>
-                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionStyle">
+                                <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordionStyle">
                                     <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="logrosPlan">Logros del plan nutricional
-                                            </label>
-                                            <input type="text" class="form-control " name="logrosPlan" id="logrosPlan"
-                                                placeholder="Ingrese logrosPlan" value="{{ old('logrosPlan', $paciente->logrosPlan) }}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="deficientes">Áreas deficientes</label>
-                                            <textarea class="form-control" name="deficientes" id="deficientes" rows="3"
-                                                placeholder="Ingrese las deficientes">{{ old('deficientes', $paciente->deficientes) }}</textarea>
-                                        </div>
-                                        <table class="table  mt-4 text-center">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th scope="col"></th>
-                                                    <th scope="col">Inicial</th>
-                                                    <th scope="col">1er seguimiento</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Peso</td>
-                                                    <td><input type="text" class="form-control " name="pesoInicial" id="pesoInicial"
-                                                            placeholder="Ingrese pesoInicial"
-                                                            value="{{ old('pesoInicial', $paciente->pesoInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="pesoSeguimiento" id="pesoSeguimiento"
-                                                            placeholder="Ingrese pesoSeguimiento"
-                                                            value="{{ old('pesoSeguimiento', $paciente->pesoSeguimiento) }}"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>IMC</td>
-                                                    <td><input type="text" class="form-control " name="imcInicial" id="imcInicial"
-                                                            placeholder="Ingrese imcInicial"
-                                                            value="{{ old('imcInicial', $paciente->imcInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="imcSeguimiento" id="imcSeguimiento"
-                                                            placeholder="Ingrese imcSeguimiento"
-                                                            value="{{ old('imcSeguimiento', $paciente->imcSeguimiento) }}"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>% grasa</td>
-                                                    <td><input type="text" class="form-control " name="grasaInicial" id="grasaInicial"
-                                                            placeholder="Ingrese grasaInicial"
-                                                            value="{{ old('grasaInicial', $paciente->grasaInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="grasaSeguimiento" id="grasaSeguimiento"
-                                                            placeholder="Ingrese grasaSeguimiento"
-                                                            value="{{ old('grasaSeguimiento', $paciente->grasaSeguimiento) }}"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Circunferencia abdominal</td>
-                                                    <td><input type="text" class="form-control " name="circAbdominalInicial"
-                                                            id="circAbdominalInicial" placeholder="Ingrese circAbdominalInicial"
-                                                            value="{{ old('circAbdominalInicial', $paciente->circAbdominalInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="circAbdominalSeguimiento"
-                                                            id="circAbdominalSeguimiento" placeholder="Ingrese circAbdominalSeguimiento"
-                                                            value="{{ old('circAbdominalSeguimiento', $paciente->circAbdominalSeguimiento) }}">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Requerimiento</td>
-                                                    <td><input type="text" class="form-control " name="requerimientoInicial"
-                                                            id="requerimientoInicial" placeholder="Ingrese requerimientoInicial"
-                                                            value="{{ old('requerimientoInicial', $paciente->requerimientoInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="requerimientoSeguimiento"
-                                                            id="requerimientoSeguimiento" placeholder="Ingrese requerimientoSeguimiento"
-                                                            value="{{ old('requerimientoSeguimiento', $paciente->requerimientoSeguimiento) }}">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Distribución de macros</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>CHO</td>
-                                                    <td><input type="text" class="form-control " name="distChoInicial" id="distChoInicial"
-                                                            placeholder="Ingrese distChoInicial"
-                                                            value="{{ old('distChoInicial', $paciente->distChoInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="distChoSeguimiento"
-                                                            id="distChoSeguimiento" placeholder="Ingrese distChoSeguimiento"
-                                                            value="{{ old('distChoSeguimiento', $paciente->distChoSeguimiento) }}"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>CHON</td>
-                                                    <td><input type="text" class="form-control " name="distChonInicial" id="distChonInicial"
-                                                            placeholder="Ingrese distChonInicial"
-                                                            value="{{ old('distChonInicial', $paciente->distChonInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="distChonSeguimiento"
-                                                            id="distChonSeguimiento" placeholder="Ingrese distChonSeguimiento"
-                                                            value="{{ old('distChonSeguimiento', $paciente->distChonSeguimiento) }}"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Grasas</td>
-                                                    <td><input type="text" class="form-control " name="distGrasasInicial" id="distGrasasInicial"
-                                                            placeholder="Ingrese distGrasasInicial"
-                                                            value="{{ old('distGrasasInicial', $paciente->distGrasasInicial) }}"></td>
-                                                    <td><input type="text" class="form-control " name="distGrasasSeguimiento"
-                                                            id="distGrasasSeguimiento" placeholder="Ingrese distGrasasSeguimiento"
-                                                            value="{{ old('distGrasasSeguimiento', $paciente->distGrasasSeguimiento) }}"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="form-group">
-                                            <label for="cambioPlan">Cambios en plan de alimentación</label>
-                                            <textarea class="form-control" name="cambioPlan" id="cambioPlan" rows="3"
-                                                placeholder="Ingrese las cambioPlan">{{ old('cambioPlan', $paciente->cambioPlan) }}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="metasObjetivos">Metas y objetivos nuevos</label>
-                                            <textarea class="form-control" name="metasObjetivos" id="metasObjetivos" rows="3"
-                                                placeholder="Ingrese las metasObjetivos">{{ old('metasObjetivos', $paciente->metasObjetivos) }}</textarea>
-                                        </div>
+    
+                                       @include('nutricion.hojaSeguimiento.index')
+                                       
                                     </div>
-                                </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-5">

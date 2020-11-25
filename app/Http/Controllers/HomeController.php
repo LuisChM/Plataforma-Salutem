@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ClientePaciente;
 use App\Factura;
 use Illuminate\Http\Request;
 use App\User;
@@ -23,11 +24,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(ClientePaciente $cliente)
     {
         //
         if (auth()->user()->hasRoles(['paciente','cliente'])) {
-            return view('bienvenido');
+        return view('layouts.perfilUsuario',compact('cliente'));
         } else {
             return view('bienvenido');
         }

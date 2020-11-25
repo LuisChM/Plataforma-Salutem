@@ -16,7 +16,23 @@
                     <form action="{{ url('productos') }}" method="post">
                         <div class="form-group">
                             {{ csrf_field() }}
-
+                            <div class="form-group">
+                                <label for="categoria">Paciente</label>
+                                <select id="categoria" class="custom-select @error('categoria') is-invalid @else border-0 @enderror"
+                                    name="categoria_id">
+                                    <option value="" disabled selected>--Seleccione un paciente--</option>
+                                    @foreach ($categoria as $categorias)
+                                    <option value="{{ $categorias->id }}" class="@error('categoria') is-invalid @else border-0 @enderror">
+                                        {{ $categoria->descripcion }}</option>
+                                    @endforeach
+                                    @error('categoria')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </select>
+            
+                            </div>
                             <div class="form-group">
 
                                 <label for="nombre ">{{ 'Nombre de producto:' }}</label>

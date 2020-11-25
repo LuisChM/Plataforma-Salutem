@@ -26,7 +26,7 @@ Control costo / gasto
                     <td>
                         <div class="d-flex justify-content-around">
                             {{-- seleccionar dato por id y editarlo --}}
-                            <a href="{{route('facturas.edit', $facturas)}}"><img src="/img/seleccionar.svg"
+                            <a href="{{route('facturas.edit',Crypt::encrypt($facturas->id))}}"><img src="/img/seleccionar.svg"
                                     class="iconoAccion" alt="seleccionar"></a>
 
                             {{-- seleccionar dato por id y eliminarlo --}}

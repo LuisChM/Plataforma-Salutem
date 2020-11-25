@@ -72,7 +72,6 @@ $(function() {
 
 $('.delete-confirm').click(function(event) {
   var form =  $(this).closest("form");
-  // var name = $(this).data("nombre");
   event.preventDefault();
   swal({
       title: `¿Estás segura de que quieres eliminar?`,
@@ -203,4 +202,3 @@ $('.delete-confirm').click(function(event) {
 	  }
 	});
 });
-

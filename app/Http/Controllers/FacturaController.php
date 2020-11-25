@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Factura;
-use App\Http\Requests\SaveFacturaRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\SaveFacturaRequest;
 
 class FacturaController extends Controller
 {
@@ -73,11 +74,12 @@ class FacturaController extends Controller
      * @param  \App\Factura  $factura
      * @return \Illuminate\Http\Response
      */
-    public function edit(Factura $factura)
+    public function edit($id)
     {
-        return view('administracion.facturas.edit', [
-            'factura' => $factura
-        ]);
+        $id =  Crypt::decrypt($id);
+        $factura = Factura::find($id);
+
+        return view('administracion.facturas.edit', compact('factura'));
     }
 
     /**

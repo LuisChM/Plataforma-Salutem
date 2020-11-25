@@ -22,11 +22,13 @@
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
+                    {{-- <a class="nav-link"
+                        href="{{ url('cliente/' . $cliente) }}">Perfil</a> --}}
                     <a class="nav-link" href="{{ url('cliente/'.Auth::user()->id) }}">Perfil</a>
-                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Progreso</a>
@@ -54,6 +56,8 @@
             </div>
         </div>
     </nav>
+
+    <h1>{{ $cliente->user_id }}</h1>
 
 
     @yield('contenido')

@@ -24,7 +24,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('home', 'HomeController@index')->name('home')->middleware('verified');
 //plantillas base
 Route::view('iniciarSesion' , 'layouts.iniciarSesion')->name('iniciarSesion')->middleware('verified');
 
@@ -46,6 +46,8 @@ Route::resource('role','RoleController')->names('roles')->middleware('verified')
 
 Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
 
+Route::resource('seguimiento','HojaSeguimientoController')->names('seguimientos')->middleware('verified');
+
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
 Route::resource('estadisticasventas', 'EstadisticasVentasController')->names('estadisticasventas')->middleware('verified');
@@ -61,3 +63,5 @@ Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware(
 Route::view('chart', 'charts')->name('chart')->middleware('verified');
 
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');
+
+Route::resource('planNutricional','PlanNutricionalController')->names('planNutricionals')->middleware('verified');

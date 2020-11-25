@@ -83,26 +83,6 @@ class SaveConsultaRequest extends FormRequest
             'pregunta7' => 'nullable',
             'pregunta8' => 'nullable',
             'diagnostico' => 'nullable',
-            'logrosPlan' => 'nullable',
-            'deficientes' => 'nullable',
-            'pesoInicial' => 'nullable',
-            'pesoSeguimiento' => 'nullable',
-            'imcInicial' => 'nullable',
-            'imcSeguimiento' => 'nullable',
-            'grasaInicial' => 'nullable',
-            'grasaSeguimiento' => 'nullable',
-            'circAbdominalInicial' => 'nullable',
-            'circAbdominalSeguimiento' => 'nullable',
-            'requerimientoInicial' => 'nullable',
-            'requerimientoSeguimiento' => 'nullable',
-            'distChoInicial' => 'nullable',
-            'distChoSeguimiento' => 'nullable',
-            'distChonInicial' => 'nullable',
-            'distChonSeguimiento' => 'nullable',
-            'distGrasasInicial' => 'nullable',
-            'distGrasasSeguimiento' => 'nullable',
-            'cambioPlan' => 'nullable',
-            'metasObjetivos' => 'nullable'
         ];
     }
 }

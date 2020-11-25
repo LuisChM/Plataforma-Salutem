@@ -10,7 +10,7 @@
             {{-- buscar paciente --}}
             <div class="d-flex justify-content-end align-content-center">
                 <form class="form-inline">
-                    <div class="form-group mx-sm-3 mb-2 mr-4">
+                    <div class="form-group mx-sm-3 m-2">
                         <input type="search" class="form-control searchInput" name="buscarpor" placeholder="Buscar paciente" >
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>
@@ -18,7 +18,7 @@
         </div>
             {{-- /buscar paciente --}}
 
-            <a class="btn btn-primary" href="{{ route('users.create') }}" role="button">Agregar nuevo paciente </a>
+            <a class="btn btn-primary" href="{{ route('pacientes.create') }}" role="button">Agregar nuevo paciente </a>
             <table class="table table-striped mt-4 text-center">
                 <thead class="thead-dark">
                     <tr>

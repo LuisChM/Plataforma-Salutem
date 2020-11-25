@@ -5,7 +5,7 @@
             <label for="logrosPlan">Logros del plan nutricional
             </label>
             <input type="text" class="form-control " name="logrosPlan" id="logrosPlan" disabled placeholder="Ingrese logrosPlan"
-                value="{{ $paciente->logrosPlan }}">
+                value="{{ $cliente->logrosPlan }}">
         </div>
     </div>
 
