@@ -64,4 +64,10 @@ Route::view('chart', 'charts')->name('chart')->middleware('verified');
 
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');
 
+Route::view('cliente/{cliente}', 'cliente.show1');
+
+Route::get('cliente/progreso/{cliente}',['as'=>'cliente.show1', 'uses'=>'ClientePacienteController@show1']);
+
+Route::get('cliente/planNutricional/{cliente}',['as'=>'cliente.show2', 'uses'=>'ClientePacienteController@show2']);
+
 Route::resource('planNutricional','PlanNutricionalController')->names('planNutricionals')->middleware('verified');

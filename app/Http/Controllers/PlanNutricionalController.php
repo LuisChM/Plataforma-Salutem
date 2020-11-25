@@ -15,7 +15,7 @@ class PlanNutricionalController extends Controller
      */
     public function index()
     {
-        $paciente = Paciente::join('plan_nutricionals','pacientes.id','=','plan_nutricionals.user_id')->orderBy('plan_nutricionals.created_at', 'ASC')->paginate();
+        $paciente = Paciente::join('plan_nutricionals', 'pacientes.id', '=', 'plan_nutricionals.user_id')->orderBy('plan_nutricionals.created_at', 'ASC')->paginate();
 
         return view('nutricion.planNutricional.index', compact('paciente'));
     }
@@ -26,21 +26,13 @@ class PlanNutricionalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {  
-        // $user = DB::table('users')
-        // ->join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
-        // ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
-        // ->where('roles.nombre', '=', 'paciente')
-        // ->select('users.*')
-        // ->get();
-
+    {
         $user = Paciente::all();
-        
 
-    return view('nutricion.planNutricional.create', [
-        'planNutricional' => new PlanNutricional,
-        'user' => $user,
-    ]);
+        return view('nutricion.planNutricional.create', [
+            'planNutricional' => new PlanNutricional,
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -58,59 +50,53 @@ class PlanNutricionalController extends Controller
 
         return redirect()->route('planNutricionals.index')->with('success', 'La consulta se formo con éxito');
     }
-//     /**
-//      * Display the specified resource.
-//      *
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function show($id)
-//     {
-//         //
-//     }
+    //     /**
+    //      * Display the specified resource.
+    //      *
+    //      * @param  int  $id
+    //      * @return \Illuminate\Http\Response
+    //  */
+    public function show($id)
+    {
+        $planNutricional = PlanNutricional::findOrFail($id);
+        return view('nutricion.planNutricional.show', ['planNutricional' => $planNutricional]);    }
 
-//     /**
-//      * Show the form for editing the specified resource.
-//      *
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function edit($id)
-//     {
-//         return view('nutricion.planNutricional.edit', [
-//              'id' =>  $id,
-//         ]);   
-//      }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(PlanNutricional $planNutricional)
+    {
+        return view('nutricion.planNutricional.edit', [
+            'planNutricional' => $planNutricional,
+        ]);
+    }
 
-//     /**
-//      * Update the specified resource in storage.
-//      *
-//      * @param  \Illuminate\Http\Request  $request
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function update(SavePlanNutricional $request, PlanNutricional $planNutricional)
-//     {
-//        $planNutricional->updateOrCreate(['id'=>1],[$request->validated()]);
-// $planNutricional->save();
-//         return redirect()->route('planNutricionals.index')->with('success', 'La consulta se formo con éxito');
-//         } 
-        
-//     //     public function update(Project $project, SaveProjectRequest $request)
-//     // {
-//     //      $project->update($request->validated());
-//     //      return redirect()->route('projects.show', $project)->with('status','El proyecto fue actualizado');
+    //     /**
+    //      * Update the specified resource in storage.
+    //      *
+    //      * @param  \Illuminate\Http\Request  $request
+    //      * @param  int  $id
+    //      * @return \Illuminate\Http\Response
+    //      */
+    public function update(SavePlanNutricional $request, PlanNutricional $planNutricional)
+    {
+        $planNutricional->update($request->validated());
+        return redirect()->route('planNutricionals.index')->with('success', 'La consulta se formo con éxito');
+    }
 
-//     // }
+    //     /**
+    //      * Remove the specified resource from storage.
+    //      *
+    //      * @param  int  $id
+    //      * @return \Illuminate\Http\Response
+    //      */
+    public function destroy(PlanNutricional $planNutricional)
+    {
+        $planNutricional->delete();
+        return redirect()->route('planNutricionals.index')->with('success', 'El plan nutricional fue eliminado');
 
-//     /**
-//      * Remove the specified resource from storage.
-//      *
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function destroy($id)
-//     {
-//         //
-//     }
+    }
 }

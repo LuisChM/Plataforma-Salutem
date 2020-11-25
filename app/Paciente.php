@@ -23,4 +23,8 @@ class Paciente extends Model
     {
         return $this->hasMany(HojaSeguimiento::class);
     }
+
+    public function planNutricional (){
+        $this->hasOne(PlanNutricional::class);
+    }
 }

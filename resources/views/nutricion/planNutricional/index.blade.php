@@ -37,15 +37,22 @@ Plan Nutricional
                                 <a href="{{ url('planNutricional/'.$pacientes->id.'/edit' )}}"><img src="/img/seleccionar.svg"
                                         class="iconoAccion" alt="seleccionar"></a>
 
-                                {{-- seleccionar dato por id y eliminarlo
+                                        {{-- seleccionar dato por id y mostrarlo
                                 --}}
                                 <a href="{{ url('planNutricional/'.$pacientes->id) }}"><img src="/img/check.svg"
                                     class="iconoAccion" alt="seleccionar"></a>
-
-                            
+   
+                                    {{-- seleccionar dato por id y eliminarlo
+                                --}}
+                                <form method="Post" action="{{route('planNutricionals.destroy',$pacientes)}}">
+                                    @csrf @method('delete')
+                                    <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
+                                        alt="eliminar"></button>
+                                </form>
                             </div>
                         </td>
                     </tr>
+                
                 @endforeach
             </tbody>
 
@@ -53,6 +60,7 @@ Plan Nutricional
         {{ $paciente->links() }}
 
     </div>
-
+    
+    </form>
 </div>
 @endsection

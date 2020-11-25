@@ -1,10 +1,6 @@
-@extends('layouts.dashboard')
-@section('seccion')
-    Plan nutricional
-@endsection
-
+@extends('layouts.perfilUsuario')
 @section('contenido')
-    <div class="container">
+    <div class="container mt-5">
         <div class="responsive-table">
             <table class="table mt-4 text-center">
                 <thead class="thead-green">
@@ -25,31 +21,31 @@
 
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desLunes">Desayuno</label>
-                            <p>{{ $planNutricional->desLunes }}</p>
+                            <p>{{ $cliente->desLunes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desMartes">Desayuno</label>
-                            <p>{{ $planNutricional->desMartes }}</p>
+                            <p>{{ $cliente->desMartes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desMiercoles">Desayuno</label>
-                            <p>{{ $planNutricional->desMiercoles }}</p>
+                            <p>{{ $cliente->desMiercoles }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desJueves">Desayuno</label>
-                            <p>{{ $planNutricional->desJueves }}</p>
+                            <p>{{ $cliente->desJueves }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desViernes">Desayuno</label>
-                            <p>{{ $planNutricional->desViernes }}</p>
+                            <p>{{ $cliente->desViernes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desSabado">Desayuno</label>
-                            <p>{{ $planNutricional->desSabado }}</p>
+                            <p>{{ $cliente->desSabado }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="desDomingo">Desayuno</label>
-                            <p>{{ $planNutricional->desDomingo }}</p>
+                            <p>{{ $cliente->desDomingo }}</p>
                         </td>
                     </tr>
                     {{-- /Desayuno --}}
@@ -58,31 +54,31 @@
                     <tr>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatLunes">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatLunes }}</p>
+                            <p>{{ $cliente->mMatLunes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatMartes">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatMartes }}</p>
+                            <p>{{ $cliente->mMatMartes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatMiercoles">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatMiercoles }}</p>
+                            <p>{{ $cliente->mMatMiercoles }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatJueves">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatJueves }}</p>
+                            <p>{{ $cliente->mMatJueves }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatviernes">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatviernes }}</p>
+                            <p>{{ $cliente->mMatviernes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatSabado">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatSabado }}</p>
+                            <p>{{ $cliente->mMatSabado }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMatDomingo">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatDomingo }}</p>
+                            <p>{{ $cliente->mMatDomingo }}</p>
                         </td>
                     </tr>
                     {{-- /Merienda matutina --}}
@@ -91,31 +87,31 @@
                     <tr>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almLunes">Almuerzo</label>
-                            <p>{{ $planNutricional->almLunes }}</p>
+                            <p>{{ $cliente->almLunes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almMartes">Almuerzo</label>
-                            <p>{{ $planNutricional->almMartes }}</p>
+                            <p>{{ $cliente->almMartes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almMiercoles">Almuerzo</label>
-                            <p>{{ $planNutricional->almMiercoles }}</p>
+                            <p>{{ $cliente->almMiercoles }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almJueves">Almuerzo</label>
-                            <p>{{ $planNutricional->almJueves }}</p>
+                            <p>{{ $cliente->almJueves }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almViernes">Almuerzo</label>
-                            <p>{{ $planNutricional->almViernes }}</p>
+                            <p>{{ $cliente->almViernes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almSabado">Almuerzo</label>
-                            <p>{{ $planNutricional->almSabado }}</p>
+                            <p>{{ $cliente->almSabado }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="almDomingo">Almuerzo</label>
-                            <p>{{ $planNutricional->almDomingo }}</p>
+                            <p>{{ $cliente->almDomingo }}</p>
                         </td>
                     </tr>
                     {{-- /Almuerzo --}}
@@ -124,31 +120,31 @@
                     <tr>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerLunes">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerLunes }}</p>
+                            <p>{{ $cliente->mMerLunes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerMartes">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerMartes }}</p>
+                            <p>{{ $cliente->mMerMartes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerMiercoles">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerMiercoles }}</p>
+                            <p>{{ $cliente->mMerMiercoles }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerJueves">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerJueves }}</p>
+                            <p>{{ $cliente->mMerJueves }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerviernes">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerviernes }}</p>
+                            <p>{{ $cliente->mMerviernes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerSabado">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerSabado }}</p>
+                            <p>{{ $cliente->mMerSabado }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="mMerDomingo">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerDomingo }}</p>
+                            <p>{{ $cliente->mMerDomingo }}</p>
                         </td>
                     </tr>
                     {{-- /Merienda tarde --}}
@@ -157,31 +153,31 @@
                     <tr>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenLunes">Cena</label>
-                            <p>{{ $planNutricional->cenLunes }}</p>
+                            <p>{{ $cliente->cenLunes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenMartes">Cena</label>
-                            <p>{{ $planNutricional->cenMartes }}</p>
+                            <p>{{ $cliente->cenMartes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenMiercoles">Cena</label>
-                            <p>{{ $planNutricional->cenMiercoles }}</p>
+                            <p>{{ $cliente->cenMiercoles }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenJueves">Cena</label>
-                            <p>{{ $planNutricional->cenJueves }}</p>
+                            <p>{{ $cliente->cenJueves }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenViernes">Cena</label>
-                            <p>{{ $planNutricional->cenViernes }}</p>
+                            <p>{{ $cliente->cenViernes }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenSabado">Cena</label>
-                            <p>{{ $planNutricional->cenSabado }}</p>
+                            <p>{{ $cliente->cenSabado }}</p>
                         </td>
                         <td class="border-right border-top-0 ">
                             <label class="font-weight-bold" for="cenDomingo">Cena</label>
-                            <p>{{ $planNutricional->cenDomingo }}</p>
+                            <p>{{ $cliente->cenDomingo }}</p>
                         </td>
                     </tr>
                     {{-- /Cena --}}
@@ -191,10 +187,6 @@
                 </tbody>
 
             </table>
-        </div>
-
-        <div class="d-flex justify-content-end mt-5 mb-5">
-            <a class="btn btn-primary mr-3" href="{{ route('planNutricionals.index') }}" role="button">Volver</a>
         </div>
     </div>
 

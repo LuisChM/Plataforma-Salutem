@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('seccion')
-    paciente nutricional
+    Consulta Nutricional
 @endsection
 
 @section('contenido')
