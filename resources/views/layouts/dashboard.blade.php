@@ -105,7 +105,7 @@
                                 <li> <a href="{{ route('pacientes.index') }}">Pacientes</a></li>
                                 <li> <a href="{{ route('calculo') }}">Cálculo de dieta</a></li>
                                 <li> <a href="{{ route('planNutricionals.index') }}">Plan nutricional</a></li>
-                                <li> <a href="{{ route('chart') }}">Reportes</a></li>
+                                {{-- <li> <a href="{{ route('chart') }}">Reportes</a></li> --}}
                             </ul>
                         </li>
                     @endif

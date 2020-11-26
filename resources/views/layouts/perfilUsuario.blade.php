@@ -28,9 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('cliente/progreso/'.Auth::user()->id) }}">Perfil</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Progreso</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('cliente/planNutricional/'.Auth::user()->id) }}">Plan Nutricional</a>
                 </li>

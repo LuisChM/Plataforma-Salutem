@@ -39,10 +39,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        // $roles = Role::where('display_nombre', '=','Paciente')
-        // ->orWhere('display_nombre', '=','Cliente')
-        // ->pluck('display_nombre', 'id');
-        //mostrar nombre del rol 
         $roles = Role::pluck('display_nombre', 'id');
         
         //se dirige a la vista de crear

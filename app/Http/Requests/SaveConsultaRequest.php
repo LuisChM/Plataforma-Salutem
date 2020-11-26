@@ -25,9 +25,9 @@ class SaveConsultaRequest extends FormRequest
     {
         return [
             'user_id' => 'nullable|unique:pacientes',
-            'nombre' => 'nullable',
-            'apellido' => 'nullable',
-            'genero' => 'nullable',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            // 'genero' => 'nullable',
             'edad' => 'nullable',
             'correo' => 'nullable',
             'telefono' => 'nullable',
@@ -83,6 +83,19 @@ class SaveConsultaRequest extends FormRequest
             'pregunta7' => 'nullable',
             'pregunta8' => 'nullable',
             'diagnostico' => 'nullable',
+
+            'logrosPlan' => 'nullable',
+            'deficientes' => 'nullable',
+            'pesoInicial' => 'nullable',
+            'imcInicial' => 'nullable',
+            'grasaInicial' => 'nullable',
+            'circAbdominalInicial' => 'nullable',
+            'requerimientoInicial' => 'nullable',
+            'distChoInicial' => 'nullable',
+            'distChonInicial' => 'nullable',
+            'distGrasasInicial' => 'nullable',
+            'cambioPlan' => 'nullable',
+            'metasObjetivos' => 'nullable'  
         ];
     }
 }

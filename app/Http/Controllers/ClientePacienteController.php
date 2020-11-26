@@ -46,8 +46,11 @@ class ClientePacienteController extends Controller
             ->where('pacientes.user_id', '=', Auth::user()->id)
             ->where('users.id', '=', Auth::user()->id)
             ->first();
-
-        return view('cliente.show1')->with('cliente', $cliente);
+            if ($cliente === null) {
+                return view('layouts.perfilUsuario',compact('cliente'));
+            }else {
+                return view('cliente.show1')->with('cliente', $cliente);
+            }
     }
 
     public function show2()
