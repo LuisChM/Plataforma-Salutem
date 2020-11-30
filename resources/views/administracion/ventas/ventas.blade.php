@@ -7,14 +7,7 @@ Administracion de comidas
 @section('contenido')
 <div class="container mt-5">
 
-    <div class="d-flex justify-content-end align-content-center">
-        <form class="form-inline">
-            <div class="form-group mx-sm-3 mb-2 mr-4">
-                <input type="search" class="form-control searchInput"  placeholder="Buscar comida">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-        </form>
-    </div>
+
 <div>
     <a href="{{route('ventas.create')}}" class="btn btn-primary mb-2">Agregar nueva Comida</a>
 

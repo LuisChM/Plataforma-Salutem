@@ -26,8 +26,8 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        $categoria = Categoria::all();
-        return view('productos.create', ['productos'=> new Productos ,'categoria'=>$categoria, ]);
+
+        return view('productos.create');
     }
 
     /**
@@ -38,11 +38,9 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria_id = $request->input("categoria_id");
-        $datos = Productos::create($request->request);
-        $datos->categoria_id = $categoria_id;
-        $datos->save();
 
+        $datosProductos=request()->except('_token');
+        Productos::insert($datosProductos);
         return redirect('productos');
     }
 
