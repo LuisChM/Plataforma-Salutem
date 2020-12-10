@@ -60,9 +60,16 @@ Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar
 
 Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware('verified');
 
-Route::view('chart', 'charts')->name('chart')->middleware('verified');
+Route::get('chart', 'LaravelGoogleGrap@graficoCircular')->name('chart')->middleware('verified');
+Route::get('chart', 'LaravelGoogleGrap@graficoBarras')->name('chart')->middleware('verified');
 
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');
+
+
+
+Route::get('/sendemail', 'SendEmailController@index');
+Route::post('/sendemail/send', 'SendEmailController@send');
+
 
 Route::view('cliente/{cliente}', 'cliente.show1')->middleware('verified');
 
