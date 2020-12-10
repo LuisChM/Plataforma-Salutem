@@ -10,8 +10,8 @@ class HojaSeguimiento extends Model
     'imcSeguimiento', 'grasaInicial', 'grasaSeguimiento', 'circAbdominalInicial', 'circAbdominalSeguimiento', 'requerimientoInicial', 'requerimientoSeguimiento', 'distChoInicial', 'distChoSeguimiento', 'distChonInicial', 'distChonSeguimiento', 'distGrasasInicial',
     'distGrasasSeguimiento', 'cambioPlan', 'metasObjetivos'];
 
-    public function pacientes()
+    public function user()
     {
-        return $this->belongsTo(Paciente::class);
+        return $this->belongsTo(User::class);
     }
 }

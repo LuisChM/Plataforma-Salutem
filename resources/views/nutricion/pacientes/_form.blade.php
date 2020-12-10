@@ -1,6 +1,6 @@
 @csrf
 <div class="accordion bg-none" id="accordionStyle" style="max-width: none">
-
+                    
     <div class="card bg-none border-0 mb-1">
         <div class="card-header bg-collapse-gray" id="headingOne">
             <h2 class="mb-0">
@@ -14,24 +14,6 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <label for="users">Paciente</label>
-                    <select id="users" class="custom-select @error('users') is-invalid @else border-0 @enderror"
-                        name="user_id">
-                        <option value="" disabled selected>--Seleccione un paciente--</option>
-                        @foreach ($user as $users)
-                        <option value="{{ $users->id }}" class="@error('user') is-invalid @else border-0 @enderror">
-                            {{ $users->name }}</option>
-                        @endforeach
-                        @error('users')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </select>
-
-                </div>
-
-                <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control " name="nombre" id="nombre" placeholder="Ingrese el nombre"
                         value="{{ old('nombre', $paciente->nombre) }}">
@@ -41,13 +23,17 @@
                     <input type="text" class="form-control " name="apellido" id="apellido"
                         placeholder="Ingrese el apellido" value="{{ old('apellido', $paciente->apellido) }}">
                 </div>
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="genero">Género</label>
-                    <select name="" id="" class="form-control">
-                        <option value="" disabled selected>Selecione el género</option>
-                        <option value="m">Masculino</option>
-                        <option value="f">Femenino</option>
-                    </select>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genero" id="inlineRadio1" value="hombre" {{ ($paciente->genero=="hombre")? "checked" : "" }}>
+                        <label class="form-check-label" for="inlineRadio1">Hombre</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genero" id="inlineRadio2" value="mujer" {{ ($paciente->genero=="mujer")? "checked" : "" }} >
+                        <label class="form-check-label" for="inlineRadio2">Mujer</label>
+                      </div>
                 </div>
 
                 <div class="form-group">
@@ -405,93 +391,11 @@
         </div>
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionStyle">
             <div class="card-body">
-                <div class="form-group">
-                    <label for="logrosPlan">Logros del plan nutricional
-                    </label>
-                    <input type="text" class="form-control " name="logrosPlan" id="logrosPlan"
-                        placeholder="Ingrese logrosPlan" value="{{ old('logrosPlan', $paciente->logrosPlan) }}">
-                </div>
-                <div class="form-group">
-                    <label for="deficientes">Áreas deficientes</label>
-                    <textarea class="form-control" name="deficientes" id="deficientes" rows="3"
-                        placeholder="Ingrese las deficientes">{{ old('deficientes', $paciente->deficientes) }}</textarea>
-                </div>
-                <table class="table  mt-4 text-center">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Datos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Peso</td>
-                            <td><input type="text" class="form-control " name="pesoInicial" id="pesoInicial"
-                                    placeholder="Ingrese pesoInicial"
-                                    value="{{ old('pesoInicial', $paciente->pesoInicial) }}"></td>
-                        </tr>
-                        <tr>
-                            <td>IMC</td>
-                            <td><input type="text" class="form-control " name="imcInicial" id="imcInicial"
-                                    placeholder="Ingrese imcInicial"
-                                    value="{{ old('imcInicial', $paciente->imcInicial) }}"></td>                            
-                        </tr>
-                        <tr>
-                            <td>% grasa</td>
-                            <td><input type="text" class="form-control " name="grasaInicial" id="grasaInicial"
-                                    placeholder="Ingrese grasaInicial"
-                                    value="{{ old('grasaInicial', $paciente->grasaInicial) }}"></td>                            
-                        </tr>
-                        <tr>
-                            <td>Circunferencia abdominal</td>
-                            <td><input type="text" class="form-control " name="circAbdominalInicial"
-                                    id="circAbdominalInicial" placeholder="Ingrese circAbdominalInicial"
-                                    value="{{ old('circAbdominalInicial', $paciente->circAbdominalInicial) }}"></td>                            
-                        </tr>
-                        <tr>
-                            <td>Requerimiento</td>
-                            <td><input type="text" class="form-control " name="requerimientoInicial"
-                                    id="requerimientoInicial" placeholder="Ingrese requerimientoInicial"
-                                    value="{{ old('requerimientoInicial', $paciente->requerimientoInicial) }}"></td>                            
-                        </tr>
-                        <tr>
-                            <td>Distribución de macros</td>
-                        </tr>
-                        <tr>
-                            <td>CHO</td>
-                            <td><input type="text" class="form-control " name="distChoInicial" id="distChoInicial"
-                                    placeholder="Ingrese distChoInicial"
-                                    value="{{ old('distChoInicial', $paciente->distChoInicial) }}"></td>                            
-                        </tr>
-                        <tr>
-                            <td>CHON</td>
-                            <td><input type="text" class="form-control " name="distChonInicial" id="distChonInicial"
-                                    placeholder="Ingrese distChonInicial"
-                                    value="{{ old('distChonInicial', $paciente->distChonInicial) }}"></td>
-                        </tr>
-                        <tr>
-                            <td>Grasas</td>
-                            <td><input type="text" class="form-control " name="distGrasasInicial" id="distGrasasInicial"
-                                    placeholder="Ingrese distGrasasInicial"
-                                    value="{{ old('distGrasasInicial', $paciente->distGrasasInicial) }}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="form-group">
-                    <label for="cambioPlan">Cambios en plan de alimentación</label>
-                    <textarea class="form-control" name="cambioPlan" id="cambioPlan" rows="3"
-                        placeholder="Ingrese las cambioPlan">{{ old('cambioPlan', $paciente->cambioPlan) }}</textarea>
-                </div>
-                <div class="form-group">
-                    <label for="metasObjetivos">Metas y objetivos nuevos</label>
-                    <textarea class="form-control" name="metasObjetivos" id="metasObjetivos" rows="3"
-                        placeholder="Ingrese las metasObjetivos">{{ old('metasObjetivos', $paciente->metasObjetivos) }}</textarea>
-                </div>
+                @include('nutricion.hojaSeguimiento.index')
             </div>
         </div>
     </div>
 </div>
-<div class="d-flex justify-content-end mt-5">
     <div class="d-flex justify-content-end mt-5">
         <a class="btn btn-primary mr-3" href="{{ route('pacientes.index') }}" role="button">Volver</a>
         <button class="btn btn-secondary text-white">{{ $btnText ?? '' }}</button>

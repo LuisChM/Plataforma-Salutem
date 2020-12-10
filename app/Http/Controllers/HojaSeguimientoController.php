@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\HojaSeguimiento;
 use Illuminate\Http\Request;
 use App\Http\Requests\SaveLogroPaciente;
+use App\Paciente;
 
 class HojaSeguimientoController extends Controller
 {
@@ -13,10 +14,11 @@ class HojaSeguimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Paciente $paciente)
     {
-        $seguimiento = HojaSeguimiento::orderBy('created_at', 'ASC')->paginate();
-        return view('pacientes.create', compact('seguimiento'));    
+        $seguimiento = $paciente->seguimiento()->with(['']);
+
+        return view('pacientes.create', compact('seguimiento','paciente'));
     }
 
     /**
@@ -24,12 +26,15 @@ class HojaSeguimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Paciente $paciente)
     {
+        
+
         return view('nutricion.hojaSeguimiento.create', [
             'hojaSeguimiento' => new HojaSeguimiento,
-        ]);   
-     }
+            'paciente' => $paciente
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,11 +42,14 @@ class HojaSeguimientoController extends Controller
      * @param  \Illuminate\Http\SaveLogroPaciente  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaveLogroPaciente $request)
+    public function store(SaveLogroPaciente $request, Paciente $paciente )
     {
+        // $paciente = Paciente::all();
+
         $seg = HojaSeguimiento::create($request->validated());
-$seg->save();
-        return redirect()->route('pacientes.create')->with('success', 'Logro agregado con exito');
+        $seg->save();
+      
+        return redirect()->route('pacientes.index',$paciente->id)->with('success', 'Logro agregado con exito');
     }
 
     /**
