@@ -40,11 +40,14 @@ class ComprasController extends Controller
     {
         $productos = Productos::all();
         $categoria = Categoria::all();
-        return view('administracion.compras.create',compact('productos','categorias'),
-        [
-            'compras'=> new Compras
-        ]);
-    }  
+        return view(
+            'administracion.compras.create',
+            compact('productos', 'categorias'),
+            [
+                'compras' => new Compras
+            ]
+        );
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -55,10 +58,10 @@ class ComprasController extends Controller
     public function store(SaveComprasRequest $request)
     {
         Compras::create($request->validated());
-        
-        return redirect()->route('compras.index')->with('status','La compra se creo con exito');
-    }  
-    
+
+        return redirect()->route('compras.index')->with('status', 'La compra se creo con exito');
+    }
+
 
     /**
      * Display the specified resource.
@@ -79,10 +82,10 @@ class ComprasController extends Controller
      */
     public function edit(Compras $compras)
     {
-        return view('administracion.compras.edit',[
-            'compras'=>$compras
+        return view('administracion.compras.edit', [
+            'compras' => $compras
 
-        
+
         ]);
     }
 
@@ -96,7 +99,7 @@ class ComprasController extends Controller
     public function update(Compras $compras, SaveComprasRequest $request)
     {
         $compras->update($request->validated());
-        return redirect()->route('compras.index', $compras)->with('status','El dato fue actualizado');
+        return redirect()->route('compras.index', $compras)->with('status', 'El dato fue actualizado');
     }
 
     /**
@@ -108,7 +111,7 @@ class ComprasController extends Controller
     public function destroy(Compras $compras)
     {
         $compras->delete();
-        return redirect()->route('compras.index')->with('status','El dato fue eliminado');
+        return redirect()->route('compras.index')->with('status', 'El dato fue eliminado');
     }
 
 

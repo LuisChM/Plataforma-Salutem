@@ -9,7 +9,8 @@ Hoja de Seguimiento
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
    
-                <form class="mt-4" action="{{route('seguimientos.store')}}" method="POST">
+                <form class="mt-4" action="{{url('paciente/'.$paciente->id.'/seguimiento')}}" method="POST">
+                    @csrf
                     @include('nutricion.hojaSeguimiento._form',['btnText'=>'Guardar'])
     
                 </form>

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\HojaSeguimiento;
 use App\User;
 use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SaveConsultaRequest;
+use Symfony\Component\Console\Input\Input;
+
 // use SweetAlert;
 
 class PacienteController extends Controller
@@ -28,7 +31,7 @@ class PacienteController extends Controller
         //     // ->email($email)
         //     ->paginate();
 
-        $paciente = Paciente::where('nombre','like',"%$name%")->paginate();
+        $paciente = Paciente::where('nombre', 'like', "%$name%")->paginate();
 
 
         // $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
@@ -50,11 +53,13 @@ class PacienteController extends Controller
             ->where('roles.nombre', '=', 'paciente')
             ->select('users.*')
             ->get();
-            
+        $seguimiento = HojaSeguimiento::all();
+
 
         return view('nutricion.pacientes.create', [
             'paciente' => new Paciente,
             'user' => $user,
+            'seguimiento' => $seguimiento,
         ]);
     }
 
@@ -68,7 +73,9 @@ class PacienteController extends Controller
     {
         $datos = Paciente::create($request->validated());
         $user_id = $request->input("user_id");
+        $radio = $request->input("genero");
         $datos->user_id = $user_id;
+        $datos->genero = $radio;
         $datos->save();
 
         return redirect()->route('pacientes.index')->with('success', 'La consulta se formo con éxito');
@@ -82,7 +89,7 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        $paciente = Paciente::findOrFail($id);
+        $paciente = HojaSeguimiento::findOrFail($id)->where();
         return view('nutricion.pacientes.show', ['paciente' => $paciente]);
     }
 
@@ -94,8 +101,12 @@ class PacienteController extends Controller
      */
     public function edit(Paciente $paciente)
     {
+        $seguimiento = HojaSeguimiento::all();
+
         return view('nutricion.pacientes.edit', [
             'paciente' => $paciente,
+            'seguimiento' => $seguimiento,
+
         ]);
     }
 
@@ -124,9 +135,4 @@ class PacienteController extends Controller
         //
     }
 
-    // public function updateOrCreate (SaveConsultaRequest $request, Paciente $paciente){
-    //     $datos = Paciente::updateOrCreate(['id'=> request('id')],[$paciente=>$request->validated()]);
-    //     $datos->save();
-    //     return redirect()->route('pacientes.index')->with('success', 'Se actualizo el paciente con éxito');
-    // }
 }

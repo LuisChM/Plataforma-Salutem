@@ -1,4 +1,3 @@
-@csrf
         <div class="form-group">
             <label for="logrosPlan">Logros del plan nutricional
             </label>
@@ -84,6 +83,6 @@
    
 
 <div class="d-flex justify-content-end mt-5 mb-5">
-    <a class="btn btn-primary mr-3" href="{{ route('pacientes.create') }}" role="button">Volver</a>
+    {{-- <a class="btn btn-primary mr-3" href="{{ route('pacientes.create') }}" role="button">Volver</a> --}}
     <button class="btn btn-secondary text-white">{{ $btnText ?? '' }}</button>
 </div>

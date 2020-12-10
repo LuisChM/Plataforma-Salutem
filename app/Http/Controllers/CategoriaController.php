@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-   
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +18,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        
+
         $categoria = Categoria::orderBy('created_at', 'ASC')->paginate();
         return view('administracion.categorias.index', compact('categoria'));
     }
