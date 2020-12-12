@@ -16,8 +16,7 @@ class CreateHojaSeguimientosTable extends Migration
         Schema::create('hoja_seguimientos', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('user_id')->nullable();
-
+            $table->bigInteger('paciente_id')->unsigned()->nullable();
 
             $table->string('logrosPlan')->nullable();
             $table->string('deficientes')->nullable();

@@ -14,11 +14,13 @@ class HojaSeguimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Paciente $paciente)
+    public function index()
     {
-        $seguimiento = $paciente->seguimiento()->with(['']);
+        $seguimiento = Paciente::join('hoja_segumientos', 'pacientes.id', '=', 'hoja_segumientos.paciente_id')
+            ->select('hoja_seguimientos.logrosPlan')
+            ->get();
 
-        return view('pacientes.create', compact('seguimiento','paciente'));
+        return view('pacientes.create', compact('seguimiento'));
     }
 
     /**
@@ -28,8 +30,6 @@ class HojaSeguimientoController extends Controller
      */
     public function create(Paciente $paciente)
     {
-        
-
         return view('nutricion.hojaSeguimiento.create', [
             'hojaSeguimiento' => new HojaSeguimiento,
             'paciente' => $paciente
@@ -42,14 +42,13 @@ class HojaSeguimientoController extends Controller
      * @param  \Illuminate\Http\SaveLogroPaciente  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaveLogroPaciente $request, Paciente $paciente )
+    public function store(SaveLogroPaciente $request, Paciente $paciente)
     {
-        // $paciente = Paciente::all();
-
         $seg = HojaSeguimiento::create($request->validated());
+        $seg->paciente_id = $paciente->id;
         $seg->save();
-      
-        return redirect()->route('pacientes.index',$paciente->id)->with('success', 'Logro agregado con exito');
+
+        return redirect()->route('pacientes.edit', ['paciente' => $paciente])->with('success', 'Logro agregado con exito');
     }
 
     /**

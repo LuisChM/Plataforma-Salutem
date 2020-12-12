@@ -46,7 +46,9 @@ Route::resource('role','RoleController')->names('roles')->middleware('verified')
 
 Route::resource('paciente','PacienteController')->names('pacientes')->middleware('verified');
 
-Route::resource('paciente.seguimiento','HojaSeguimientoController')->names('paciente.segumiento')->middleware('verified');
+//********************** */
+Route::resource('paciente.seguimiento','HojaSeguimientoController');
+//********************* */
 
 Route::resource('ventas', 'VentasController')->names('ventas')->middleware('verified');
 
@@ -61,6 +63,7 @@ Route::resource('retirar_producto', 'RetirarProductoController')->names('retirar
 Route::view('calculo' , 'nutricion.calculo.index')->name('calculo')->middleware('verified');
 
 Route::get('chart', 'LaravelGoogleGrap@graficoCircular')->name('chart')->middleware('verified');
+
 Route::get('chart', 'LaravelGoogleGrap@graficoBarras')->name('chart')->middleware('verified');
 
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');

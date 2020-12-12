@@ -16,7 +16,7 @@ class CreatePlanNutricionalTable extends Migration
         Schema::create('plan_nutricionals', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id')->nullable()->unsigned();
             // Lunes
             $table->string('desLunes')->nullable();
             $table->string('mMatLunes')->nullable();

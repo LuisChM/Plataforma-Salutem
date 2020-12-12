@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Productos extends Model
 {
-    public $fillable = ['nombre', 'categoria', 'cantidad', 'unidad_de_medida'];
+    public $fillable = ['nombre', 'cantidad', 'unidad_de_medida'];
 
     public function categoria(){
         return $this->belongsTo(Categoria::class);

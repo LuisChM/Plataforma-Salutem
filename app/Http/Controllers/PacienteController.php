@@ -101,8 +101,9 @@ class PacienteController extends Controller
      */
     public function edit(Paciente $paciente)
     {
-        $seguimiento = HojaSeguimiento::all();
-
+        $seguimiento = HojaSeguimiento::where('paciente_id', $paciente->id)
+            ->get();
+        // dd($seguimiento);
         return view('nutricion.pacientes.edit', [
             'paciente' => $paciente,
             'seguimiento' => $seguimiento,
@@ -134,5 +135,4 @@ class PacienteController extends Controller
     {
         //
     }
-
 }

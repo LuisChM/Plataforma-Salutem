@@ -24,7 +24,8 @@ class SaveLogroPaciente extends FormRequest
     public function rules()
     {
         return [
-            'logrosPlan' => 'nullable',
+            'paciente_id' => 'nullable',
+            'logrosPlan' => 'required',
             'deficientes' => 'nullable',
             'pesoInicial' => 'nullable',
             'imcInicial' => 'nullable',
