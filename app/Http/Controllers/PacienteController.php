@@ -53,13 +53,10 @@ class PacienteController extends Controller
             ->where('roles.nombre', '=', 'paciente')
             ->select('users.*')
             ->get();
-        $seguimiento = HojaSeguimiento::all();
-
 
         return view('nutricion.pacientes.create', [
             'paciente' => new Paciente,
             'user' => $user,
-            'seguimiento' => $seguimiento,
         ]);
     }
 
@@ -89,7 +86,7 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        $paciente = HojaSeguimiento::findOrFail($id)->where();
+        $paciente = Paciente::findOrFail($id);
         return view('nutricion.pacientes.show', ['paciente' => $paciente]);
     }
 
@@ -101,13 +98,11 @@ class PacienteController extends Controller
      */
     public function edit(Paciente $paciente)
     {
-        $seguimiento = HojaSeguimiento::where('paciente_id', $paciente->id)
-            ->get();
+        $seguimiento = HojaSeguimiento::where('paciente_id', $paciente->id)->get();
         // dd($seguimiento);
         return view('nutricion.pacientes.edit', [
             'paciente' => $paciente,
             'seguimiento' => $seguimiento,
-
         ]);
     }
 

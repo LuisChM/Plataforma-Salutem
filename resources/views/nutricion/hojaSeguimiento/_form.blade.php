@@ -80,9 +80,5 @@
             <textarea class="form-control" name="metasObjetivos" id="metasObjetivos" rows="3"
                 placeholder="Ingrese las metasObjetivos">{{ old('metasObjetivos', $hojaSeguimiento->metasObjetivos) }}</textarea>
         </div>
-   
 
-<div class="d-flex justify-content-end mt-5 mb-5">
-    {{-- <a class="btn btn-primary mr-3" href="{{ route('pacientes.create') }}" role="button">Volver</a> --}}
-    <button class="btn btn-secondary text-white">{{ $btnText ?? '' }}</button>
-</div>
+    <button class="btn btn-secondary text-white mt-5 mb-5">{{ $btnText ?? '' }}</button>

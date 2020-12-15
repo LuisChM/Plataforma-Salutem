@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Paciente;
 use App\HojaSeguimiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SaveLogroPaciente;
-use App\Paciente;
 
 class HojaSeguimientoController extends Controller
 {
@@ -16,11 +17,7 @@ class HojaSeguimientoController extends Controller
      */
     public function index()
     {
-        $seguimiento = Paciente::join('hoja_segumientos', 'pacientes.id', '=', 'hoja_segumientos.paciente_id')
-            ->select('hoja_seguimientos.logrosPlan')
-            ->get();
-
-        return view('pacientes.create', compact('seguimiento'));
+        //
     }
 
     /**
@@ -54,45 +51,56 @@ class HojaSeguimientoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\hojaSeguimiento  $hojaSeguimiento
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(hojaSeguimiento $hojaSeguimiento)
+    public function show($id)
     {
-        //
+        $hojaSeguimiento = HojaSeguimiento::findOrFail($id);
+        return view('nutricion.hojaSeguimiento.show', [
+            'hojaSeguimiento' => $hojaSeguimiento
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\hojaSeguimiento  $hojaSeguimiento
+     * @param  \App\HojaSeguimiento  $hojaSeguimiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(hojaSeguimiento $hojaSeguimiento)
+    public function edit($id)
     {
-        //
+        $hojaSeguimiento = HojaSeguimiento::find($id);
+
+        return view('nutricion.hojaSeguimiento.edit', compact('hojaSeguimiento'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\hojaSeguimiento  $hojaSeguimiento
+     * @param  \App\HojaSeguimiento  $hojaSeguimiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, hojaSeguimiento $hojaSeguimiento)
+    public function update($id, SaveLogroPaciente $request)
     {
-        //
+
+        $actualizarDato=$request->validated();
+        HojaSeguimiento::where('id',$id)->update($actualizarDato);
+        return back()->with('success', 'Datos actualizados');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\hojaSeguimiento  $hojaSeguimiento
+     * @param  \App\HojaSeguimiento  $hojaSeguimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(hojaSeguimiento $hojaSeguimiento)
+    public function destroy(HojaSeguimiento $hojaSeguimiento, $id, Paciente $paciente)
     {
-        //
+        DB::delete('delete from hoja_seguimientos where id = '.$id);
+        dd($paciente);
+        $paciente->id;
+     return redirect()->route('pacientes.edit', ['paciente' => $paciente])->with('success', 'El rol fue eliminado');
     }
 }

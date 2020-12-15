@@ -328,73 +328,59 @@
                     <label for="pregunta1">¿Ha realizado alguna dieta anteriormente?
                     </label>
                     <input type="text" class="form-control " name="pregunta1" id="pregunta1"
-                        placeholder="Ingrese pregunta1" value="{{ old('pregunta1', $paciente->pregunta1) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta1', $paciente->pregunta1) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta2">Alimentos que le gustan
                     </label>
                     <input type="text" class="form-control " name="pregunta2" id="pregunta2"
-                        placeholder="Ingrese pregunta2" value="{{ old('pregunta2', $paciente->pregunta2) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta2', $paciente->pregunta2) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta3">Alimentos que no le gustan
                     </label>
                     <input type="text" class="form-control " name="pregunta3" id="pregunta3"
-                        placeholder="Ingrese pregunta3" value="{{ old('pregunta3', $paciente->pregunta3) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta3', $paciente->pregunta3) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta4">Tipo de cocción
                     </label>
                     <input type="text" class="form-control " name="pregunta4" id="pregunta4"
-                        placeholder="Ingrese pregunta4" value="{{ old('pregunta4', $paciente->pregunta4) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta4', $paciente->pregunta4) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta5">Manera de endulzar
                     </label>
                     <input type="text" class="form-control " name="pregunta5" id="pregunta5"
-                        placeholder="Ingrese pregunta5" value="{{ old('pregunta5', $paciente->pregunta5) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta5', $paciente->pregunta5) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta6">Cantidad de tiempos de comida
                     </label>
                     <input type="text" class="form-control " name="pregunta6" id="pregunta6"
-                        placeholder="Ingrese pregunta6" value="{{ old('pregunta6', $paciente->pregunta6) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta6', $paciente->pregunta6) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta7">¿Dónde realiza sus tiempos de comida?
                     </label>
                     <input type="text" class="form-control " name="pregunta7" id="pregunta7"
-                        placeholder="Ingrese pregunta7" value="{{ old('pregunta7', $paciente->pregunta7) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta7', $paciente->pregunta7) }}">
                 </div>
                 <div class="form-group">
                     <label for="pregunta8">¿Quién prepara sus comidas?
                     </label>
                     <input type="text" class="form-control " name="pregunta8" id="pregunta8"
-                        placeholder="Ingrese pregunta8" value="{{ old('pregunta8', $paciente->pregunta8) }}">
+                        placeholder="Escribir respuesta" value="{{ old('pregunta8', $paciente->pregunta8) }}">
                 </div>
                 <div class="form-group">
                     <label for="diagnostico">Diagnóstico</label>
                     <textarea class="form-control" name="diagnostico" id="diagnostico" rows="3"
-                        placeholder="Ingrese las diagnostico">{{ old('diagnostico', $paciente->diagnostico) }}</textarea>
+                        placeholder="Ingrese el diagnostico">{{ old('diagnostico', $paciente->diagnostico) }}</textarea>
                 </div>
             </div>
         </div>
     </div>
-    <div class="card bg-none border-0 mb-1">
-        <div class="card-header bg-collapse-gray" id="headingFive">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left text-white d-flex justify-content-between" type="button"
-                    data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
-                    aria-controls="collapseFive">
-                    Hoja de seguimiento <img src="/img/anadir.svg" alt="icono" class="iconoAcordion"> </button>
-            </h2>
-        </div>
-        <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordionStyle">
-            <div class="card-body">
-                @include('nutricion.hojaSeguimiento.index')
-            </div>
-        </div>
-    </div>
+   
 </div>
     <div class="d-flex justify-content-end mt-5">
         <a class="btn btn-primary mr-3" href="{{ route('pacientes.index') }}" role="button">Volver</a>
