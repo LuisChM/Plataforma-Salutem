@@ -21,7 +21,7 @@
 
                         <input class="form-control @error('nombre_comida') is-invalid @else border-0 @enderror"
                                 placeholder="Ingrese el nombre de la comida" type="text" name="nombre_comida"
-                                id="nombre_comida" value="">
+                                id="nombre_comida" value="" required>
 
                             @error('nombre_comida')
                             <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
 
                         <textarea class="form-control @error('descripcion') is-invalid @else border-0 @enderror"
                                 placeholder="Ingrese la descripcion de la comida" id="descripcion" name="descripcion"
-                                rows="4" cols="50"> </textarea>
+                                rows="4" cols="50" required> </textarea>
 
                             @error('descripcion')
                             <span class="invalid-feedback" role="alert">
@@ -49,7 +49,8 @@
                             <label for="precio ">{{ 'Precio:' }}</label>
 
                         <input class="form-control @error('precio') is-invalid @else border-0 @enderror"
-                                placeholder="Ingrese le precio de la comida" type="number" name="precio" id="precio" value="" min="1" pattern="^[0-9]+">
+                                placeholder="Ingrese le precio de la comida" type="number"
+                                name="precio" id="precio" value="" min="1" pattern="^[0-9]+" required>
 
                             @error('precio')
                             <span class="invalid-feedback" role="alert">

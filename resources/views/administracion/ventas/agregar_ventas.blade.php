@@ -21,7 +21,7 @@
 
                         <input class="form-control @error('nombre_comida') is-invalid @else border-0 @enderror"
                                 placeholder="Ingrese el nombre de la comida" type="text" disabled="disabled" name="nombre_comida"
-                                id="nombre_comida" value="{{ $ventas->nombre_comida }}">
+                                id="nombre_comida" value="{{ $ventas->nombre_comida }}" required>
 
                             @error('nombre_comida')
                             <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
 
                         <input class="form-control @error('cantidad') is-invalid @else border-0 @enderror"
                                 placeholder="Ingrese la cantidad" type="number" name="nuevaCantidad" id="nuevaCantidad"
-                                value="" min="1" pattern="^[0-9]+">
+                                value="" min="1" pattern="^[0-9]+" required>
                             @error('cantidad')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

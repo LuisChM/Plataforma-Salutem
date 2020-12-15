@@ -23,7 +23,7 @@
 
                             <input class="form-control @error('nombre') is-invalid @else border-0 @enderror"
                                     placeholder="Ingrese el nombre del producto" type="text" name="nombre" id="nombre"
-                                    value="">
+                                    value="" required>
 
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
 
                             <input class="form-control @error('cantidad') is-invalid @else border-0 @enderror"
                                     placeholder="Ingrese la cantidad del producto" type="number" name="cantidad" id="cantidad"
-                                    value="" min="1" pattern="^[0-9]+">
+                                    value="" min="1" pattern="^[0-9]+" required>
 
                                 @error('cantidad')
                                 <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
 
                             <input class="form-control @error('unidad_de_medida') is-invalid @else border-0 @enderror"
                                     placeholder="Ingrese la unidad del producto" type="text" name="unidad_de_medida"
-                                    id="unidad_de_medida" value="">
+                                    id="unidad_de_medida" value="" required>
 
                                 @error('unidad_de_medida')
                                 <span class="invalid-feedback" role="alert">
