@@ -18,7 +18,7 @@ class CreateVentasTable extends Migration
             $table->string('nombre_comida');
             $table->string('descripcion');
             $table->integer('precio');
-            $table->integer('cantidad');
+            $table->integer('cantidad')->default(0);
             $table->timestamps();
         });
     }
