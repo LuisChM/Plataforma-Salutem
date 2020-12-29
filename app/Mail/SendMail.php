@@ -10,7 +10,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data;
+
+    protected $data;
     /**
      * Create a new message instance.
      *
@@ -28,7 +29,17 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('kcascante.15@gmail.com')->subject('Salutem')->view('dynamic_email_template')->with('data', $this->data);
+        $data = $this->data;
+
+        
+        return $this->from('nutricionsalutemcr@gmail.com')
+            ->subject('Salutem')
+            ->view('dynamic_email_template')
+            ->with('data', $this->data)
+            ->attach($this->data['archivo']->getRealPath(),[
+                 'as'=>'archivo.'.$this->data['archivo']->getClientOriginalExtension(),
+                 'mime' => $data['archivo']->getMimeType()
+            ]);
     }
 }
 
