@@ -69,7 +69,7 @@ Route::resource('cliente','ClientePacienteController')->names('clientes')->middl
 
 Route::get('/sendemail', 'SendEmailController@index');
 Route::post('/sendemail/send', 'SendEmailController@send');
-
+Route::get('/sendemail/send', 'TablacorreoController@index');
 
 Route::view('cliente/{cliente}', 'cliente.show1')->middleware('verified');
 

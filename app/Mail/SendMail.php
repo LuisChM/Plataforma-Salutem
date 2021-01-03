@@ -37,10 +37,12 @@ class SendMail extends Mailable
             ->view('dynamic_email_template')
             ->with('data', $this->data)
             ->attach($this->data['archivo']->getRealPath(),[
-                 'as'=>'archivo.'.$this->data['archivo']->getClientOriginalExtension(),
-                 'mime' => $data['archivo']->getMimeType()
-            ]);
+                'as'=>'archivo.'.$this->data['archivo']->getClientOriginalExtension(),
+                'mime' => $data['archivo']->getMimeType()
+             ]);
+        
     }
+
 }
 
 ?>
