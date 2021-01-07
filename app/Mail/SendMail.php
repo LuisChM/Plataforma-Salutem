@@ -30,19 +30,26 @@ class SendMail extends Mailable
     public function build()
     {
         $data = $this->data;
-
         
-        return $this->from('nutricionsalutemcr@gmail.com')
-            ->subject('Salutem')
-            ->view('dynamic_email_template')
-            ->with('data', $this->data)
-            ->attach($this->data['archivo']->getRealPath(),[
-                'as'=>'archivo.'.$this->data['archivo']->getClientOriginalExtension(),
-                'mime' => $data['archivo']->getMimeType()
-             ]);
-        
-    }
+        if (empty($this->data['archivo'])) {
 
-}
+            $this->data['archivo'] = 
+                public_path('img/logo.svg');  
 
+                return $this->from('nutricionsalutemcr@gmail.com')
+                ->subject('Salutem')
+                ->view('dynamic_email_template')
+                ->with('data', $this->data)
+                ->attach($this->data['archivo']); 
+                
+            } else {
+                return $this->from('nutricionsalutemcr@gmail.com')
+                ->subject('Salutem')
+                ->view('dynamic_email_template')
+                ->with('data', $this->data)
+                ->attach($this->data['archivo']->getRealPath(),[
+                    'as'=>'archivo.'.$this->data['archivo']->getClientOriginalExtension(),
+                    'mime' => $data['archivo']->getMimeType()
+                    ]); 
+        }}}
 ?>

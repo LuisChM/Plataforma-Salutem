@@ -66,10 +66,11 @@ Route::get('chart', 'LaravelGoogleGrap@graficoBarras')->name('chart')->middlewar
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');
 
 
-
 Route::get('/sendemail', 'SendEmailController@index');
-Route::post('/sendemail/send', 'SendEmailController@send');
-Route::get('/sendemail/send', 'TablacorreoController@index');
+Route::post('/sendemail/send', 'SendEmailController@send')->name('sendemail.send');
+
+Route::get('/sendemail', 'SendEmailController@Buscarcorreo');
+
 
 Route::view('cliente/{cliente}', 'cliente.show1')->middleware('verified');
 

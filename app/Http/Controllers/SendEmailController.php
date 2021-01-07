@@ -21,13 +21,19 @@ class SendEmailController extends Controller
        return view('send_email', compact('usuarios'));
     }
 
+    public function correo(Request $request)
+    {
+        $correos = User::select('users.email');
+                    
+       return view('send_email', compact('correos'));
+    }
     function send(Request $request)
     {
 
      $this->validate($request, [
       'name'     =>  'required',
       'email'  =>  'required',
-      'message' =>  'required',
+      'message'  =>  'required',
       'archivo' =>'mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls'
       
      ]);
@@ -35,20 +41,28 @@ class SendEmailController extends Controller
         $data = array(
             'name'      =>  $request->name,
             'message'   =>   $request->message,
-            'archivo'   =>   $request->file('archivo')
-            
+            'archivo'   =>   $request->file('archivo'),
+       
         );
         
-        $correoenvio = array(
-            'email'  => $request->email            
-        );
+    $correoenvio = array('email'  => $request->email);
         // dd($data);
-     $correoenvios = explode(",", $correoenvio['email']);
-     Mail::to($correoenvios)->send(new SendMail($data));
+    $correoenvios = explode(",", $correoenvio['email']);
+     
+     Mail:: to($correoenvios)->send(new SendMail($data));
      return back()->with('success', 'Enviado satisfactoriamente');
-    }
 
-    
+    }  
+
+   public function Buscarcorreos(){
+
+   $results = User::select('users.email')->get();
+   $cadena = explode(",", $results); 
+
+   return $cadena;
+   }
+
 }
+
 
 ?>
