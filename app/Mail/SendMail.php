@@ -32,15 +32,13 @@ class SendMail extends Mailable
         $data = $this->data;
         
         if (empty($this->data['archivo'])) {
-
-            $this->data['archivo'] = 
-                public_path('img/logo.svg');  
+  
 
                 return $this->from('nutricionsalutemcr@gmail.com')
                 ->subject('Salutem')
                 ->view('dynamic_email_template')
-                ->with('data', $this->data)
-                ->attach($this->data['archivo']); 
+                ->with('data', $this->data);
+                
                 
             } else {
                 return $this->from('nutricionsalutemcr@gmail.com')

@@ -49884,6 +49884,15 @@ $('.delete-confirm').click(function (event) {
   });
 });
 
+function copiarAlPortapapeles() {
+  var texto = document.getElementById('texto');
+  texto.select();
+  texto.setSelectionRange(0, 99999);
+  document.execCommand('copy');
+}
+
+;
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -50018,8 +50027,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\Plataforma-Salutem\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\Plataforma-Salutem\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\laragon\www\Plataforma-Salutem\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\laragon\www\Plataforma-Salutem\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

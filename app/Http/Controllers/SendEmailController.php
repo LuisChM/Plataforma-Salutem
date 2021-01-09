@@ -13,33 +13,37 @@ class SendEmailController extends Controller
 {
     public function index(Request $request)
     {
-        $name  = $request->get('buscarpor');
-        // $email  = $request->get('email');
-
-        $usuarios = User::where('name', 'like', "%$name%")->paginate(5);
-                    
-       return view('send_email', compact('usuarios'));
+       $name  = $request->get('buscarpor');
+       $usuarios = User::where('name', 'like', "%$name%")->paginate(5); 
+       
+              $results = User::select('users.email')->get();
+              
+       return view('send_email', compact('usuarios','results'));
+       
     }
 
-    public function correo(Request $request)
-    {
-        $correos = User::select('users.email');
-                    
-       return view('send_email', compact('correos'));
-    }
+    //  public function buscarcorreo(){
+      
+    //   $results = User::select('users.email')->get();
+    //   $results->explode(",", $results); 
+    //   dd($results);
+    //   return view('send_email', compact('results'));
+    //   }
+    
+    
     function send(Request $request)
     {
 
      $this->validate($request, [
-      'name'     =>  'required',
+      'tema'     =>  'required',
       'email'  =>  'required',
       'message'  =>  'required',
-      'archivo' =>'mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls'
+      'archivo' =>'mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls|nullable'
       
      ]);
         
         $data = array(
-            'name'      =>  $request->name,
+            'tema'      =>  $request->tema,
             'message'   =>   $request->message,
             'archivo'   =>   $request->file('archivo'),
        
@@ -54,13 +58,7 @@ class SendEmailController extends Controller
 
     }  
 
-   public function Buscarcorreos(){
-
-   $results = User::select('users.email')->get();
-   $cadena = explode(",", $results); 
-
-   return $cadena;
-   }
+  
 
 }
 

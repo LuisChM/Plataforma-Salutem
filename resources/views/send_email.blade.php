@@ -6,7 +6,7 @@ Envio de correos
 @section('contenido')
 
 <div class="container mt-5">
-  <h3 class="align-content-center">Enviar un correo informativo a los clientes</h3><br />
+  <h3 class="align-content-center">Envio de correos a los clientes</h3><br />
   @if (count($errors) > 0)
   <div class="alert alert-danger">
     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -19,20 +19,20 @@ Envio de correos
   @endif
   @if ($message = Session::get('success'))
   <div class="alert alert-success alert-block">
-    <button type="button" class="close" data-dismiss="alert">×</button>
+    <button type="button" class="close" data-dismiss="alert"></button>
     <strong>{{ $message }}</strong>
   </div>
   @endif
-     {{-- buscar paciente --}}
+     {{-- buscar correo --}}
      <div class="d-flex justify-content-end align-content-center">
       <form class="form-inline">
         <div class="form-group mx-sm-3 m-2">
-          <input type="search" class="form-control searchInput" name="buscarpor" placeholder="Buscar correo">
+          <input type="search" class="form-control searchInput" name="buscarpor" placeholder="Buscar corrreo">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Buscar</button>
       </form>
     </div>
-    {{-- /buscar paciente --}}
+    {{-- /buscar correo --}}
     <div class="responsive-table">
       <table class="table table-striped mt-4 text-center">
         <thead class="thead-dark">
@@ -53,28 +53,31 @@ Envio de correos
       {{ $usuarios->links() }}
     </div>
 
-
-<form method="post" enctype="multipart/form-data" action="{{url('sendemail/send')}}">
-    <div class="form-group d-flex justify-content-end">
-        {{-- <input type="submit" name="select" class="btn btn-primary" onclick="Buscarcorreos()" value="Seleccionar todo" /> --}}
-
-        <button type="button" onclick="Buscarcorreos({{}});" class="btn btn-outline-success">Save</button>
+  <div class="d-flex justify-content-end align-content-center">
+    
+    <div class="input-group mb-3">
+      <input type="text" id="texto" class="form-control" value="{{$results->pluck('email')->implode(', ')}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" onclick="copiarAlPortapapeles();" type="button">copiar todos</button>
+      </div>
     </div>
-</form>
-
+  </div>
   <form method="post" enctype="multipart/form-data" action="{{url('sendemail/send')}}">
-
     {{ csrf_field() }}
-    <div class="form-group">
-      <label>Escriba el correo del cliente:</label>
-    <input type="email" name="email" class="form-control" value="{{$cadena}}" multiple />
-      @if(count($errors) > 0)
-      <label style="color: red"> {{$errors->first('email')}}</label>
-      @endif
-    </div>
+
+          
+          <div class="form-group">
+
+                <label>Escriba el correo del cliente:</label>
+          <input type="email" name="email" class="form-control" value="" multiple />
+                @if(count($errors) > 0)
+                <label style="color: red"> {{$errors->first('email')}}</label>
+                @endif
+          </div>
+
     <div class="form-group">
       <label>Escriba un tema inicial:</label>
-      <input type="text" name="name" class="form-control" value="" />
+      <input type="text" name="tema" class="form-control" value="" />
     </div>
 
     <div class="form-group">
@@ -87,7 +90,6 @@ Envio de correos
 
     <div class="form-group">
       <label>Escriba el mensaje:</label>
-      {{-- <textarea name="message" class="form-control"></textarea> --}}
       <textarea class="form-control" id="message" name="message"  rows="6"> </textarea>
     </div>
 
@@ -96,4 +98,15 @@ Envio de correos
     </div>
 
   </form>
+  <script>
+    function copiarAlPortapapeles() {
+        let texto = document.getElementById('texto');
+        texto.select();
+        texto.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+    }
+</script>
   @endsection
+  
+
+ 

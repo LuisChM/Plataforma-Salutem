@@ -1,2 +1,2 @@
-<h1>{{ $data['name'] }}</h1>
+<h1>{{ $data['tema'] }}</h1>
 <p>{{ $data['message'] }}</p>

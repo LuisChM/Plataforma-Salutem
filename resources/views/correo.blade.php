@@ -24,7 +24,6 @@ Usuarios
                 <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Rol</th>
                     <th scope="col">Acción</th>
 
                 </tr>
@@ -34,9 +33,6 @@ Usuarios
                 <tr>
                     <td>{{$users->name}}</td>
                     <td>{{$users->email}}</td>
-                    <td>
-                        {{$users->roles->pluck('display_nombre')->implode(', ')}}
-                    </td>
                     <td>
                         <div class="d-flex justify-content-around">
                             {{-- seleccionar dato por id y editarlo --}}

@@ -125,4 +125,13 @@ class UserController extends Controller
         //se redirige a la pantalla asignada
         return redirect()->route('users.index')->with('success', 'El usuario fue eliminado');
     }
+
+    public function correos(Request $request)
+    {
+        $name  = $request->get('name');
+
+        $user = User::orderBy('created_at', 'ASC')->name($name)->paginate();
+
+        return view('correo', compact('user'));
+    }
 }

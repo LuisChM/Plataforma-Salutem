@@ -150,9 +150,11 @@
                         </div>
                         <ul class="submenu px-2">
                             @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ url('sendemail') }}">Enviar correos</a></li>                               
+                                <li><a href="{{ url('sendemail') }}">Enviar correos</a></li>   
+                                <li><a href="{{ url('correo') }}">Administrar correos</a></li>                              
                             @endif
                         </ul>
+                        
                     </li>
                 @endif
                     {{-- /Manejo de usuarios --}}
@@ -204,10 +206,6 @@
         <!-- /#wrapper -->
 
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"> </script>
 <script src="/js/app.js"></script>
-
-@yield('scripts')
-
 </html>
