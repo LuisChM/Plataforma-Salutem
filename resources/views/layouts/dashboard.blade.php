@@ -88,6 +88,20 @@
 
                     </ul>
                     </li>
+                    @if (auth() ->user() ->hasRoles(['administrador']))
+                    <li>
+                        <div class="link">Contabilidad<img src="/img/flecha.svg" alt="arrow"
+                                class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            @if (auth() ->user()->hasRoles(['administrador']))
+                                <li><a href="{{ route('contabilidad.index') }}">Administracion contable</a></li>   
+                                                              
+                            @endif
+                        </ul>
+                        
+                    </li>
+                @endif
                     @endif
                     {{-- /Control costo / gasto --}}
 
@@ -115,7 +129,6 @@
                     {{-- @if (auth()
         ->user()
         ->hasRoles(['nutricionista', 'administrador', 'paciente', 'cliente']))
-
                         <li>
                             <div class="link">Comunidad<img src="/img/flecha.svg" alt="arrow"
                                     class="iconoFlecha ml-2"></i>
@@ -206,6 +219,8 @@
         <!-- /#wrapper -->
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"> </script>
 <script src="/js/app.js"></script>
+
 </html>
