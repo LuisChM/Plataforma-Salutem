@@ -71,7 +71,7 @@ Route::post('/sendemail/send', 'SendEmailController@send')->name('sendemail.send
 Route::get('correo','UserController@correos')->name('correos')->middleware('verified');
 
 
-Route::resource('contabilidad', 'ContableController')->names('contabilidad')->middleware('verified');
+Route::resource('contabilidad', 'ContableController')->names('contabilidads')->middleware('verified');
 // Route::view('contabilidad' , 'contabilidad.index')->name('contabilidad')->middleware('verified');
 
 Route::view('cliente/{cliente}', 'cliente.show1')->middleware('verified');

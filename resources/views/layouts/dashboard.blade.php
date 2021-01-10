@@ -95,7 +95,7 @@
                         </div>
                         <ul class="submenu px-2">
                             @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ route('contabilidad.index') }}">Administracion contable</a></li>   
+                                <li><a href="{{ route('contabilidads.index') }}">Administracion contable</a></li>   
                                                               
                             @endif
                         </ul>
