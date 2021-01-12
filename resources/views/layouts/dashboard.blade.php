@@ -171,7 +171,19 @@
                     </li>
                 @endif
                     {{-- /Manejo de usuarios --}}
-
+                    @if (auth() ->user() ->hasRoles(['administrador']))
+                    <li>
+                        <div class="link">Reportes<img src="/img/flecha.svg" alt="arrow"
+                                class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            @if (auth() ->user()->hasRoles(['administrador']))
+                                <li><a href="{{ url('sendemail') }}">Reportes varios</a></li>                             
+                            @endif
+                        </ul>
+                        
+                    </li>
+                @endif
                     </ul>
 
                 </div>

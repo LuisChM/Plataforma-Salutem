@@ -2,12 +2,12 @@
 
 <div class="form-group">
     <label for="ingresos">Ingresos:</label>
-    <input type="number" class="form-control" name="ingresos" id="ingresos" placeholder="Ingresos del día(obligatorio)"
+    <input type="number" class="form-control" name="ingresos" id="ingresos" oninput="calcular()" placeholder="Ingresos del día(obligatorio)" data-decimals="2" min="0" step="0.01" 
         value="{{ old('ingresos', $contabilidad->ingresos) }}">
 </div>
 <div class="form-group">
     <label for="gastos">Gastos:</label>
-    <input type="number" class="form-control" name="gastos" id="gastos" placeholder="gastos del día(obligatorio)"
+    <input type="number" class="form-control" name="gastos" id="gastos" oninput="calcular()" placeholder="gastos del día(obligatorio)" data-decimals="2" min="0" step="0.01" 
         value="{{ old('gastos', $contabilidad->gastos) }}">
 </div>
 <div class="form-group">
@@ -30,16 +30,11 @@
     </div>
 </div>
 <div class="form-group ">
-    <label for="total">Total:</label>
+    <label for="total">Saldo del día:</label>
     <div class="d-flex align-items-center ">
-    <input type="number" class="form-control col-lg-4 col-md-4 @error('total') is-invalid @else border-0 @enderror"
-            name="total" id="total" value="{{ old('total', $contabilidad->total) }}" data-decimals="2" min="0" step="0.01">
-        <span class="text-black-50 ml-2">(obligatorio)</span>
-        @error('total')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        ₡  <input  type="number" class="form-control col-lg-4 col-md-4 "
+            name="total" id="total" value="{{ old('total', $contabilidad->total) }}" data-decimals="2" step=".01" readonly style="border: solid #FC9D2C">
+        
     </div>
 </div>
 
@@ -47,3 +42,12 @@
     <a class="btn btn-primary mr-3" href="{{ route('contabilidads.index') }}" role="button">Volver</a>
     <button class="btn btn-secondary text-white">{{ $btnText ?? '' }}</button>
 </div>
+
+
+        <script>
+            function calcular(){
+                var a =  parseFloat(document.getElementById('ingresos',2).value) || 0, b = parseFloat(document.getElementById('gastos',2).value )|| 0;
+                document.getElementById('total').value = a - b;
+    
+            }
+        </script>

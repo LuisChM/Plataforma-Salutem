@@ -72,7 +72,6 @@ Route::get('correo','UserController@correos')->name('correos')->middleware('veri
 
 
 Route::resource('contabilidad', 'ContableController')->names('contabilidads')->middleware('verified');
-// Route::view('contabilidad' , 'contabilidad.index')->name('contabilidad')->middleware('verified');
 
 Route::view('cliente/{cliente}', 'cliente.show1')->middleware('verified');
 

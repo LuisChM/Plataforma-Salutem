@@ -30,12 +30,18 @@ Administracion contable
         </div>
     </div>
     <div class="form-group ">
-        <label for="total">Total:</label>
+        <label for="total">Saldo del día:</label>
         <div class="d-flex align-items-center ">
         <input disabled type="number" class="form-control col-lg-4 col-md-4 "
                 name="total" id="total" value="{{ $contabilidad->total}}" data-decimals="2" min="0" step="0.01">
            
         </div>
     </div>
+
+    <div class="d-flex justify-content-end mt-5 mb-5">
+        <a class="btn btn-primary mr-3" href="{{ route('contabilidads.index') }}" role="button">Volver</a>
+        
+    </div>
+
 </div>
 @endsection

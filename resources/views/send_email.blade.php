@@ -56,7 +56,7 @@ Envio de correos
   <div class="d-flex justify-content-end align-content-center">
     
     <div class="input-group mb-3">
-      <input type="text" id="texto" class="form-control" value="{{$results->pluck('email')->implode(', ')}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <input type="text" id="texto" class="form-control" readonly value="{{$results->pluck('email')->implode(', ')}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <button class="btn btn-secondary" onclick="copiarAlPortapapeles();" type="button">copiar todos</button>
       </div>

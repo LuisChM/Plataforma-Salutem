@@ -15,7 +15,7 @@ Administracion contable
                     <th scope="col">Fecha</th>
                     <th scope="col">Ingresos</th>
                     <th scope="col">Egresos</th>
-                    <th scope="col">Monto Total</th>
+                    <th scope="col">Saldo del día</th>
                     <th scope="col">Acción</th>
 
                 </tr>
