@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Crypt;
 
 class ContableController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador'
+        ]);
+    }
     public function index()
     {
         $contable = Contabilidad::orderBy('created_at', 'ASC')->paginate();

@@ -11,6 +11,13 @@ use App\User;
 
 class SendEmailController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador'
+        ]);
+    }
     public function index(Request $request)
     {
        $name  = $request->get('buscarpor');

@@ -14,6 +14,13 @@ use Symfony\Component\Console\Input\Input;
 
 class PacienteController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, nutricionista'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

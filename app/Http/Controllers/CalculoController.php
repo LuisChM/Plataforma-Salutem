@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 
 
 class CalculoController extends Controller
-{
+{ function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, nutricionista'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlanNutricional extends Model
+class planNutricional extends Model
 {
     protected $fillable = [
         'desLunes',

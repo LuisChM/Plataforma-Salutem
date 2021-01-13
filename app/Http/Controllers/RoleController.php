@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-   
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

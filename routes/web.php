@@ -65,9 +65,9 @@ Route::get('chart', 'LaravelGoogleGrap@Data')->name('chart')->middleware('verifi
 Route::resource('cliente','ClientePacienteController')->names('clientes')->middleware('verified');
 
 
-Route::get('/sendemail', 'SendEmailController@index');
-Route::post('/sendemail/send', 'SendEmailController@send')->name('sendemail.send');
-Route::get('correo','UserController@correos')->name('correos')->middleware('verified');
+Route::get('/sendemail', 'SendEmailController@index')->middleware('verified');
+Route::post('/sendemail/send', 'SendEmailController@send')->name('sendemail.send')->middleware('verified');
+Route::get('correo','UserController@correos')->name('correos')->middleware('verified')->middleware('verified');
 
 
 Route::resource('contabilidad', 'ContableController')->names('contabilidads')->middleware('verified');

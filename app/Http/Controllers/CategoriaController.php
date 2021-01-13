@@ -10,7 +10,13 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, cocinero'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

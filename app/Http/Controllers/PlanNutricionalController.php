@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Paciente;
 use App\Http\Requests\SavePlanNutricional;
-use App\PlanNutricional;
+use App\planNutricional;
 
-class PlanNutricionalController extends Controller
+class planNutricionalController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, nutricionista'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +37,7 @@ class PlanNutricionalController extends Controller
         $user = Paciente::all();
 
         return view('nutricion.planNutricional.create', [
-            'planNutricional' => new PlanNutricional,
+            'planNutricional' => new planNutricional,
             'user' => $user,
         ]);
     }
@@ -43,7 +50,7 @@ class PlanNutricionalController extends Controller
      */
     public function store(SavePlanNutricional $request)
     {
-        $datos = PlanNutricional::create($request->validated());
+        $datos = planNutricional::create($request->validated());
         $user_id = $request->input("user_id");
         $datos->user_id = $user_id;
         $datos->save();
@@ -58,7 +65,7 @@ class PlanNutricionalController extends Controller
     //  */
     public function show($id)
     {
-        $planNutricional = PlanNutricional::findOrFail($id);
+        $planNutricional = planNutricional::findOrFail($id);
         return view('nutricion.planNutricional.show', ['planNutricional' => $planNutricional]);    }
 
     /**
@@ -67,7 +74,7 @@ class PlanNutricionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PlanNutricional $planNutricional)
+    public function edit(planNutricional $planNutricional)
     {
         return view('nutricion.planNutricional.edit', [
             'planNutricional' => $planNutricional,
@@ -81,7 +88,7 @@ class PlanNutricionalController extends Controller
     //      * @param  int  $id
     //      * @return \Illuminate\Http\Response
     //      */
-    public function update(SavePlanNutricional $request, PlanNutricional $planNutricional)
+    public function update(SavePlanNutricional $request, planNutricional $planNutricional)
     {
         $planNutricional->update($request->validated());
         return redirect()->route('planNutricionals.index')->with('success', 'La consulta se formo con éxito');

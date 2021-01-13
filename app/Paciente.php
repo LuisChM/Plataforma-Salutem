@@ -27,6 +27,6 @@ class Paciente extends Model
     }
 
     public function planNutricional (){
-        $this->hasOne(PlanNutricional::class);
+        $this->hasOne(planNutricional::class);
     }
 }

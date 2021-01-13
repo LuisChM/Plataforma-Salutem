@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientePacienteController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, paciente'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

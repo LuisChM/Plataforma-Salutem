@@ -6,11 +6,18 @@ use App\Productos;
 use App\Retirar_Producto;
 use Illuminate\Http\Request;
 use App\Http\Controller\Exception;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\DB as FacadesDB;
 
 class RetirarProductoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, cocinero'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('seccion')
-    Pacientes
+    Reportes
 @endsection
 
 
@@ -44,7 +44,7 @@
               
               @php
               foreach($ingresos as $ingreso) {
-                  echo "['".$ingreso->id."', ".$ingreso->ingresos."],";
+                  echo "['".$ingreso->fecha."', ".$ingreso->ingresos."],";
                 }
                 @endphp
             ]);

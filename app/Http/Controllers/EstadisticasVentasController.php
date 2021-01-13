@@ -8,6 +8,13 @@ use App\Ventas;
 use DB;
 class EstadisticasVentasController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, cocinero'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

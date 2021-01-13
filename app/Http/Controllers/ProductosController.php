@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, cocinero'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +48,7 @@ class ProductosController extends Controller
 
         $datosProductos=request()->except('_token');
         Productos::insert($datosProductos);
-        return redirect('productos');
+        return redirect('productos')->with('success', 'Producto Creado!');
     }
 
     /**
@@ -83,7 +90,7 @@ class ProductosController extends Controller
     {
         $datosProductos=request()->except(['_token','_method']);
         Productos::where('id','=',$id)->update($datosProductos);
-        return redirect('productos');
+        return redirect('productos')->with('success', 'La consulta se formo con éxito');
     }
 
     /**

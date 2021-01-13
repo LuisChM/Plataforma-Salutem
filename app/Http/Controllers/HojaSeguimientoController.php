@@ -10,6 +10,13 @@ use App\Http\Requests\SaveLogroPaciente;
 
 class HojaSeguimientoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:administrador, nutricionista'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
