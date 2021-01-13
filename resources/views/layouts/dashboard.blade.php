@@ -178,7 +178,7 @@
                         </div>
                         <ul class="submenu px-2">
                             @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ url('sendemail') }}">Reportes varios</a></li>                             
+                                <li><a href="{{ url('chart') }}">Reportes varios</a></li>                             
                             @endif
                         </ul>
                         
