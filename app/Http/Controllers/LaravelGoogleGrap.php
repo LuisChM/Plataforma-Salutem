@@ -10,7 +10,7 @@ class LaravelGoogleGrap extends Controller
 {
     public function Data()
     {
-       $ingresos = contabilidad::all();
+       $ingresos = contabilidad::all()->take(-7);
     //    dd($ingresos);
        return view('charts',compact('ingresos'));   
     }
