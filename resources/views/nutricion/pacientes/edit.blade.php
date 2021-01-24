@@ -23,7 +23,7 @@
                                         Hoja de seguimiento <img src="/img/anadir.svg" alt="icono" class="iconoAcordion"> </button>
                                 </h2>
                             </div>
-                            <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordionStyle">
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionStyle">
                                 <div class="card-body">
                                     @include('nutricion.hojaSeguimiento.index')
                                 </div>

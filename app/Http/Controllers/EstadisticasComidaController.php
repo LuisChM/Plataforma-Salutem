@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Ventas;
 use App\EstadisticasComida;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class EstadisticasComidaController extends Controller
 {
@@ -13,7 +13,9 @@ class EstadisticasComidaController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, cocinero'
+        ]);
+        $this->middleware([
+            'roles:cocinero'
         ]);
     }
     /**

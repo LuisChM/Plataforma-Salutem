@@ -15,6 +15,8 @@ class SendEmailController extends Controller
     {
         $this->middleware([
             'auth',
+        ]);
+        $this->middleware([
             'roles:administrador'
         ]);
     }

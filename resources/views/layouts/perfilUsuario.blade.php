@@ -15,7 +15,6 @@
 </head>
 
 <body>
-    @include('sweet::alert')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img src="/img/logo.svg" alt="" height="60px" width="60px">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -25,11 +24,8 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('cliente/progreso/'.Auth::user()->id) }}">Perfil</a>
-                </li>
                 {{-- <li class="nav-item">
-                    <a class="nav-link" href="#">Progreso</a>
+                    <a class="nav-link" href="{{ url('cliente/progreso/'.Auth::user()->id) }}">Perfil</a>
                 </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('cliente/planNutricional/'.Auth::user()->id) }}">Plan Nutricional</a>
@@ -54,8 +50,10 @@
             </div>
         </div>
     </nav>
-
-    @yield('contenido')
+    <div class="container mt-4">
+        <h2>Hola: {{ Auth::user()->name }}</h2>
+      </div>    
+      @yield('contenido')
 
 </body>
 

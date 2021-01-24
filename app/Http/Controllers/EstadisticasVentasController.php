@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Ventas;
 use App\EstadisticasVentas;
 use Illuminate\Http\Request;
-use App\Ventas;
-use DB;
+use Illuminate\Support\Facades\DB;
 class EstadisticasVentasController extends Controller
 {
     function __construct()
     {
         $this->middleware([
             'auth',
-            'roles:administrador, cocinero'
+        ]);
+        $this->middleware([
+            'roles:cocinero'
         ]);
     }
     /**

@@ -15,31 +15,11 @@ class ClientePacienteController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, paciente'
+        ]);
+        $this->middleware([
+            'roles:paciente'
         ]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index(Request $request)
-    // {
-    //     $name  = $request->get('name');
-    //     $email  = $request->get('email');
-
-    //     $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
-    //         ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
-    //         ->where('roles.nombre', '=', 'paciente')
-    //         ->name($name)
-    //         ->email($email)
-    //         ->paginate();
-
-    //     // $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
-
-
-    //     return view('nutricion.pacientes.index', compact('paciente'));
-    // }
 
     /**
      * Display the specified resource.
@@ -49,15 +29,15 @@ class ClientePacienteController extends Controller
      */
     public function show1()
     {
-        $cliente = Paciente::join('users', 'pacientes.user_id', '=', 'users.id')
-            ->where('pacientes.user_id', '=', Auth::user()->id)
-            ->where('users.id', '=', Auth::user()->id)
-            ->first();
-        if ($cliente === null) {
-            return view('layouts.perfilUsuario', compact('cliente'));
-        } else {
-            return view('cliente.show1')->with('cliente', $cliente);
-        }
+        // $cliente = Paciente::join('users', 'pacientes.user_id', '=', 'users.id')
+        //     ->where('pacientes.user_id', '=', Auth::user()->id)
+        //     ->where('users.id', '=', Auth::user()->id)
+        //     ->first();
+        // if ($cliente === null) {
+        //     return view('layouts.perfilUsuario', compact('cliente'));
+        // } else {
+        //     return view('cliente.show1')->with('cliente', $cliente);
+        // }
     }
 
     public function show2()

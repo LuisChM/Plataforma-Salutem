@@ -1,201 +1,158 @@
 @extends('layouts.dashboard')
 @section('seccion')
-    Plan nutricional
+Plan nutricional
 @endsection
 
 @section('contenido')
-    <div class="container">
+<div class="container">
+    <div class="container mt-5">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <label for="pesoActual">Peso Actual</label>
+            <input disabled type="text" class="form-control mb-3" name="pesoActual" id="pesoActual" placeholder="Ingrese Peso Actual"
+                value="{{$planNutricional->pesoActual}}">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <label for="porcentajeGrasa">% de grasa</label>
+            <input disabled type="text" class="form-control mb-3" name="porcentajeGrasa" id="porcentajeGrasa"
+                placeholder="Ingrese % de grasa" value="{{$planNutricional->porcentajeGrasa}}">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <label for="kgGrasa">Kg de grasa</label>
+            <input disabled type="text" class="form-control mb-3" name="kgGrasa" id="kgGrasa" placeholder="Ingrese Kg de grasa"
+                value="{{$planNutricional->kgGrasa}}">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <label for="kgMasaMuscular">Kg de masa muscular</label>
+            <input disabled type="text" class="form-control mb-3" name="kgMasaMuscular" id="kgMasaMuscular"
+                placeholder="Ingrese Kg de masa muscular" value="{{$planNutricional->kgMasaMuscular}}">
+        </div>
+    
         <div class="responsive-table">
             <table class="table mt-4 text-center">
                 <thead class="thead-green">
                     <tr>
-                        <th scope="col">Lunes</th>
-                        <th scope="col">Martes</th>
-                        <th scope="col">Miércoles</th>
-                        <th scope="col">Jueves</th>
-                        <th scope="col">Viernes</th>
-                        <th scope="col">Sabádo</th>
-                        <th scope="col">Domingo</th>
-
+                        <th scope="col"></th>
+                        <th scope="col">Intercambio</th>
+                        <th scope="col">Ejemplos</th>
+    
                     </tr>
                 </thead>
                 <tbody class="bg-white text-left ">
                     {{-- Desayuno --}}
                     <tr>
-
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desLunes">Desayuno</label>
-                            <p>{{ $planNutricional->desLunes }}</p>
+                            <label>Desayuno</label>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desMartes">Desayuno</label>
-                            <p>{{ $planNutricional->desMartes }}</p>
+                            <textarea disabled name="desIntercambio" id="desIntercambio" cols="30"
+                                rows="5">{{$planNutricional->desIntercambio}}</textarea>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desMiercoles">Desayuno</label>
-                            <p>{{ $planNutricional->desMiercoles }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desJueves">Desayuno</label>
-                            <p>{{ $planNutricional->desJueves }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desViernes">Desayuno</label>
-                            <p>{{ $planNutricional->desViernes }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desSabado">Desayuno</label>
-                            <p>{{ $planNutricional->desSabado }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="desDomingo">Desayuno</label>
-                            <p>{{ $planNutricional->desDomingo }}</p>
+                            <textarea disabled name="desEjemplo" id="desEjemplo" cols="30"
+                                rows="5">{{$planNutricional->desEjemplo}}</textarea>
                         </td>
                     </tr>
                     {{-- /Desayuno --}}
-
-                    {{-- Merienda matutina --}}
+    
+                    {{-- MM --}}
                     <tr>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatLunes">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatLunes }}</p>
+                            <label>MM</label>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatMartes">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatMartes }}</p>
+                            <textarea disabled name="mmIntercambio" id="mmMartes" cols="30"
+                                rows="5">{{$planNutricional->desMartes}}</textarea>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatMiercoles">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatMiercoles }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatJueves">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatJueves }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatviernes">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatviernes }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatSabado">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatSabado }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMatDomingo">Merienda matutina</label>
-                            <p>{{ $planNutricional->mMatDomingo }}</p>
+                            <textarea disabled name="mmEjemplo" id="desMartes" cols="30"
+                                rows="5">{{$planNutricional->desMartes}}</textarea>
                         </td>
                     </tr>
-                    {{-- /Merienda matutina --}}
-
+                    {{-- /MM --}}
+    
                     {{-- Almuerzo --}}
                     <tr>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almLunes">Almuerzo</label>
-                            <p>{{ $planNutricional->almLunes }}</p>
+                            <label>Almuerzo</label>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almMartes">Almuerzo</label>
-                            <p>{{ $planNutricional->almMartes }}</p>
+                            <textarea disabled name="almIntercambio" id="almMartes" cols="30"
+                                rows="5">{{$planNutricional->almMartes}}</textarea>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almMiercoles">Almuerzo</label>
-                            <p>{{ $planNutricional->almMiercoles }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almJueves">Almuerzo</label>
-                            <p>{{ $planNutricional->almJueves }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almViernes">Almuerzo</label>
-                            <p>{{ $planNutricional->almViernes }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almSabado">Almuerzo</label>
-                            <p>{{ $planNutricional->almSabado }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="almDomingo">Almuerzo</label>
-                            <p>{{ $planNutricional->almDomingo }}</p>
+                            <textarea disabled name="almEjemplo" id="almMartes" cols="30"
+                                rows="5">{{$planNutricional->almMartes}}</textarea>
                         </td>
                     </tr>
                     {{-- /Almuerzo --}}
-
-                    {{-- Merienda tarde --}}
+    
+                    {{-- MT --}}
                     <tr>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerLunes">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerLunes }}</p>
+                            <label>MT</label>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerMartes">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerMartes }}</p>
+                            <textarea disabled name="mtIntercambio" id="mtMartes" cols="30"
+                                rows="5">{{$planNutricional->mtMartes}}</textarea>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerMiercoles">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerMiercoles }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerJueves">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerJueves }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerviernes">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerviernes }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerSabado">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerSabado }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="mMerDomingo">Merienda tarde</label>
-                            <p>{{ $planNutricional->mMerDomingo }}</p>
+                            <textarea disabled name="mtEjemplo" id="mtMartes" cols="30"
+                                rows="5">{{$planNutricional->mtMartes}}</textarea>
                         </td>
                     </tr>
-                    {{-- /Merienda tarde --}}
-
+                    {{-- /MT --}}
+    
+                    {{-- Post ejercicio --}}
+                    <tr>
+                        <td class="border-right border-top-0 ">
+                            <label>Post ejercicio</label>
+                        </td>
+                        <td class="border-right border-top-0 ">
+                            <textarea disabled name="postEjercicioIntercambio" id="postEjercicioMartes" cols="30"
+                                rows="5">{{$planNutricional->postEjercicioMartes}}</textarea>
+                        </td>
+                        <td class="border-right border-top-0 ">
+                            <textarea disabled name="postEjercicioEjemplo" id="postEjercicioMartes" cols="30"
+                                rows="5">{{$planNutricional->postEjercicioMartes}}</textarea>
+                        </td>
+                    </tr>
+                    {{-- /Post ejercicio --}}
+    
                     {{-- Cena --}}
                     <tr>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenLunes">Cena</label>
-                            <p>{{ $planNutricional->cenLunes }}</p>
+                            <label>Cena</label>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenMartes">Cena</label>
-                            <p>{{ $planNutricional->cenMartes }}</p>
+                            <textarea disabled name="cenaIntercambio" id="cenaMartes" cols="30"
+                                rows="5">{{$planNutricional->cenaMartes}}</textarea>
                         </td>
                         <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenMiercoles">Cena</label>
-                            <p>{{ $planNutricional->cenMiercoles }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenJueves">Cena</label>
-                            <p>{{ $planNutricional->cenJueves }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenViernes">Cena</label>
-                            <p>{{ $planNutricional->cenViernes }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenSabado">Cena</label>
-                            <p>{{ $planNutricional->cenSabado }}</p>
-                        </td>
-                        <td class="border-right border-top-0 ">
-                            <label class="font-weight-bold" for="cenDomingo">Cena</label>
-                            <p>{{ $planNutricional->cenDomingo }}</p>
+                            <textarea disabled name="cenaEjemplo" id="cenaMartes" cols="30"
+                                rows="5">{{$planNutricional->cenaMartes}}</textarea>
                         </td>
                     </tr>
                     {{-- /Cena --}}
-
-
-
+    
+    
                 </tbody>
-
+    
             </table>
+    
+    
         </div>
-
-        <div class="d-flex justify-content-end mt-5 mb-5">
-            <a class="btn btn-primary mr-3" href="{{ route('planNutricionals.index') }}" role="button">Volver</a>
+    
+        <div class="col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label>Recomendaciones</label>
+            <textarea disabled name="recomendacion" id="recomendacion" cols="40"
+                rows="10">{{$planNutricional->recomendacion}}</textarea>
         </div>
+    
     </div>
 
-@endsection
+        <div class="d-flex justify-content-end mt-5 mb-5">
+            <a class="btn btn-primary mr-3" href="{{ route('planNutricionals.index')}}" role="button">Volver</a>
+        </div>
+    
+
+    @endsection

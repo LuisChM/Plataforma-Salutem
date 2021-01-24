@@ -17,48 +17,25 @@ class CreatePlanNutricionalTable extends Migration
             $table->id();
 
             $table->integer('user_id')->nullable()->unsigned();
-            // Lunes
-            $table->string('desLunes')->nullable();
-            $table->string('mMatLunes')->nullable();
-            $table->string('almLunes')->nullable();
-            $table->string('mMerLunes')->nullable();
-            $table->string('cenLunes')->nullable();
-            // Martes
-            $table->string('desMartes')->nullable();
-            $table->string('mMatMartes')->nullable();
-            $table->string('almMartes')->nullable();
-            $table->string('mMerMartes')->nullable();
-            $table->string('cenMartes')->nullable();
-            // Miercoles
-            $table->string('desMiercoles')->nullable();
-            $table->string('mMatMiercoles')->nullable();
-            $table->string('almMiercoles')->nullable();
-            $table->string('mMerMiercoles')->nullable();
-            $table->string('cenMiercoles')->nullable();
-            // Jueves
-            $table->string('desJueves')->nullable();
-            $table->string('mMatJueves')->nullable();
-            $table->string('almJueves')->nullable();
-            $table->string('mMerJueves')->nullable();
-            $table->string('cenJueves')->nullable();
-            // Viernes
-            $table->string('desViernes')->nullable();
-            $table->string('mMatViernes')->nullable();
-            $table->string('almViernes')->nullable();
-            $table->string('mMerViernes')->nullable();
-            $table->string('cenViernes')->nullable();
-            // Sabado
-            $table->string('desSabado')->nullable();
-            $table->string('mMatSabado')->nullable();
-            $table->string('almSabado')->nullable();
-            $table->string('mMerSabado')->nullable();
-            $table->string('cenSabado')->nullable();
-            // Domingo
-            $table->string('desDomingo')->nullable();
-            $table->string('mMatDomingo')->nullable();
-            $table->string('almDomingo')->nullable();
-            $table->string('mMerDomingo')->nullable();
-            $table->string('cenDomingo')->nullable();
+
+            $table->string('pesoActual')->nullable();
+            $table->string('porcentajeGrasa')->nullable();
+            $table->string('kgGrasa')->nullable();
+            $table->string('kgMasaMuscular')->nullable();
+            $table->string('desIntercambio')->nullable();
+            $table->string('desEjemplo')->nullable();
+            $table->string('mmIntercambio')->nullable();
+            $table->string('mmEjemplo')->nullable();
+            $table->string('almIntercambio')->nullable();
+            $table->string('almEjemplo')->nullable();
+            $table->string('mtIntercambio')->nullable();
+            $table->string('mtEjemplo')->nullable();
+            $table->string('postEjercicioIntercambio')->nullable();
+            $table->string('postEjercicioEjemplo')->nullable();
+            $table->string('cenaIntercambio')->nullable();
+            $table->string('cenaEjemplo')->nullable();
+            $table->string('recomendacion')->nullable();
+            
 
             $table->timestamps();
         });

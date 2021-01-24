@@ -10,7 +10,9 @@ class VentaController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, cocinero'
+        ]);
+        $this->middleware([
+            'roles:administrador,cocinero'
         ]);
     }
     /**

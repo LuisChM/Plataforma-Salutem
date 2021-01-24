@@ -8,6 +8,7 @@ use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SaveConsultaRequest;
+use App\Http\Requests\UpdateConsultaRequest;
 use Symfony\Component\Console\Input\Input;
 
 // use SweetAlert;
@@ -18,7 +19,9 @@ class PacienteController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, nutricionista'
+        ]);
+        $this->middleware([
+            'roles:nutricionista'
         ]);
     }
     /**
@@ -29,16 +32,7 @@ class PacienteController extends Controller
     public function index(Request $request)
     {
         $name  = $request->get('buscarpor');
-        // $email  = $request->get('email');
-
-        // $paciente = User::join('asignar_roles', 'users.id', '=', 'asignar_roles.user_id')
-        //     ->join('roles', 'asignar_roles.role_id', '=', 'roles.id')
-        //     ->where('roles.nombre', '=', 'paciente')
-        //     ->name($name)
-        //     // ->email($email)
-        //     ->paginate();
-
-        $paciente = Paciente::where('nombre', 'like', "%$name%")->paginate();
+        $paciente = Paciente::where('nombre', 'like', "%$name%")->orderBy('created_at', 'DESC')->paginate();
 
 
         // $paciente = Paciente::orderBy('created_at', 'ASC')->paginate();
@@ -120,7 +114,7 @@ class PacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(SaveConsultaRequest $request, Paciente $paciente)
+    public function update(UpdateConsultaRequest $request, Paciente $paciente)
     {
 
         $paciente->update($request->validated());
@@ -135,6 +129,9 @@ class PacienteController extends Controller
      */
     public function destroy(Paciente $paciente)
     {
-        //
+        // //se selecciona el user y elimina
+        $paciente->delete();
+        //se redirige a la pantalla asignada
+        return redirect()->route('pacientes.index')->with('success', 'El usuario fue eliminado');
     }
 }

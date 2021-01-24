@@ -1,7 +1,7 @@
 {{-- ver rol del usuario ingresado
 {{ dd(
     auth()->user()->roles->toArray(),
-) }} --}}
+) }}--}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,173 +26,134 @@
     <div id="app">
         <div class="d-flex" id="wrapper">
 
-            <!-- Sidebar -->
+            <!-- Sidebar-->
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <div class="d-flex justify-content-center mb-4 mt-4">
                     <img src="/img/logo.svg" alt="logo" class="logoMenu">
                 </div>
                 <div class="list-group list-group-flush">
-                    <!-- Contenedor -->
+                    <!-- Contenedor-->
                     <ul id="accordion" class="accordion pl-0">
-                        {{-- Control de productos --}}
-                        @if (auth()
-        ->user()
-        ->hasRoles(['cocinero', 'administrador']))
-                            <li>
-                                <div class="link">Control de productos<img src="/img/flecha.svg" alt="arrow"
-                                        class="iconoFlecha ml-2"></i>
-                                </div>
-                                <ul class="submenu px-2">
-                                    @if (auth()
-        ->user()
-        ->hasRoles(['administrador']))
-                                        <li> <a href="{{ route('productos.index') }}">Productos</a></li>
-                                        <li> <a href="{{ route('retirar_producto.index') }}">Retirar Producto</a></li>
-                                    @endif
-                                </ul>
-                            </li>
+                        {{-- Control de productos--}}
+                        @if (auth()->user()->hasRoles(['cocinero', 'administrador']))
+                        <li>
+                            <div class="link">Control de productos<img src="/img/flecha.svg" alt="arrow"
+                                    class="iconoFlecha ml-2"></i>
+                            </div>
+                            <ul class="submenu px-2">
+                                <li> <a href="{{ route('productos.index') }}">Productos</a></li>
+                                <li> <a href="{{ route('retirar_producto.index') }}">Retirar Producto</a></li>
+                            </ul>
+                        </li>
                         @endif
-                        {{-- /Control de productos --}}
+                        {{-- /Control de productos--}}
 
-                        {{-- /Control de compras --}}
+                        {{-- /Control de compras--}}
+                        @if (auth()->user()->hasRoles(['cocinero', 'administrador']))
+                        <li>
+                            <div class="link">Control de Comidas<img src="/img/flecha.svg" alt="arrow"
+                                    class="iconoFlecha ml-2"></i>
+                            </div>
+                            <ul class="submenu px-2">
+                                <li><a href="{{ route('ventas.index') }}">Administracion de comidas</a></li>
+                                {{-- <li><a href="{{ route('') }}">Compra de Comida</a>
+                        </li>--}}
+                        <li><a href="{{ route('estadisticascomida.index') }}">Estadistica de comidas</a></li>
+                    </ul>
+                    </li>
+                    @endif
+                    {{-- /Control de compras--}}
 
 
-                    @if (auth() ->user() ->hasRoles(['cocinero', 'administrador']))
+                    {{-- Control costo / gasto--}}
+                    @if (auth()->user()->hasRoles(['administrador']))
                     <li>
-                        <div class="link">Control de Comidas<img src="/img/flecha.svg" alt="arrow"
+                        <div class="link">Control costo / gasto<img src="/img/flecha.svg" alt="arrow"
                                 class="iconoFlecha ml-2"></i>
                         </div>
                         <ul class="submenu px-2">
-                            @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ route('ventas.index') }}">Administracion de comidas</a></li>
-                                {{-- <li><a href="{{ route('') }}">Compra de Comida</a></li>--}}
-                                <li><a href="{{ route('estadisticascomida.index') }}">Estadistica de comidas</a></li>
-                            @endif
-                        </ul>
+                            <li><a href="{{ route('facturas.index') }}">Ingresar facturas de compras</a></li>
                     </li>
-                @endif
-                   {{-- /Control de compras --}}
-
-
-                        {{-- Control costo / gasto --}}
-                        @if (auth()
-        ->user()
-        ->hasRoles(['administrador']))
-                            <li>
-                                <div class="link">Control costo / gasto<img src="/img/flecha.svg" alt="arrow"
-                                        class="iconoFlecha ml-2"></i>
-                                </div>
-                                <ul class="submenu px-2">
-                                    <li><a href="{{ route('facturas.index') }}">Ingresar facturas de compras</a></li>
-                            </li>
 
                     </ul>
                     </li>
-                    @if (auth() ->user() ->hasRoles(['administrador']))
+                    @endif
+
+                    @if (auth()->user()->hasRoles(['administrador']))
                     <li>
                         <div class="link">Contabilidad<img src="/img/flecha.svg" alt="arrow"
                                 class="iconoFlecha ml-2"></i>
                         </div>
                         <ul class="submenu px-2">
-                            @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ route('contabilidads.index') }}">Administracion contable</a></li>   
-                                                              
-                            @endif
+                            <li><a href="{{ route('contabilidads.index') }}">Administracion contable</a></li>
                         </ul>
-                        
                     </li>
-                @endif
                     @endif
-                    {{-- /Control costo / gasto --}}
+                    {{-- /Control costo / gasto--}}
 
-                    {{-- Nutrición --}}
-                    @if (auth()
-        ->user()
-        ->hasRoles(['nutricionista']))
-
-                        <li>
-                            <div class="link">Nutrición<img src="/img/flecha.svg" alt="arrow"
-                                    class="iconoFlecha ml-2"></i>
-                            </div>
-                            <ul class="submenu px-2">
-                                <li> <a href="{{ route('pacientes.create') }}">Consulta nutricional</a></li>
-                                <li> <a href="{{ route('pacientes.index') }}">Pacientes</a></li>
-                                <li> <a href="{{ route('calculo') }}">Cálculo de dieta</a></li>
-                                <li> <a href="{{ route('planNutricionals.index') }}">Plan nutricional</a></li>
-                                {{-- <li> <a href="{{ route('chart') }}">Reportes</a></li> --}}
-                            </ul>
-                        </li>
+                    {{-- Nutrición--}}
+                    @if (auth()->user()->hasRoles(['administrador', 'nutricionista']))
+                    <li>
+                        <div class="link">Nutrición<img src="/img/flecha.svg" alt="arrow" class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            <li> <a href="{{ route('pacientes.create') }}">Consulta nutricional</a></li>
+                            <li> <a href="{{ route('pacientes.index') }}">Pacientes</a></li>
+                            <li> <a href="{{ route('calculo') }}">Cálculo de dieta</a></li>
+                            <li> <a href="{{ route('planNutricionals.index') }}">Plan nutricional</a></li>
+                        </ul>
+                    </li>
                     @endif
-                    {{-- /Nutrición --}}
+                    {{-- /Nutrición--}}
 
-                    {{-- Comunidad --}}
-                    {{-- @if (auth()
-        ->user()
-        ->hasRoles(['nutricionista', 'administrador', 'paciente', 'cliente']))
-                        <li>
-                            <div class="link">Comunidad<img src="/img/flecha.svg" alt="arrow"
-                                    class="iconoFlecha ml-2"></i>
-                            </div>
-                            <ul class="submenu px-2">
-                                <li> <a href="#">Preguntas</a></li>
-                                <li> <a href="#">Mejor valoradas</a></li>
-                                <li> <a href="#">Más leídas</a></li>
-                            </ul>
-                        </li>
-                    @endif --}}
-                    {{-- /Comunidad --}}
-
-                    {{-- Manejo de usuarios --}}
-                    @if (auth()
-        ->user()
-        ->hasRoles(['administrador']))
-                        <li>
-                            <div class="link">Manejo de usuarios<img src="/img/flecha.svg" alt="arrow"
-                                    class="iconoFlecha ml-2"></i>
-                            </div>
-                            <ul class="submenu px-2">
-                                <li> <a href="{{ route('users.index') }}">Usuarios</a>
-                                <li> <a href="{{ route('roles.index') }}">Roles</a>
-                            </ul>
-                        </li>
+                    {{-- Manejo de usuarios--}}
+                    @if (auth()->user()->hasRoles(['administrador']))
+                    <li>
+                        <div class="link">Manejo de usuarios<img src="/img/flecha.svg" alt="arrow"
+                                class="iconoFlecha ml-2"></i>
+                        </div>
+                        <ul class="submenu px-2">
+                            <li> <a href="{{ route('users.index') }}">Usuarios</a>
+                            <li> <a href="{{ route('roles.index') }}">Roles</a>
+                        </ul>
+                    </li>
                     @endif
-                    @if (auth() ->user() ->hasRoles(['administrador']))
+                    @if (auth()->user()->hasRoles(['administrador']))
                     <li>
                         <div class="link">Envío de correos<img src="/img/flecha.svg" alt="arrow"
                                 class="iconoFlecha ml-2"></i>
                         </div>
                         <ul class="submenu px-2">
-                            @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ url('sendemail') }}">Enviar correos</a></li>   
-                                <li><a href="{{ url('correo') }}">Administrar correos</a></li>                              
+                            @if (auth()->user()->hasRoles(['administrador']))
+                            <li><a href="{{ url('sendemail') }}">Enviar correos</a></li>
+                            <li><a href="{{ url('correo') }}">Administrar correos</a></li>
                             @endif
                         </ul>
-                        
+
                     </li>
-                @endif
-                    {{-- /Manejo de usuarios --}}
-                    @if (auth() ->user() ->hasRoles(['administrador']))
+                    @endif
+                    {{-- /Manejo de usuarios--}}
+                    @if (auth()->user()->hasRoles(['administrador']))
                     <li>
-                        <div class="link">Reportes<img src="/img/flecha.svg" alt="arrow"
-                                class="iconoFlecha ml-2"></i>
+                        <div class="link">Reportes<img src="/img/flecha.svg" alt="arrow" class="iconoFlecha ml-2"></i>
                         </div>
                         <ul class="submenu px-2">
-                            @if (auth() ->user()->hasRoles(['administrador']))
-                                <li><a href="{{ url('chart') }}">Reportes varios</a></li>                             
+                            @if (auth()->user()->hasRoles(['administrador']))
+                            <li><a href="{{ url('chart') }}">Reportes varios</a></li>
                             @endif
                         </ul>
-                        
+
                     </li>
-                @endif
+                    @endif
                     </ul>
 
                 </div>
             </div>
-            <!-- /#sidebar-wrapper -->
+            <!-- /#sidebar-wrapper-->
 
 
 
-            <!-- Page Content -->
+            <!-- Page Content-->
             <div id="page-content-wrapper">
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
@@ -212,8 +173,8 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesión') }}
-                    </a>
+                                {{ __('Cerrar Sesión') }}
+                            </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -225,10 +186,10 @@
                 @yield('contenido')
 
             </div>
-            <!-- /#page-content-wrapper -->
+            <!-- /#page-content-wrapper-->
 
         </div>
-        <!-- /#wrapper -->
+        <!-- /#wrapper-->
 
 </body>
 

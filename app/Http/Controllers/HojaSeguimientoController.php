@@ -14,7 +14,9 @@ class HojaSeguimientoController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, nutricionista'
+        ]);
+        $this->middleware([
+            'roles:nutricionista'
         ]);
     }
     /**

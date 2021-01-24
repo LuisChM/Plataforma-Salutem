@@ -7,45 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class planNutricional extends Model
 {
     protected $fillable = [
-        'desLunes',
-        'mMatLunes',
-        'almLunes',
-        'mMerLunes',
-        'cenLunes',
-        'desMartes',
-        'mMatMartes',
-        'almMartes',
-        'mMerMartes',
-        'cenMartes',
-        'desMiercoles',
-        'mMatMiercoles',
-        'almMiercoles',
-        'mMerMiercoles',
-        'cenMiercoles',
-        'desJueves',
-        'mMatJueves',
-        'almJueves',
-        'mMerJueves',
-        'cenJueves',
-        'desViernes',
-        'mMatViernes',
-        'almViernes',
-        'mMerViernes',
-        'cenViernes',
-        'desSabado',
-        'mMatSabado',
-        'almSabado',
-        'mMerSabado',
-        'cenSabado',
-        'desDomingo',
-        'mMatDomingo',
-        'almDomingo',
-        'mMerDomingo',
-        'cenDomingo',
-
+        'pesoActual', 'porcentajeGrasa', 'kgGrasa', 'kgMasaMuscular', 'desIntercambio', 'desEjemplo', 'mmIntercambio', 'mmEjemplo', 'almIntercambio', 'almEjemplo', 'mtIntercambio', 'mtEjemplo', 'postEjercicioIntercambio', 'postEjercicioEjemplo', 'cenaIntercambio', 'cenaEjemplo','recomendacion'
+        
     ];
-    public function user()
-    {
+        public function user()
+    
+        {
         $this->belongsTo(Paciente::class);
     }
 }

@@ -14,6 +14,8 @@ class FacturaController extends Controller
     {
         $this->middleware([
             'auth',
+        ]);
+        $this->middleware([
             'roles:administrador'
         ]);
     }

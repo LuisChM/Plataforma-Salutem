@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveConsultaRequest extends FormRequest
+class UpdateConsultaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class SaveConsultaRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|unique:pacientes',
+            'user_id' => 'nullable|unique:pacientes',
             'nombre' => 'required',
             'apellido' => 'required',
             'genero' => 'nullable',

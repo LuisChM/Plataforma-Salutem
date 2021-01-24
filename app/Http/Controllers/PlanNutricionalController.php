@@ -12,7 +12,9 @@ class planNutricionalController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, nutricionista'
+        ]);
+        $this->middleware([
+            'roles:nutricionista'
         ]);
     }
     /**
@@ -66,7 +68,8 @@ class planNutricionalController extends Controller
     public function show($id)
     {
         $planNutricional = planNutricional::findOrFail($id);
-        return view('nutricion.planNutricional.show', ['planNutricional' => $planNutricional]);    }
+        return view('nutricion.planNutricional.show', ['planNutricional' => $planNutricional]);   
+     }
 
     /**
      * Show the form for editing the specified resource.

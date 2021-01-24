@@ -12,7 +12,9 @@ class ProductosController extends Controller
     {
         $this->middleware([
             'auth',
-            'roles:administrador, cocinero'
+        ]);
+        $this->middleware([
+            'roles:cocinero'
         ]);
     }
     /**

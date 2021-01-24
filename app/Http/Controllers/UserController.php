@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-   function __construct()
+    function __construct()
     {
         $this->middleware([
-            'auth',
-            'roles:administrador'
+            'auth','roles:administrador'
         ]);
     }
 
@@ -24,7 +24,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {          
+    {
         $name  = $request->get('name');
 
         $user = User::orderBy('created_at', 'ASC')->name($name)->paginate();
@@ -40,7 +40,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('display_nombre', 'id');
-        
+
         //se dirige a la vista de crear
         return view('administracion.users.create', [
             'user' => new User,
@@ -57,8 +57,9 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $user = User::create($request->validated());
+        $user->password = Hash::make($request->password);
         $user->roles()->attach($request->roles);
-
+        $user->save();
 
         return redirect()->route('users.index')->with('success', 'El usuario fue agregado');
     }
@@ -102,7 +103,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, $id)
-    {        
+    {
         // busca usuario
         $user = User::findOrFail($id);
         //actualiza el usuario
