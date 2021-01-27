@@ -15,7 +15,7 @@ class EstadisticasComidaController extends Controller
             'auth',
         ]);
         $this->middleware([
-            'roles:cocinero'
+            'roles:cocinero,administrador'
         ]);
     }
     /**

@@ -65,19 +65,7 @@
                     {{-- /Control de compras--}}
 
 
-                    {{-- Control costo / gasto--}}
-                    @if (auth()->user()->hasRoles(['administrador']))
-                    <li>
-                        <div class="link">Control costo / gasto<img src="/img/flecha.svg" alt="arrow"
-                                class="iconoFlecha ml-2"></i>
-                        </div>
-                        <ul class="submenu px-2">
-                            <li><a href="{{ route('facturas.index') }}">Ingresar facturas de compras</a></li>
-                    </li>
-
-                    </ul>
-                    </li>
-                    @endif
+                    {{-- Contabilidad --}}
 
                     @if (auth()->user()->hasRoles(['administrador']))
                     <li>
@@ -89,7 +77,7 @@
                         </ul>
                     </li>
                     @endif
-                    {{-- /Control costo / gasto--}}
+                    {{-- /Contabilidad --}}
 
                     {{-- Nutrición--}}
                     @if (auth()->user()->hasRoles(['administrador', 'nutricionista']))

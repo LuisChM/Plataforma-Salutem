@@ -17,7 +17,7 @@ class RetirarProductoController extends Controller
             'auth',
         ]);
         $this->middleware([
-            'roles:cocinero'
+            'roles:cocinero,administrador'
         ]);
     }
     /**

@@ -1,8 +1,13 @@
         <div class="form-group">
             <label for="logrosPlan">Logros del plan nutricional
             </label>
-            <input type="text" class="form-control " name="logrosPlan" id="logrosPlan" placeholder="Ingrese logrosPlan"
-                value="{{ old('logrosPlan', $hojaSeguimiento->logrosPlan) }}">
+                <input type="logrosPlan" class="form-control @error('logrosPlan') is-invalid @else border-0 @enderror" name="logrosPlan" id="logrosPlan"
+        placeholder="Ingrese un logrosPlan"  value="{{ old('logrosPlan', $hojaSeguimiento->logrosPlan) }}">
+    @error('logrosPlan')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{$message}}</strong>
+    </span>
+    @enderror
         </div>
         <div class="form-group">
             <label for="deficientes">Áreas deficientes</label>

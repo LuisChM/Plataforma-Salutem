@@ -13,10 +13,10 @@ Consulta nutricional
                     @csrf
 
                     <div class="form-group">
-                        <label for="users">Paciente</label>
+                        <label for="users">Paciente(espacio requerido)</label>
                         <select id="users" class="custom-select @error('users') is-invalid @else border-0 @enderror"
                             name="user_id">
-                            <option value="" disabled selected>--Seleccione un paciente--</option>
+                            <option value="" disabled selected>--Seleccione un paciente requerido--</option>
                             @foreach ($user as $users)
                                 <option value="{{ $users->id }}" class="@error('user') is-invalid @else border-0 @enderror">
                                     {{ $users->name }}</option>
@@ -31,7 +31,6 @@ Consulta nutricional
 
                     @include('nutricion.pacientes._form',['btnText'=>'Guardar'])
 
-                    
                 </form>
 
             </div>

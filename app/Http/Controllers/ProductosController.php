@@ -14,7 +14,7 @@ class ProductosController extends Controller
             'auth',
         ]);
         $this->middleware([
-            'roles:cocinero'
+            'roles:cocinero,administrador'
         ]);
     }
     /**

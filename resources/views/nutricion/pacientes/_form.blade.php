@@ -10,19 +10,31 @@
             </h2>
         </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionStyle">
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStyle">
             <div class="card-body">
 
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control " name="nombre" id="nombre" placeholder="Ingrese el nombre"
-                        value="{{ old('nombre', $paciente->nombre) }}">
+                    <label for="nombre">Nombre</label>                        
+                        <input type="nombre" class="form-control @error('nombre') is-invalid @else border-0 @enderror" name="nombre" id="nombre"
+                        placeholder="Ingrese un nombre"  value="{{ old('nombre', $paciente->nombre) }}">
+                    @error('nombre')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control " name="apellido" id="apellido"
-                        placeholder="Ingrese el apellido" value="{{ old('apellido', $paciente->apellido) }}">
-                </div>
+                        <input type="apellido" class="form-control @error('apellido') is-invalid @else border-0 @enderror" name="apellido" id="apellido"
+                        placeholder="Ingrese un apellido"  value="{{ old('apellido', $paciente->apellido) }}">
+                    @error('apellido')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
+               
+                    </div>
                 <div class="form-group ">
                     <label for="genero">Género</label>
                     <br>
