@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Paciente;
 use App\Http\Requests\SavePlanNutricional;
+use App\Http\Requests\UpdatePlanNutricional;
 use App\planNutricional;
 
 class PlanNutricionalController extends Controller
