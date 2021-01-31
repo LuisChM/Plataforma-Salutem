@@ -21,7 +21,7 @@ class PacienteController extends Controller
             'auth',
         ]);
         $this->middleware([
-            'roles:nutricionista'
+            'roles:nutricionista,administrador'
         ]);
     }
     /**

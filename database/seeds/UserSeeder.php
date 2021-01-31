@@ -13,29 +13,29 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email'=> 'admin@g.com',
-            'password'=> bcrypt('123'),
+            'name' => 'Priscila',
+            'email'=> 'nutricionsalutemcr@gmail.com',
+            'password'=> bcrypt('Secret123'),
         ]);
-        DB::table('users')->insert([
-            'name' => 'cook',
-            'email'=> 'cook@g.com',
-            'password'=> bcrypt('123'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'nutri',
-            'email'=> 'nutri@g.com',
-            'password'=> bcrypt('123'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'paciente1',
-            'email'=> 'paciente1@g.com',
-            'password'=> bcrypt('123'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'paciente2',
-            'email'=> 'paciente2@g.com',
-            'password'=> bcrypt('123'),
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => 'cook',
+        //     'email'=> 'cook@g.com',
+        //     'password'=> bcrypt('123'),
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'nutri',
+        //     'email'=> 'nutri@g.com',
+        //     'password'=> bcrypt('123'),
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'paciente1',
+        //     'email'=> 'paciente1@g.com',
+        //     'password'=> bcrypt('123'),
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'paciente2',
+        //     'email'=> 'paciente2@g.com',
+        //     'password'=> bcrypt('123'),
+        // ]);
     }
 }

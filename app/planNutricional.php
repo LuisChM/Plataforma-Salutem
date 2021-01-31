@@ -15,4 +15,5 @@ class planNutricional extends Model
         {
         $this->belongsTo(Paciente::class);
     }
+
 }

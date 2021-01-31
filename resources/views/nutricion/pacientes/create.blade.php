@@ -8,10 +8,8 @@ Consulta nutricional
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
-
                 <form class="mt-4" action="{{route('pacientes.store')}}" method="POST">
                     @csrf
-
                     <div class="form-group">
                         <label for="users">Paciente(espacio requerido)</label>
                         <select id="users" class="custom-select @error('users') is-invalid @else border-0 @enderror"
@@ -28,14 +26,10 @@ Consulta nutricional
                             @enderror
                         </select>
                     </div> 
-
                     @include('nutricion.pacientes._form',['btnText'=>'Guardar'])
-
                 </form>
-
             </div>
         </div>
-        
     </div>
 </div> 
 @endsection

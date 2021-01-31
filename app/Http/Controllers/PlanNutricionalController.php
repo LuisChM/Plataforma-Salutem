@@ -6,7 +6,7 @@ use App\Paciente;
 use App\Http\Requests\SavePlanNutricional;
 use App\planNutricional;
 
-class planNutricionalController extends Controller
+class PlanNutricionalController extends Controller
 {
     function __construct()
     {
@@ -14,7 +14,7 @@ class planNutricionalController extends Controller
             'auth',
         ]);
         $this->middleware([
-            'roles:nutricionista'
+            'roles:nutricionista,administrador'
         ]);
     }
     /**
@@ -91,9 +91,11 @@ class planNutricionalController extends Controller
     //      * @param  int  $id
     //      * @return \Illuminate\Http\Response
     //      */
-    public function update(SavePlanNutricional $request, planNutricional $planNutricional)
+    public function update(UpdatePlanNutricional $request, planNutricional $planNutricional)
     {
         $planNutricional->update($request->validated());
+        dd($planNutricional);
+
         return redirect()->route('planNutricionals.index')->with('success', 'La consulta se formo con éxito');
     }
 

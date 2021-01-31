@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
             'roles',
             'users',
             'asignar_roles',
-            'pacientes',
+            // 'pacientes',
         ]);
         // $this->call(UserSeeder::class);
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
             AsignarRolSeeder::class,
-            PacienteSeeder::class,
+            // PacienteSeeder::class,
         ]);
     }
     protected function truncateTables(array $tables)

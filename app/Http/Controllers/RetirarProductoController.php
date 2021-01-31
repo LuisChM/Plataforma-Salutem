@@ -92,7 +92,7 @@ class RetirarProductoController extends Controller
         ->where([['id', $id],['cantidad','>',0]])
         ->update(['cantidad' => DB::raw('cantidad - '.$request->input('nuevaCantidad')), ]);
 
-          return redirect('retirar_producto');
+        return redirect('retirar_producto');
 
 
     }

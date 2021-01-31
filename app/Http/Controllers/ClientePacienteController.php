@@ -17,7 +17,7 @@ class ClientePacienteController extends Controller
             'auth',
         ]);
         $this->middleware([
-            'roles:paciente'
+            'roles:paciente,cliente'
         ]);
     }
 
