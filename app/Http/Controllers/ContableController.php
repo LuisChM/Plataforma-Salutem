@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contabilidad;
+use App\contabilidad;
 use App\Http\Requests\SaveContabilidadRequest;
 use Illuminate\Support\Facades\Crypt;
 
@@ -21,12 +21,12 @@ class ContableController extends Controller
     public function index()
     {
         $contable = Contabilidad::orderBy('created_at', 'ASC')->paginate();
-        return view('contabilidad.index', compact('contable')); 
+        return view('Contabilidad.index', compact('contable')); 
     }
 
     public function create()
     {
-        return view('contabilidad.create', [
+        return view('Contabilidad.create', [
             'contabilidad' => new Contabilidad
         ]);
         
