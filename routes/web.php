@@ -32,8 +32,6 @@ Route::view('agregarproductos', 'administracion.productos.agregarproductos')->na
 
 Route::view('editarproductos', 'administracion.productos.editarproductos')->name('editarproductos')->middleware('verified');
 
-Route::resource('factura', 'FacturaController')->names('facturas')->middleware('verified');
-
 Route::resource('user', 'UserController')->names('users')->middleware('verified');
 
 Route::resource('compras', 'ComprasController')->names('compras')->middleware('verified');

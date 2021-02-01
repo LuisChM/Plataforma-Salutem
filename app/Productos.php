@@ -1,15 +1,16 @@
 <?php
 
 namespace App;
-use App\Observers\UserObserver;
-use Illuminate\Database\Eloquent\Model;
 
-class Productos extends Model
+use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
+
+class Productos extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     public $fillable = ['nombre', 'cantidad', 'unidad_de_medida'];
 
-    public function categoria(){
-        return $this->belongsTo(Categoria::class);
-    }
+
 
 }

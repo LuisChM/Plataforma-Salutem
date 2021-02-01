@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Productos;
 use App\Retirar_Producto;
 use Illuminate\Http\Request;
-use App\Http\Controller\Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\DB as FacadesDB;
 
 class RetirarProductoController extends Controller
 {
@@ -88,10 +86,10 @@ class RetirarProductoController extends Controller
      */
     public function update(Request $request,$id)
     {
-        DB::table('Productos')
-        ->where([['id', $id],['cantidad','>',0]])
+       Productos::where('id', $id)
+       ->where('cantidad','>',0)
         ->update(['cantidad' => DB::raw('cantidad - '.$request->input('nuevaCantidad')), ]);
-
+          
         return redirect('retirar_producto');
 
 
