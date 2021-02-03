@@ -43,6 +43,8 @@
                             <ul class="submenu px-2">
                                 <li> <a href="{{ route('productos.index') }}">Productos</a></li>
                                 <li> <a href="{{ route('retirar_producto.index') }}">Retirar Producto</a></li>
+                                <li> <a href="{{ url('historialRetiros') }}">Historial Retiro Producto
+                                </a></li>
                             </ul>
                         </li>
                         @endif

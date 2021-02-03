@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Paciente;
 use App\Http\Requests\SavePlanNutricional;
 use App\Http\Requests\UpdatePlanNutricional;
+use App\Http\Requests\UpdatePlanNutricionalRequest;
 use App\planNutricional;
 
 class PlanNutricionalController extends Controller
@@ -92,11 +93,9 @@ class PlanNutricionalController extends Controller
     //      * @param  int  $id
     //      * @return \Illuminate\Http\Response
     //      */
-    public function update(UpdatePlanNutricional $request, planNutricional $planNutricional)
+    public function update(UpdatePlanNutricionalRequest $request, planNutricional $planNutricional)
     {
         $planNutricional->update($request->validated());
-        dd($planNutricional);
-
         return redirect()->route('planNutricionals.index')->with('success', 'La consulta se formo con éxito');
     }
 

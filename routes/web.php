@@ -26,7 +26,9 @@ Route::view('iniciarSesion', 'layouts.iniciarSesion')->name('iniciarSesion')->mi
 
 Route::view('dashboard', 'layout_dashboard')->name('dashboard')->middleware('verified');
 
-Route::resource('productos', 'ProductosController')->names('productos')->middleware('verified');
+// Route::resource('productos', 'ProductosController')->names('productos')->middleware('verified');
+
+Route::resource('producto', 'ProductoController')->names('productos')->middleware('verified');
 
 Route::view('agregarproductos', 'administracion.productos.agregarproductos')->name('agregarproductos')->middleware('verified');
 
@@ -69,6 +71,8 @@ Route::get('correo', 'UserController@correos')->name('correos')->middleware('ver
 Route::resource('contabilidad', 'ContableController')->names('contabilidads')->middleware('verified');
 
 Route::view('cliente/{cliente}', 'cliente.show1')->middleware('verified');
+
+Route::get('historialRetiros', 'HistorialRetiroProductoController@index')->name('historialRetiros')->middleware('verified');
 
 // Route::get('cliente/progreso/{cliente}',['as'=>'cliente.show1', 'uses'=>'ClientePacienteController@show1'])->middleware('verified');;
 

@@ -32,6 +32,8 @@
                                     <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
                                         alt="eliminar"></button>
                                 </form> --}}
+
+                
                             </div>
                         </td>
                 </tr>

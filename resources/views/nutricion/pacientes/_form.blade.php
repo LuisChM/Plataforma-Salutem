@@ -10,7 +10,7 @@
             </h2>
         </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStyle">
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionStyle">
             <div class="card-body">
 
                 <div class="form-group">

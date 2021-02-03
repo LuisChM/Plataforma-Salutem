@@ -15,7 +15,6 @@ Retirar productos
             <button type="submit" class="btn btn-primary mb-2">Buscar</button>-->
         </form>
     </div>
-
     <div class="responsive-table">
         <table class="table table-striped mt-4 text-center">
             <thead class="thead-dark">

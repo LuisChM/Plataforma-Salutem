@@ -12,9 +12,9 @@
 
 
 
-                    <form action="{{ url('retirar_producto/' . $producto->id) }}" method="post" style="margin:0 auto">
+                    <form action="{{ route('retirar_producto.update',$producto->id) }}" method="post" style="margin:0 auto">
                         {{ csrf_field() }}
-                        {{ method_field('PUT') }}
+                        {{ method_field('PATCH') }}
 
                         <div class="form-group">
                             <label for="nombre ">{{ 'Nombre de producto' }}</label>
@@ -27,6 +27,13 @@
                             </span>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="nombre ">{{ 'Cantidad Actual' }}</label>
+                            <input class="form-control" type="text" disabled="disabled" name="nombre" id="nombre"
+                                value="{{ $producto->cantidad }}">
+
+                        </div>
+                  
 
 
                         <div class="form-group">
@@ -41,6 +48,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+
+
 
                         </div>
 

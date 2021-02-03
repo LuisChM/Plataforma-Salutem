@@ -105,11 +105,9 @@ class HojaSeguimientoController extends Controller
      * @param  \App\HojaSeguimiento  $hojaSeguimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HojaSeguimiento $hojaSeguimiento, $id, Paciente $paciente)
+    public function destroy($id, Paciente $paciente)
     {
-        DB::delete('delete from hoja_seguimientos where id = '.$id);
-        dd($paciente);
-        $paciente->id;
-     return redirect()->route('pacientes.edit', ['paciente' => $paciente])->with('success', 'El rol fue eliminado');
+     DB::delete('delete from hoja_seguimientos where id = '.$id);
+     return with('success', 'El logro fue eliminado');
     }
 }

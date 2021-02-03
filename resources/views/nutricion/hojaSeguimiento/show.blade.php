@@ -8,12 +8,6 @@ Hoja de Seguimiento
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
-                <form method="Post" action="{{route('seguimientos.destroy',$hojaSeguimiento->id)}}">
-                    @csrf
-                    @method('delete')
-                    <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
-                        alt="eliminar"></button>
-                </form>
                 <div class="form-group">
                     <label for="logrosPlan">Logros del plan nutricional</label>
                     <input disabled type="text" class="form-control " name="logrosPlan" id="logrosPlan" placeholder="Ingrese logrosPlan"
@@ -21,7 +15,7 @@ Hoja de Seguimiento
                 </div>
                 <div class="form-group">
                     <label for="deficientes">Áreas deficientes</label>
-                    <textarea class="form-control" name="deficientes" id="deficientes" rows="3"
+                    <textarea class="form-control" name="deficientes" id="deficientes" rows="3" disabled
                         placeholder="Ingrese las deficientes">{{$hojaSeguimiento->deficientes}}</textarea>
                 </div>
                 <table class="table  mt-4 text-center">
@@ -79,17 +73,23 @@ Hoja de Seguimiento
                 </table>
                 <div class="form-group">
                     <label for="cambioPlan">Cambios en plan de alimentación</label>
-                    <textarea class="form-control" name="cambioPlan" id="cambioPlan" rows="3">{{$hojaSeguimiento->cambioPlan}}</textarea>
+                    <textarea class="form-control" disabled name="cambioPlan" id="cambioPlan" rows="3">{{$hojaSeguimiento->cambioPlan}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="metasObjetivos">Metas y objetivos nuevos</label>
-                    <textarea class="form-control" name="metasObjetivos" id="metasObjetivos" rows="3">{{$hojaSeguimiento->metasObjetivos}}</textarea>
+                    <textarea class="form-control" disabled name="metasObjetivos" id="metasObjetivos" rows="3">{{$hojaSeguimiento->metasObjetivos}}</textarea>
                 </div>
            
         
         <div class="d-flex justify-content-end mt-5 mb-5">
-            {{-- <a class="btn btn-primary mr-3" href="{{route('pacientes.edit', $paciente->id)}}" role="button">Volver</a> --}}
-            
+            <a class="btn btn-primary ml-3" href="{{ route('pacientes.edit', $hojaSeguimiento->paciente_id) }}" role="button">Volver</a>
+              {{-- <form method="Post" action="{{route('seguimientos.destroy',$hojaSeguimiento->id)}}">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
+                                        alt="eliminar"></button>
+                                </form> --}}
+
         </div>        
             </div>
         </div>
