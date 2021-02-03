@@ -24,7 +24,8 @@ class HistorialRetiroProductoController extends Controller
     {
         $historial = Audit::
         join('productos', 'productos.id', '=', 'audits.auditable_id')
-            ->where('audits.auditable_type', '=', 'App\Producto')
+            ->where('auditable_type','App\Producto')
+            ->where('event','updated')
             ->select('audits.*','productos.*')
             ->get()
             ->paginate(15)

@@ -84,7 +84,7 @@ class EstadisticasComidaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DB::table('Ventas')
+        DB::table('ventas')
             ->where('id', $id)
             ->update(['cantidad' => DB::raw('cantidad + ' . $request->input('nuevaCantidad')),]);
 

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             AsignarRolSeeder::class,
-            PacienteSeeder::class,
+            // PacienteSeeder::class,
         ]);
     }
     protected function truncateTables(array $tables)
